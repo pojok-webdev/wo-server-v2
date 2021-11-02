@@ -6,12 +6,10 @@ finditem = (keys,shouldhave,allcols) => {
             donthave.push(element)
         }
     });
-    console.log('Donthave',donthave)
     if(donthave.length>0){
         return {result:false,description:{'dont have':donthave}}
     }else{
         return checkAllCols(keys,allcols)
-        //return {result:true,description:'match'}
     }
 }
 checkAllCols = (keys,allcols) => {
@@ -28,7 +26,6 @@ checkAllCols = (keys,allcols) => {
     }
 }
 check = (params,shouldhave,allcols) => {
-    console.log('Shouldhava',JSON.stringify(shouldhave))
     keys = Object.keys(params)
     if(JSON.stringify(keys)===JSON.stringify(shouldhave)){
         return {result:true,description:'ok'}

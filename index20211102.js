@@ -14,6 +14,12 @@ var express = require('express'),
 });
 app.use(bodyParser.json({limit:'10mb',extended:true}))
 app.use(bodyParser.urlencoded({limit:'10mb',extended:true}))
+insertProspect = (obj,callback)=>{
+  connection.doQuery(clientqueries.insertProspect(obj),result=>{
+    console.log('Result',result)
+      callback(result)
+  })
+}
 app.post('/insertsuspect',(req,res,next)=>{
     var shouldhave = ['name','phone_area','phone','address','end_of_contract','business_field']
     var allcols = ['name','phone_area','phone','address','city','end_of_contract','business_field','status','alias','user_id','sale_id','siup','npwp','clientcategory','isffr','isoryza']
@@ -26,34 +32,37 @@ app.post('/insertsuspect',(req,res,next)=>{
         res.send({result:false,comment:check.description})
     }
 })
-app.post('/updateclient',(req,res)=>{
-    var shouldhave = ['id']
-    var allcols = ['name','phone_area','phone','address','city','end_of_contract','business_field','status','alias','user_id','sale_id','siup','npwp','clientcategory','isffr','isoryza','active','prospectdate']
+app.post('/insertprospect',(req,res,next)=>{
+    var shouldhave = ['name','email','sales_email','phone_area','phone','address','prospectdate','end_of_contract','business_field']
+    var allcols = ['name','phone_area','phone','address','end_of_contract','business_field']
     check = checkparams.check(req.body,shouldhave,allcols)
     if(check.result){
-        connection.doQuery(clientqueries.updateClient(req.body),result=>{
+        connection.doQuery(clientqueries.insertProspect(req.body),result=>{
+            res.send({result:true,insertId:result.insertId})
+        })
+    }else{
+        res.send({result:false,comment:check.description})
+    }
+})
+app.post('/updateclientstatus',(req,res)=>{
+    console.log("updateclientstatus invoked")
+    var shouldhave = ['id','status','active']
+    check = checkparams.check(req.body,shouldhave)
+    if(check.result){
+        connection.doQuery(clientqueries.updateClientStatus(req.body),result=>{
             res.send(result)
         })
     }else{
         res.send({result:false,comment:check.description})
     }
 })
-app.post('/proposesurvey',(req,res)=>{
-    var shouldhave = ['client_id','branch_id','survey_date','address','city','pic_name','pic_phone']
-    var allcols = ['client_id','branch_id','survey_date','address','city','pic_name','pic_phone','pic_email','pic_position','has_ladder']
-    var pars = req.body
+app.post('/updateclient',(req,res)=>{
+    console.log("updateclients invoked")
+    var shouldhave = ['id']
     check = checkparams.check(req.body,shouldhave,allcols)
     if(check.result){
-        connection.doQuery(clientqueries.insertQuery({client_id:pars.client_id,address:pars.address,city:pars.city,pic_name:pars.pic_name,pic_phone:pars.pic_phone},'client_sites'),clientsite=>{
-            
-            
-            connection.doQuery(clientqueries.insertQuery({client_id:pars.client_id,branch_id:pars.branch_id,survey_date:pars.survey_date,address:pars.address,city:pars.city,pic_name:pars.pic_name,pic_phone:pars.pic_phone,client_site_id:clientsite.insertId},'survey_requests'),surveyrequest=>{
-
-            
-                connection.doQuery(clientqueries.insertQuery({client_id:pars.client_id,address:pars.address,city:pars.city,branch_id:pars.branch_id,client_site_id:clientsite.insertId,survey_date:pars.survey_date,pic_name:pars.pic_name,pic_phone:pars.pic_phone,survey_request_id:surveyrequest.insertId},'survey_sites'),result=>{
-                    res.send(result)
-                })
-            })    
+        connection.doQuery(clientqueries.updateClient(req.body),result=>{
+            res.send(result)
         })
     }else{
         res.send({result:false,comment:check.description})
