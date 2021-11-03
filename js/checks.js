@@ -2,7 +2,6 @@ finditem = (keys,shouldhave,allcols) => {
     donthave = []
     shouldhave.forEach(element => {
         if(keys.indexOf(element)<0){
-            console.log('Element',element)
             donthave.push(element)
         }
     });
@@ -25,7 +24,32 @@ checkAllCols = (keys,allcols) => {
         return {result:true,description:'match'}
     }
 }
-check = (params,shouldhave,allcols) => {
+checkInteger = (arr,b) => {
+    if(arr.length>0){
+        x = arr.shift()
+        if(Number.isInteger(b)){
+            console.log("B",b)
+            return checkInteger(arr,x)
+        }else{
+            console.log("F",b)
+            return false
+        }
+    }else{
+        console.log("Last",b)
+        return Number.isInteger(b)
+    }
+}
+check = (params,shouldhave,allcols,ints) => {
+    shouldInt = []
+    ints.forEach(element=>{
+        shouldInt.push(params[element])
+    })
+
+    if(checkInteger(shouldInt,1)){
+        console.log('Should int Mengandung non integer')
+    }else{
+        console.log('Lolos integer')
+    }
     keys = Object.keys(params)
     if(JSON.stringify(keys)===JSON.stringify(shouldhave)){
         return {result:true,description:'ok'}
@@ -35,4 +59,5 @@ check = (params,shouldhave,allcols) => {
 }
 module.exports = {
     check:check,
+    checkInteger:checkInteger
 }
