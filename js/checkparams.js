@@ -1,5 +1,3 @@
-//var shouldhave = ['name','address','alias','prospectdate']
-//var shouldhave = ['name','email','sales_email','phone_area','phone','address','prospectdate','end_of_contract','business_field']
 check = (params,shouldhave) => {
     keys = Object.keys(params)
     if(keys.length<shouldhave.length){

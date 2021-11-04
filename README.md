@@ -1,3 +1,6 @@
+# Work Order API
+## _PT Padi Internet_
+
 ## Create Suspect
 - Yang perlu dicreate adalah _suspect_, selanjutnya suspect ini berubah menjadi _prospect_ dan kemudian _client_
 - Suspect, Prospect, dan Client mengacu pada _Table_ yang sama, yaitu _client_
@@ -33,3 +36,44 @@ curl -d 'name=clientname&phone_area=xxx&phone=xxxxxxx&address=clientaddress&city
 - end_of_contract
 - business_field
 
+## Update Client
+- Update client dipergunakan untuk konversi dari Suspect (Lead) menjadi Prospect, atau konversi dari Prospect menjadi Pelanggan
+- Suspect (Lead) berubah menjadi Prospect dengan mengupdate prospectdate dari semula null menjadi tanggal dengan format YYYY-MM-DD
+- Prospect berubah menjadi Pelanggan dengan mengupdate kolom active menjadi "1"
+
+### Syntax
+dari Lead ke Prospect
+```sh
+curl -d 'id=client_id&prospectdate=YYY-MM-DD' -X POST http://server:port/updateclient
+```
+dari Prospect ke Pelanggan
+```sh
+curl -d 'id=client_id&active=1' -X POST http://server:port/updateclient
+```
+
+#### Kolom2 yang available:
+- name
+- phone_area
+- phone
+- address
+- city
+- end_of_contract
+- business_field
+- status
+- alias
+- user_id
+- sale_id
+- siup
+- npwp
+- clientcategory
+- isffr
+- isoryza
+#### Kolom2 yang harus diisi
+- id (client_id)
+
+## createreport
+
+syntax
+```sh
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST -d '{"tags":["tag1","tag2"],"question":"Which band?","answers":[{"id":"a0","answer":"Answer1"},{"id":"a1","answer":"answer2"}]}' http://localhost:20215/createreport
+```
