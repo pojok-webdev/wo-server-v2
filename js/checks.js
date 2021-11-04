@@ -59,5 +59,4 @@ check = (params,shouldhave,allcols,ints) => {
 }
 module.exports = {
     check:check,
-    checkInteger:checkInteger
 }
