@@ -5,7 +5,11 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     appconfig = require('./configs'),
     appSetting = appconfig.appSetting(),
-    checkparams = require('./checks.js');
+    checkparams = require('./checks.js'),
+    suspect = require('./../app_modules/insertsuspect/fields'),
+    updateclient = require('./../app_modules/updateclient/fields'),
+    proposesurvey = require('./../app_modules/proposesurvey/fields'),
+    proposeinstall = require('./../app_modules/proposeinstall/fields');
     app.engine('html',require('ejs').renderFile)
     app.use(function(req,res,next){
     res.header("Access-Control-Allow-Origin","*");
@@ -20,5 +24,11 @@ module.exports = {
     checkparams:checkparams,
     clientqueries:clientqueries,
     app:app,
-    appSetting:appSetting
+    appSetting:appSetting,
+    fields:{
+        suspect:suspect,
+        updateclient:updateclient,
+        proposesurvey:proposesurvey,
+        proposeinstall:proposeinstall
+    }
 }
