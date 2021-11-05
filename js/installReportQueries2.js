@@ -1,5 +1,5 @@
 var con = require('./connection')
-saveObj = (tableName,obj) => {
+saveObj = (tableName,obj,outArray) => {
     out = {tableName:tableName,rows:[]}
     obj.forEach(e=>{
         keys = []
@@ -14,9 +14,10 @@ saveObj = (tableName,obj) => {
         sql+= '("'+vals.join('","')+'")'
         con.doQuery(sql,result=>{
             console.log(tableName+' InsertId',result.insertId)
+            outArray.push({'tableName':tableName,insertId:result.insertId})
             out.rows.push({insertId:result.insertId}) 
         })
-        return out
+        return outArray
     })
     console.log(sql)
 }
@@ -52,11 +53,13 @@ saveObjs = obj => {
     tmp = []
     let myPromise = new Promise((resolve,reject)=>{
         for(let property in obj){
-            tmp.push(saveObj(property,obj[property]))
+            //tmp.push(saveObj(property,obj[property],tmp))
+            tmp = saveObj(property,obj[property],tmp)
         }
         resolve(tmp)
     })
     return myPromise.then(res=>{
+        console.log('FINAL',res)
         return res
     },err=>{
         return err
