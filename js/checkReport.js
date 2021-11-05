@@ -1,3 +1,8 @@
 module.exports = {
-    check:_ => {}
+    check: obj => {
+        for(let property in obj){
+            console.log(property,obj[property])
+        }
+        return true
+    }
 }

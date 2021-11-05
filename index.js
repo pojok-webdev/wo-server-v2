@@ -48,12 +48,11 @@ i.app.post('/proposeinstall',(req,res)=>{
     }
 })
 i.app.post('/createreport',(req,res)=>{
-    if(i.check.report.check()){
-        i.connection.doQuery(i.query.report.install.saveObjs(objs,result=>{}))
-    }
-
-    i.connection.doQuery(i.query.report.install.saveAntenna({}))
-    res.send({'Body':req.body})
+/*    if(i.check.report.check(req.body,i.fields.createReport.mandatories,i.fields.createReport.allfields)){*/
+        res.send(i.query.report.install.saveObjs(req.body))
+/*    }*/
+    //console.log(req.body)
+    //res.send({'Result':req.body})
 })
 i.app.post('/test',(req,res)=>{
     i.query.report.install.saveObjs({

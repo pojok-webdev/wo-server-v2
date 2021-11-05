@@ -50,28 +50,17 @@ doInsert = (tableName,obj) => {
 
 saveObjs = obj => {
     tmp = []
-    let savePromise = new Promise((resolve,reject)=>{
+    let myPromise = new Promise((resolve,reject)=>{
         for(let property in obj){
-            //tmp.push(saveObj(property,obj[property]))
-            doInsert(property,obj[property])
-            .then(res=>{
-                console.log("Final",property,res)
-                tmp.push(res)
-                //resolve(tmp)
-            },err=>{
-                console.log("Final err",err)
-                reject(err)
-            })
+            tmp.push(saveObj(property,obj[property]))
         }
         resolve(tmp)
     })
-    savePromise
-    .then(res=>{
-        console.log('FINAL RES',res)
+    return myPromise.then(res=>{
+        return res
     },err=>{
-        console.log('FINAL ERR',err)
+        return err
     })
-//console.log('stringified',JSON.stringify(tmp))
 }
 module.exports = {
     saveObjs:saveObjs

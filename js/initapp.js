@@ -2,16 +2,17 @@ var express = require('express'),
     app = express(),
     connection = require('./connection'),
     clientqueries = require('./clientqueries'),
-    installReportQueries = require('./installReportQueries'),
+    installReportQueries = require('./installReportQueries2'),
     bodyParser = require('body-parser'),
     appconfig = require('./configs'),
     appSetting = appconfig.appSetting(),
     checkClient = require('./checks.js'),
-    checkReport = require('./checks.js'),
+    checkReport = require('./checkReport'),
     suspect = require('./../app_modules/insertsuspect/fields'),
     updateclient = require('./../app_modules/updateclient/fields'),
     proposesurvey = require('./../app_modules/proposesurvey/fields'),
-    proposeinstall = require('./../app_modules/proposeinstall/fields');
+    proposeinstall = require('./../app_modules/proposeinstall/fields'),
+    createReport = require('./../app_modules/createreport/install/fields');
     app.engine('html',require('ejs').renderFile)
     app.use(function(req,res,next){
     res.header("Access-Control-Allow-Origin","*");
@@ -39,6 +40,7 @@ module.exports = {
         suspect:suspect,
         updateclient:updateclient,
         proposesurvey:proposesurvey,
-        proposeinstall:proposeinstall
+        proposeinstall:proposeinstall,
+        createReport:createReport
     }
 }

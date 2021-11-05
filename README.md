@@ -77,3 +77,16 @@ syntax
 ```sh
 curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST -d '{"tags":["tag1","tag2"],"question":"Which band?","answers":[{"id":"a0","answer":"Answer1"},{"id":"a1","answer":"answer2"}]}' http://localhost:20215/createreport
 ```
+
+
+```sh
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{
+        "antennas":[{"name":"Grid 27 dBi 5.8 GHz","amount":1,"location":"Tower 20 meter"}],
+        "ap_wifis":[{
+            "tipe":"Linksys WRT54GL",
+            "macboard":"B4750EBA5538",
+            "owner":"Pak Kris/Bu Linda",
+            "ip_address":"192.168.1.2","essid":"sni","security_key":"freddy123","user":"root","password":"admin","location":"depan pintu"}
+        ],
+        "bas":[{"name":"ba"}]}' -X POST localhost:20215/createreport
+```
