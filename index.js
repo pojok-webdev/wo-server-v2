@@ -54,6 +54,15 @@ i.app.post('/createreport',(req,res)=>{
     //console.log(req.body)
     //res.send({'Result':req.body})
 })
+i.app.post('/testpromise',(req,res)=>{
+    i.query.report.install.testPromise().then(result=>{
+        console.log(result)
+        res.send({ok:result})
+    },err=>{
+        console.log(err)
+        res.send(err)
+    })
+})
 i.app.post('/test',(req,res)=>{
     i.query.report.install.saveObjs({
         antennas:[{name:"Grid 27 dBi 5.8 GHz",amount:1,location:"Tower 20 meter"}],
