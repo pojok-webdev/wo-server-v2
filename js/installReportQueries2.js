@@ -1,25 +1,28 @@
 var con = require('./connection')
 saveObj = (tableName,obj,outArray) => {
     out = {tableName:tableName,rows:[]}
-    obj.forEach(e=>{
-        keys = []
-        vals = []
-        sql = 'insert into install_' + tableName
-        for(let el in e){
-            keys.push(el)
-            vals.push(e[el])
-        }
-        sql+= '('+keys.join(',')+')'
-        sql+= 'values '
-        sql+= '("'+vals.join('","')+'")'
-        con.doQuery(sql,result=>{
-            console.log(tableName+' InsertId',result.insertId)
-            outArray.push({'tableName':tableName,insertId:result.insertId})
-            out.rows.push({insertId:result.insertId}) 
+    myPromise = new Promise((resolve,resek)=>{
+        obj.forEach(e=>{
+            keys = []
+            vals = []
+            sql = 'insert into install_' + tableName
+            for(let el in e){
+                keys.push(el)
+                vals.push(e[el])
+            }
+            sql+= '('+keys.join(',')+')'
+            sql+= 'values '
+            sql+= '("'+vals.join('","')+'")'
+            con.doQuery(sql,result=>{
+                console.log(tableName+' InsertId',result.insertId)
+                outArray.push({'tableName':tableName,insertId:result.insertId})
+                out.rows.push({insertId:result.insertId}) 
+            })
+            resolve(outArray)
         })
-        return outArray
+        console.log(sql)    
     })
-    console.log(sql)
+    return myPromise
 }
 doInsert = (tableName,obj) => {
     const myPromise = new Promise((resolve,reject)=>{
@@ -40,30 +43,29 @@ doInsert = (tableName,obj) => {
             })
         })    
     })
-    myPromise.then(res=>{
-        console.log('1234',res)
-        return(res)
-    },err=>{
-        console.log('Rejected',err)
-    })
     return myPromise
 }
-
-saveObjs = obj => {
-    tmp = []
-    let myPromise = new Promise((resolve,reject)=>{
+saveObjs = async obj => {
+/*    let myPromise = new Promise((resolve,reject)=>{
+        tmp = []
         for(let property in obj){
-            //tmp.push(saveObj(property,obj[property],tmp))
-            tmp = saveObj(property,obj[property],tmp)
+            doInsert(property,obj[property]).then(res=>{
+                console.log('RES',res)
+                tmp.push(res)
+            })
         }
         resolve(tmp)
     })
-    return myPromise.then(res=>{
-        console.log('FINAL',res)
-        return res
-    },err=>{
-        return err
+    return myPromise*/
+    let tables = Object.keys(obj)
+    return (tables.map(table=>{
+        doInsert(table,obj[table]).then(res=>{
+            console.log('Res',res)
+            return res
+        })
     })
+    )
+
 }
 testPromise = _ => {
     let a = 0
