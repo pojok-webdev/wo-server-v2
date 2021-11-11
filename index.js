@@ -48,17 +48,17 @@ i.app.post('/proposeinstall',(req,res)=>{
     }
 })
 i.app.post('/createreport',(req,res)=>{
-/*    i.query.report.install.saveObjs(req.body).then(result=>{
+    i.query.report.install.saveObjs(req.body).then(result=>{
         console.log('Result',result)
         res.send(result)
     },err=>{
         console.log("Err",err)
         res.send(err)
     })
-*/
-x = i.query.report.install.saveObjs(req.body)
+
+/*x = i.query.report.install.saveObjs(req.body)
     console.log(x)
-    res.send(x)
+    res.send(x)*/
 })
 i.app.post('/testpromise',(req,res)=>{
     i.query.report.install.testPromise().then(result=>{
