@@ -10,7 +10,9 @@ i.app.post('/insertsuspect',(req,res,next)=>{
     }
 })
 i.app.post('/updateclient',(req,res)=>{
-    check = i.check.client.check(req.body,i.fields.updateclient.mandatories,i.fields.updateclient.allfields,i.fields.updateclient.numberfields)
+    check = i.check.client.check(
+        req.body,i.fields.updateclient.mandatories,i.fields.updateclient.allfields,i.fields.updateclient.numberfields
+        )
     if(check.result){
         i.connection.doQuery(i.query.client.updateClient(req.body),result=>{
             res.send(result)
@@ -48,36 +50,24 @@ i.app.post('/proposeinstall',(req,res)=>{
     }
 })
 i.app.post('/createreport',(req,res)=>{
-    i.query.report.install.saveObjs(req.body).then(result=>{
-        console.log('Result',result)
-        res.send(result)
-    },err=>{
-        console.log("Err",err)
-        res.send(err)
-    })
-
-/*x = i.query.report.install.saveObjs(req.body)
-    console.log(x)
-    res.send(x)*/
-})
-i.app.post('/testpromise',(req,res)=>{
-    i.query.report.install.testPromise().then(result=>{
-        console.log(result)
-        res.send({ok:result})
-    },err=>{
-        console.log(err)
-        res.send(err)
-    })
-})
-i.app.post('/test',(req,res)=>{
-    i.query.report.install.saveObjs({
-        antennas:[{name:"Grid 27 dBi 5.8 GHz",amount:1,location:"Tower 20 meter"}],
-        ap_wifis:[{
-            tipe:"Linksys WRT54GL",
-            macboard:"B4750EBA5538",
-            owner:"Bp.Kris/Ibu.Linda",
-            ip_address:"192.168.1.2",essid:"sni",security_key:"freddy123",user:"root",password:"admin",location:"depan pintu"}
-        ],
-        bas:[{name:"ba"}]})
+    check = i.check.report.check(
+        req.body,
+        i.fields.createReport.install.mandatories,
+        i.fields.createReport.install.allfields,
+        i.fields.createReport.install.numberfields
+    )
+    if(check.result){
+        i.query.report.install.saveObjs(
+            i.query.report.install.modifyTables(req.body)
+        ).then(result=>{
+            console.log('Result',result)
+            res.send(result)
+        },err=>{
+            console.log("Err",err)
+            res.send(err)
+        })
+    }else{
+        res.send({result:false,comment:check.description})
+    }
 })
 i.app.listen(process.env.PORT||i.appSetting.port)

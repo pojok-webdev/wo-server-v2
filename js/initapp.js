@@ -2,7 +2,7 @@ var express = require('express'),
     app = express(),
     connection = require('./connection'),
     clientqueries = require('./clientqueries'),
-    installReportQueries = require('./installReportQueries2'),
+    installReportQueries = require('./installReportQueries'),
     bodyParser = require('body-parser'),
     appconfig = require('./configs'),
     appSetting = appconfig.appSetting(),
@@ -41,6 +41,6 @@ module.exports = {
         updateclient:updateclient,
         proposesurvey:proposesurvey,
         proposeinstall:proposeinstall,
-        createReport:createReport
+        createReport:{install:createReport}
     }
 }
