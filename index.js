@@ -61,7 +61,7 @@ i.app.post('/createreport',(req,res)=>{
             i.query.report.install.modifyTables(req.body)
         ).then(result=>{
             console.log('Result',result)
-            res.send(result)
+            res.send({result:true,"invoked_tables":result})
         },err=>{
             console.log("Err",err)
             res.send(err)
@@ -69,5 +69,9 @@ i.app.post('/createreport',(req,res)=>{
     }else{
         res.send({result:false,comment:check.description})
     }
+})
+i.app.post('/check',(req,res)=>{
+//    res.send(i.check.report.checkParent(req.body,[{parent_fields:["install_site_id"]}]))
+    res.send(i.check.report.checkParent(req.body,i.fields.createReport.install.mandatories))
 })
 i.app.listen(process.env.PORT||i.appSetting.port)
