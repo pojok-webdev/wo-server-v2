@@ -1,0 +1,6 @@
+mandatory : object yang memiliki array
+parameter : attribut dengan array value array of object
+
+
+cek if parameter has parent_field
+cek if parameter.parent_field has install_site_id
