@@ -12,7 +12,8 @@ var express = require('express'),
     updateclient = require('./../app_modules/updateclient/fields'),
     proposesurvey = require('./../app_modules/proposesurvey/fields'),
     proposeinstall = require('./../app_modules/proposeinstall/fields'),
-    createReport = require('./../app_modules/createreport/install/fields');
+    createReport = require('./../app_modules/createreport/install/fields'),
+    masters = require('./../masters');
     app.engine('html',require('ejs').renderFile)
     app.use(function(req,res,next){
     res.header("Access-Control-Allow-Origin","*");
@@ -42,5 +43,6 @@ module.exports = {
         proposesurvey:proposesurvey,
         proposeinstall:proposeinstall,
         createReport:{install:createReport}
-    }
+    },
+    masters:masters
 }

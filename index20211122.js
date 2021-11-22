@@ -1,7 +1,4 @@
 var i = require('./js/initapp')
-i.app.get('/getclientpicbyclientid/:id',(req,res)=>{
-    res.send(i.masters.getclientpicbyclientid(req.params))
-})
 i.app.post('/insertsuspect',(req,res,next)=>{
     check = i.check.client.check(req.body,i.fields.suspect.mandatories,i.fields.suspect.allfields,i.fields.suspect.numberfields)
     if(check.result){
@@ -52,22 +49,46 @@ i.app.post('/proposeinstall',(req,res)=>{
         res.send({result:false,comment:check.description})
     }
 })
-i.app.post('/createinstallreport',(req,res)=>{
+i.app.post('/createreport',(req,res)=>{
+    check = i.check.report.check(
+        req.body,
+        i.fields.createReport.install.mandatories,
+        i.fields.createReport.install.allfields,
+        i.fields.createReport.install.numberfields
+    )
+    if(check.result){
+        i.query.report.install.saveObjs(
+            i.query.report.install.modifyTables(req.body)
+        ).then(result=>{
+            console.log('Result',result)
+            res.send({result:true,"invoked_tables":result})
+        },err=>{
+            console.log("Err",err)
+            res.send(err)
+        })
+    }else{
+        res.send({result:false,comment:check.description})
+    }
+})
+i.app.post('/check',(req,res)=>{
+    let mdt = i.check.report.checkMandatory(req.body,i.fields.createReport.install.mandatories)
+    mdt.then(resu=>{
+        console.log("Res",resu)
+        res.send(resu)
+    },err=>{
+        console.log("Err",err)
+        res.send(err)
+    })
+})
+i.app.post('/checkdbl',(req,res)=>{
     let mdt = i.check.report.checkMandatory(req.body,i.fields.createReport.install.mandatories)
     mdt.then(resu=>{
         console.log("Resmdt",resu)
+        //res.send(i.check.report.checkMandatoryMember(resu.params,resu.mandatory))
         let member = i.check.report.checkMandatoryMember(resu.params,resu.mandatory)
         member.then(resu=>{
             console.log('Resu',resu)
-            i.query.report.install.saveObjs(
-                i.query.report.install.modifyTables(req.body)
-            ).then(result=>{
-                console.log('Result',result)
-                res.send({result:true,"invoked_tables":result})
-            },err=>{
-                console.log("Err",err)
-                res.send(err)
-            })    
+            res.send({result:true,description:resu})
         },err=>{
             console.log('False',err)
             res.send({result:false,description:err})
@@ -76,6 +97,8 @@ i.app.post('/createinstallreport',(req,res)=>{
         console.log("Err",err)
         res.send(err)
     })
-
 })
+i.app.post('/checkparams',(req,res)=>{
+    res.send({hehe:'req.body'})
+})  
 i.app.listen(process.env.PORT||i.appSetting.port)
