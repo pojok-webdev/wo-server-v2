@@ -71,7 +71,32 @@ i.app.post('/createreport',(req,res)=>{
     }
 })
 i.app.post('/check',(req,res)=>{
-//    res.send(i.check.report.checkParent(req.body,[{parent_fields:["install_site_id"]}]))
-    res.send(i.check.report.checkParent(req.body,i.fields.createReport.install.mandatories))
+    let mdt = i.check.report.checkMandatory(req.body,i.fields.createReport.install.mandatories)
+    mdt.then(resu=>{
+        console.log("Res",resu)
+        res.send(resu)
+    },err=>{
+        console.log("Err",err)
+        res.send(err)
+    })
 })
+i.app.post('/checkdbl',(req,res)=>{
+        let mdt = i.check.report.checkMandatory(req.body,i.fields.createReport.install.mandatories)
+        mdt.then(resu=>{
+            console.log("Resmdt",resu)
+            //res.send(i.check.report.checkMandatoryMember(resu.params,resu.mandatory))
+            let member = i.check.report.checkMandatoryMember(resu.params,resu.mandatory)
+            member.then(resu=>{
+                console.log('Resu',resu)
+                res.send({result:true,description:resu})
+            },err=>{
+                console.log('False',err)
+                res.send({result:false,description:err})
+            })
+        },err=>{
+            console.log("Err",err)
+            res.send(err)
+        })
+    })
+    
 i.app.listen(process.env.PORT||i.appSetting.port)
