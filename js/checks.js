@@ -12,6 +12,8 @@ finditem = (keys,shouldhave,allcols) => {
     }
 }
 checkAllCols = (keys,allcols) => {
+    console.log("Keys",keys)
+    console.log("Allcols",allcols)
     not_member = []
     keys.forEach(element => {
         if(allcols.indexOf(element)<0){
@@ -41,6 +43,7 @@ checkInteger = (arr,b) => {
     }
 }
 check = (params,shouldhave,allcols,ints) => {
+    console.log('Ints',ints)
     shouldInt = []
     ints.forEach(element=>{
         shouldInt.push(params[element])

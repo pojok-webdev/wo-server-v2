@@ -1,5 +1,5 @@
 mandatories = ['client_id','client_site_id','install_date','address','city','pic_name','pic_phone']
-allfields = ['client_id','address','city','pic_name','pic_phone','pic_email','pic_position','install_date']
+allfields = ['client_id','client_site_id','address','city','pic_name','pic_phone','pic_email','pic_position','install_date']
 numberfields = ['client_id','client_site_id']
 client_sites = {
     mandatories:[],
