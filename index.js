@@ -1,28 +1,12 @@
 var i = require('./js/initapp')
 i.app.get('/getclientpicbyclientid/:id',(req,res)=>{
-    res.send(i.masters.getclientpicbyclientid(req.params))
+    i.executor.getClientPicByClientId(req,res)
 })
-i.app.post('/insertsuspect',(req,res,next)=>{
-    check = i.check.client.check(req.body,i.fields.suspect.mandatories,i.fields.suspect.allfields,i.fields.suspect.numberfields)
-    if(check.result){
-        i.connection.doQuery(i.query.client.insertSuspect(req.body),result=>{
-            res.send({result:true,insertId:result.insertId})
-        })
-    }else{
-        res.send({result:false,comment:check.description})
-    }
+i.app.post('/insertsuspect',(req,res)=>{
+    i.executor.insertSuspect(req,res)
 })
 i.app.post('/updateclient',(req,res)=>{
-    check = i.check.client.check(
-        req.body,i.fields.updateclient.mandatories,i.fields.updateclient.allfields,i.fields.updateclient.numberfields
-        )
-    if(check.result){
-        i.connection.doQuery(i.query.client.updateClient(req.body),result=>{
-            res.send(result)
-        })
-    }else{
-        res.send({result:false,comment:check.description})
-    }
+    i.executor.updateClient(req,res)
 })
 i.app.post('/proposesurvey',(req,res)=>{
     var pars = req.body

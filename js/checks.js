@@ -25,6 +25,7 @@ checkAllCols = (keys,allcols) => {
     }
 }
 checkInteger = (arr,b) => {
+    console.log('ARR',arr)
     if(arr.length>0){
         x = arr.shift()
         if(Number.isInteger(b)){
