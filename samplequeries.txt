@@ -1,0 +1,29 @@
+TEST PROPOSE SURVEY
+curl -d "client_id=111&branch_id=1&survey_date=2021-11-30&address=Jl Gadjah Mada Sidoarjo&city=Sidoarjo&pic_name=John&pic_phone=123&pic_email=john@satya.com" -X POST localhost:20215/proposesurvey
+
+TEST PROPOSE INSTALL
+curl -d "client_id=111&client_site_id=1&install_date=2021-11-30&address=Jl Gadjah Mada Sidoarjo&city=Sidoarjo&pic_name=John&pic_phone=123&pic_email=john@satya.com" -X POST localhost:20215/proposeinstall
+
+TEST CREATE INSTALL REPORT
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{
+	"parent_fields":[{"install_site_id":28}],
+        "antennas":[{"name":"Grid 27 dBi 5.8 GHz","amount":1,"location":"Tower 20 meter"}],
+        "ap_wifis":[{
+            "tipe":"Linksys WRT54GL",
+            "macboard":"B4750EBA5538",
+            "owner":"Pak Kris/Bu Linda",
+            "ip_address":"192.168.1.2","essid":"sni","security_key":"freddy123","user":"root","password":"admin","location":"depan pintu"}
+        ],
+	"images":[{"img":""}],
+        "bas":[{"name":"ba"}]}' -X POST localhost:20215/createinstallreport
+
+
+
+
+TEST UPDATE CLIENT
+curl -d 'id=client_id&prospectdate=YYY-MM-DD' -X POST http://server:port/updateclient
+
+curl -d 'id=10320&name=Ceria Bahagia' -X POST http://localhost:20215/updateclient
+
+TEST INSERT SUSPECT
+curl -d 'name=first media&phone_area=031&phone=123456&address=jl mayjen sungkana 88&city=soerabaia&end_of_contract=2021-11-30&business_field=internet' -X POST http://localhost:20215/insertsuspect

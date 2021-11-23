@@ -1,6 +1,6 @@
 var express = require('express'),
     app = express(),
-    connection = require('./connection'),
+    //connection = require('./connection'),
     connectionChained = require('./connectionchained'),
     clientqueries = require('./clientqueries'),
     masterClient = require('./../js/masters/clients'),
@@ -26,7 +26,7 @@ app.use(bodyParser.json({limit:'10mb',extended:true}))
 app.use(bodyParser.urlencoded({limit:'10mb',extended:true}))
 
 module.exports = {
-    connection:connection,
+    //connection:connection,
     connectionChained:connectionChained,
     executor:executor,
     check:{
