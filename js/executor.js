@@ -1,6 +1,9 @@
 var connection = require('./connection'),
     connectionChained = require('./connectionchained'),
-    masterClient = require('./../js/masters/clients'),
+    master = {
+        client : require('./../js/masters/clients'),
+        service : [], vas : [], device : []
+    },
     check = {
         client : require('./checks.js'),
         report : require('./checkReport'),
@@ -21,10 +24,10 @@ var connection = require('./connection'),
         }
     },
 getclientpicbyclientid = (req,res) => {
-    connectionChained.doQuery(masterClient.getClientById({id:req.params.id,chain:'pic'}))
+    connectionChained.doQuery(master.client.getClientById({id:req.params.id,chain:'pic'}))
     .then(x=>{
         new Promise((resolve,reject)=>x.map(row=>{
-            connectionChained.doQuery(masterClient.getPicByClientId({id:row.id}))
+            connectionChained.doQuery(master.client.getPicByClientId({id:row.id}))
             .then(pic=>{
                 row.pic = pic
                 resolve (row)
@@ -45,31 +48,31 @@ getclientpicbyclientid = (req,res) => {
     })
 }
 insertsuspect = (req,res) => {
-    check = check.client.check(req.body,field.suspect.mandatories,field.suspect.allfields,field.suspect.numberfields)
-    if(check.result){
+    chk = check.client.check(req.body,field.suspect.mandatories,field.suspect.allfields,field.suspect.numberfields)
+    if(chk.result){
         connection.doQuery(query.client.insertSuspect(req.body),result=>{
             res.send({result:true,insertId:result.insertId})
         })
     }else{
-        res.send({result:false,comment:check.description})
+        res.send({result:false,comment:chk.description})
     }
 }
 updateclient = (req,res) => {
-    check = check.client.check(
+    chk = check.client.check(
         req.body,field.updateclient.mandatories,field.updateclient.allfields,field.updateclient.numberfields
         )
-    if(check.result){
+    if(chk.result){
         connection.doQuery(query.client.updateClient(req.body),result=>{
             res.send(result)
         })
     }else{
-        res.send({result:false,comment:check.description})
+        res.send({result:false,comment:chk.description})
     }
 }
 proposesurvey = (req,res) => {
     var pars = req.body
-    check = check.client.check(req.body,field.proposesurvey.mandatories,field.proposesurvey.allfields,field.proposesurvey.numberfields)
-    if(check.result){
+    chk = check.client.check(req.body,field.proposesurvey.mandatories,field.proposesurvey.allfields,field.proposesurvey.numberfields)
+    if(chk.result){
         connection.doQuery(query.client.insertQuery({client_id:pars.client_id,address:pars.address,city:pars.city,pic_name:pars.pic_name,pic_phone:pars.pic_phone},'client_sites'),clientsite=>{
             connection.doQuery(query.client.insertQuery({client_id:pars.client_id,branch_id:pars.branch_id,survey_date:pars.survey_date,address:pars.address,city:pars.city,pic_name:pars.pic_name,pic_phone:pars.pic_phone,client_site_id:clientsite.insertId},'survey_requests'),surveyrequest=>{
                 connection.doQuery(query.client.insertQuery({client_id:pars.client_id,address:pars.address,city:pars.city,branch_id:pars.branch_id,client_site_id:clientsite.insertId,survey_date:pars.survey_date,pic_name:pars.pic_name,pic_phone:pars.pic_phone,survey_request_id:surveyrequest.insertId},'survey_sites'),result=>{
@@ -78,7 +81,7 @@ proposesurvey = (req,res) => {
             })
         })
     }else{
-        res.send({result:false,comment:check.description})
+        res.send({result:false,comment:chk.description})
     }
 }
 proposeinstall = (req,res) => {
@@ -86,15 +89,15 @@ proposeinstall = (req,res) => {
     console.log('PInumberfields',field.proposeinstall.numberfields)
     console.log('PIallfields',field.proposeinstall.allfields)
     console.log('PImandatories',field.proposeinstall.mandatories)
-    check = check.client.check(req.body,field.proposeinstall.mandatories,field.proposeinstall.allfields,field.proposeinstall.numberfields)
-    if(check.result){
+    chk = check.client.check(req.body,field.proposeinstall.mandatories,field.proposeinstall.allfields,field.proposeinstall.numberfields)
+    if(chk.result){
         connection.doQuery(query.client.insertQuery({client_id:pars.client_id,pic_name:pars.pic_name,pic_phone:pars.pic_phone},'install_requests'),request=>{            
             connection.doQuery(query.client.insertQuery({client_site_id:pars.client_site_id,install_request_id:request.insertId,address:pars.address,city:pars.city,install_date:pars.install_date},'install_sites'),site=>{
                 res.send({result:true,install_request_id:request.insertId,install_site_id:site.insertId})
             })
         })
     }else{
-        res.send({result:false,comment:check.description})
+        res.send({result:false,comment:chk.description})
     }
 }
 createinstallreport = (req,res) => {
