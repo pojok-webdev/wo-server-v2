@@ -11,7 +11,8 @@ var connection = require('./connection'),
     query = {
         client : require('./clientqueries'),
         report : {
-            install : require('./installReportQueries')
+            install : require('./installReportQueries'),
+            survey : require('./surveyReportQueries'),
         }
     },
     field = {
@@ -20,7 +21,8 @@ var connection = require('./connection'),
         proposesurvey : require('./../app_modules/proposesurvey/fields'),
         proposeinstall : require('./../app_modules/proposeinstall/fields'),
         createReport : {
-            install : require('./../app_modules/createreport/install/fields')
+            install : require('./../app_modules/createreport/install/fields'),
+            survey : require('./../app_modules/createreport/survey/fields')
         }
     },
 getclientpicbyclientid = (req,res) => {
@@ -114,7 +116,7 @@ createinstallreport = (req,res) => {
                 res.send({result:true,"invoked_tables":result})
             },err=>{
                 console.log("Err",err)
-                res.send(err)
+                res.send({result:false,description:err})
             })    
         },err=>{
             console.log('False',err)
@@ -122,7 +124,24 @@ createinstallreport = (req,res) => {
         })
     },err=>{
         console.log("Err",err)
-        res.send(err)
+        res.send({result:false,description:err})
+    })
+}
+createsurveyreport = (req,res) => {
+    let mdt = check.report.checkMandatory(req.body,field.createReport.survey.mandatories)
+    mdt.then(resu=>{
+        let member = check.report.checkMandatoryMember(resu.params,resu.mandatory)
+        member.then(resu=>{
+            query.report.survey.saveObjs(
+                query.report.survey.modifyTables(req.body)
+            ).then(result=>{
+                res.send({result:true,"invoked_tables":result})
+            },err=>{
+                res.send({result:false,description:err})
+            })
+        })
+    },err=>{
+        res.send({result:false,description:err})
     })
 }
 module.exports = {

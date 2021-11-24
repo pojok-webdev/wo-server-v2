@@ -4,7 +4,7 @@ doInsert = (tableName,obj) => {
         obj.forEach(e=>{
             keys = []
             vals = []
-            sql = 'insert into install_' + tableName
+            sql = 'insert into survey_' + tableName
             for(let el in e){
                 keys.push(el)
                 vals.push(e[el])
@@ -20,23 +20,20 @@ doInsert = (tableName,obj) => {
     })
     return myPromise
 }
-insertParents = (obj,parents) => {
-    parents.forEach(parent=>{
-        for(let el in parent){
-            obj[el] = parent[el]
-        }
-    })
-
-    parent_fields = obj['parent_fields']
-    console.log('Parent Fields',parent_fields)
-    let idx = tables.indexOf('parent_fields')
-    console.log("Spliced",tables.splice(idx,1))
-    splicedkey = tables.splice(idx,1)
-
+modifyTables = obj => {
+    let parent_fields = obj.parent_fields
+    delete obj.parent_fields
+    for(let el in obj){
+        parent_fields.forEach(parent=>{
+            for(let elem in parent){
+                obj[el][0][elem] = parent[elem]
+            }
+        })
+    }
+    return obj
 }
 saveObjs = async obj => {
     let tables = Object.keys(obj)
-    
     const out = tables.map(async table=>{
         return await doInsert(table,obj[table]).then(res=>{
             console.log('Res',res)
@@ -48,4 +45,5 @@ saveObjs = async obj => {
 }
 module.exports = {
     saveObjs:saveObjs,
+    modifyTables:modifyTables
 }

@@ -17,4 +17,7 @@ i.app.post('/proposeinstall',(req,res)=>{
 i.app.post('/createinstallreport',(req,res)=>{
     i.executor.createInstallReport(req,res)
 })
+i.app.post('/createsurveyreport',(req,res)=>{
+    i.executor.createSurveyReport(req,res)
+})
 i.app.listen(process.env.PORT||i.appSetting.port)
