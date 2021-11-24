@@ -1,6 +1,23 @@
-mandatory : object yang memiliki array
-parameter : attribut dengan array value array of object
+beberapa parameter POS berformat json, beberapa berformat string (dengan delimiter & sign)
+parameter json terdapat pada:
+createinstallreport
+createsurveyreport
 
 
-cek if parameter has parent_field
-cek if parameter.parent_field has install_site_id
+
+table-table pada createsurveyreport:
+| survey_bas                                        |
+| survey_bts_distances                              |
+| survey_client_distances                           |
+| survey_client_services                            |
+| survey_dates                                      |
+| survey_devices                                    |
+| survey_gps_datas                                  |
+| survey_images                                     |
+| survey_materials                                  |
+| survey_requests                                   |
+| survey_requests_users                             |
+| survey_resumes                                    |
+| survey_site_distances                             |
+| survey_sites                                      |
+| survey_surveyors                                  |

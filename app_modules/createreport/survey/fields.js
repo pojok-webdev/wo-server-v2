@@ -1,5 +1,5 @@
 mandatories = [
-    {"parent_fields":["install_site_id"]}
+    {"parent_fields":["survey_site_id"]}
 ]
 allfields = [
     'name',

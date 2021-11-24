@@ -1,0 +1,39 @@
+# list kebutuhan api
+
+- create lead/prospect/client D
+- update lead/prospect/client 
+
+- create pengajuan (jenis sesuai work order) D
+- update pengajuan (jenis sesuai work order) 
+
+- create laporan (jenis sesuai work order) D
+- update laporan (jenis sesuai work order) <- harus satu-satu per table, tidak bisa integrated
+
+- list kategori layanan by name
+- list layanan per kategori by name (sudah ada, perlu di sesuaikan)
+
+   - butuh data harga dan harga diskon (sudah di sampaikan ke mas puji)
+   - butuh data nama promo, diskon dari promo (sudah di sampaikan ke mas puji, mas ardi dan mas gilang akan koordinasi dengan pak ketut terlebih dahulu)
+   - butuh data apakah layanan ini berubah subscription dan periode subscription (perlu koordinasi dengan pak ketut)
+
+- list perangkat by name (sudah ada, perlu di test) D
+- list material by name (sudah ada, perlu di test) D
+- list lead/prospect/client by name (sudah ada, perlu di test)
+- list ticket by lead/prospect/client id
+
+- list pic by lead/prospect/client id (sudah ada, perlu di test)
+- list layanan by lead/prospect/client id (sudah ada, perlu di test)
+
+- get lead/prospect/client by id (sudah ada, perlu di test)
+- get ticket by id
+
+# jenis work order (sementara)
+
+1. survey
+2. installation
+3. troubleshoot
+4. perubahan layanan
+5. diskoneksi permanent
+6. diskoneksi temporary
+7. maintenance pelanggan
+8. maintenance non pelanggan

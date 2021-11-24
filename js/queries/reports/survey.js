@@ -1,10 +1,10 @@
-var con = require('./connection')
+var con = require('./../../connection')
 doInsert = (tableName,obj) => {
     const myPromise = new Promise((resolve,reject)=>{
         obj.forEach(e=>{
             keys = []
             vals = []
-            sql = 'insert into install_' + tableName
+            sql = 'insert into survey_' + tableName
             for(let el in e){
                 keys.push(el)
                 vals.push(e[el])

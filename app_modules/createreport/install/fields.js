@@ -2,6 +2,7 @@ mandatories = [
     {"parent_fields":["install_site_id"]}
 ]
 allfields = [
+    'install_site_id',
     'name',
     'phone_area',
     'phone',

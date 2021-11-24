@@ -3,7 +3,10 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     appconfig = require('./configs'),
     appSetting = appconfig.appSetting(),
-    executor = require('./../js/executor');
+    help = require('./../js/help/index'),
+    execute_transaction = require('./../js/execute/transactions'),
+    execute_master = require('./../js/execute/masters'),
+    execute_list = require('./../js/execute/lists');
     app.engine('html',require('ejs').renderFile)
     app.use(function(req,res,next){
     res.header("Access-Control-Allow-Origin","*");
@@ -14,7 +17,13 @@ app.use(bodyParser.json({limit:'10mb',extended:true}))
 app.use(bodyParser.urlencoded({limit:'10mb',extended:true}))
 
 module.exports = {
-    executor:executor,
+    execute:{
+        help:help,
+        transaction:execute_transaction,
+        master:execute_master,
+        list:execute_list
+    },
+    help:help,
     app:app,
     appSetting:appSetting,
 }
