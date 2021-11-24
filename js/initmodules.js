@@ -13,6 +13,7 @@ var connection = require('./connection'),
     },
     query = {
         client : require('./queries/client'),
+        ticket : require('./queries/lists/tickets'),
         report : {
             install : require('./queries/reports/install'),
             survey : require('./queries/reports/survey'),

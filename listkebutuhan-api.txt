@@ -18,7 +18,7 @@
 
 - list perangkat by name (sudah ada, perlu di test) D
 - list material by name (sudah ada, perlu di test) D
-- list lead/prospect/client by name (sudah ada, perlu di test)
+- list lead/prospect/client by name (sudah ada, perlu di test) D
 - list ticket by lead/prospect/client id
 
 - list pic by lead/prospect/client id (sudah ada, perlu di test)
