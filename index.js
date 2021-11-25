@@ -50,4 +50,19 @@ i.app.get('/getlistprospectsbyname/:name', (req,res)=>{
 i.app.get('/getlistclientsbyname/:name', (req,res)=>{
     i.execute.list.getClientsByName(req,res)
 })
+i.app.get('/getlistclientsbyid/:id',(req,res)=>{
+    i.execute.list.getClientsById(req,res)
+})
+i.app.post('/getticketsbyclientname',(req,res)=>{
+    i.execute.list.getTicketsByClientName(req,res)
+})
+i.app.get('/getticketsbyclientid/:id',(req,res)=>{
+    i.execute.list.getTicketsByClientId(req,res)
+})
+i.app.get('/getticketsbyid/:id',(req,res)=>{
+    i.execute.list.getTicketsById(req,res)
+})
+i.app.get('/getticketsbykdticket/:kdticket',(req,res)=>{
+    i.execute.list.getTicketsByKdTicket(req,res)
+})
 i.app.listen(process.env.PORT||i.appSetting.port)

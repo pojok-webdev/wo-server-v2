@@ -9,8 +9,8 @@
 - create laporan (jenis sesuai work order) D
 - update laporan (jenis sesuai work order) <- harus satu-satu per table, tidak bisa integrated
 
-- list kategori layanan by name
-- list layanan per kategori by name (sudah ada, perlu di sesuaikan)
+- list kategori layanan by name D
+- list layanan per kategori by name (sudah ada, perlu di sesuaikan) D
 
    - butuh data harga dan harga diskon (sudah di sampaikan ke mas puji)
    - butuh data nama promo, diskon dari promo (sudah di sampaikan ke mas puji, mas ardi dan mas gilang akan koordinasi dengan pak ketut terlebih dahulu)
@@ -19,13 +19,13 @@
 - list perangkat by name (sudah ada, perlu di test) D
 - list material by name (sudah ada, perlu di test) D
 - list lead/prospect/client by name (sudah ada, perlu di test) D
-- list ticket by lead/prospect/client id
+- list ticket by lead/prospect/client id D (by client)
 
 - list pic by lead/prospect/client id (sudah ada, perlu di test)
 - list layanan by lead/prospect/client id (sudah ada, perlu di test)
 
-- get lead/prospect/client by id (sudah ada, perlu di test)
-- get ticket by id
+- get lead/prospect/client by id (sudah ada, perlu di test) D curl localhost:20215/getlistclientsbyid/4
+- get ticket by id D
 
 # jenis work order (sementara)
 

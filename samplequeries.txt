@@ -47,6 +47,8 @@ curl localhost:20215/getmastermaterialbyname/s
 TEST GET SERVICES
 curl localhost:20215/getmasterservice
 curl localhost:20215/getmasterservicebycategory/IDW990
+curl 192.168.0.117:20215/getmasterservicebycategory/IDW950
+curl 192.168.0.117:20215/getmasterservicebyname/dedicated
 
 TEST GET DEVICES
 curl localhost:20215/getmasterdevice
@@ -56,6 +58,19 @@ curl localhost:20215/getlistleadsbyname/imed
 
 TEST LIST CLIENTS
 curl localhost:20215/getlistclientsbyname/hanam
+curl localhost:20215/getlistclientsbyid/4
+
+TEST GET CLIENT PICS BY CLIENT ID
+curl localhost:20215/getclientpicbyclientid/4
 
 TEST LIST PROSPECTS
 curl localhost:20215/getlistprospectsbyname/hanam
+
+TEST LIST TICKETS BY CLIENT NAME
+curl -d 'name=dia cip' -X POST localhost:20215/getticketsbyclientname
+curl localhost:20215/getticketsbyclientid/5
+
+TEST LIST TICKETS BY KDTICKET
+curl localhost:20215/getticketsbykdticket/21885
+curl localhost:20215/getticketsbykdticket/202111308
+curl localhost:20215/getticketsbyid/21885
