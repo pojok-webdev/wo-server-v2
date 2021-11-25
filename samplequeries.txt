@@ -33,6 +33,7 @@ curl -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{
 
 TEST UPDATE CLIENT
 curl -d 'id=client_id&prospectdate=YYY-MM-DD' -X POST http://server:port/updateclient
+curl -d 'id=100&npwp=BMP' -X POST localhost:20215/updateclient
 
 curl -d 'id=10320&name=PadiOK' -X POST http://localhost:20215/updateclient
 
@@ -78,3 +79,7 @@ TEST LIST TICKETS BY KDTICKET
 curl localhost:20215/getticketsbykdticket/21885
 curl localhost:20215/getticketsbykdticket/202111308
 curl localhost:20215/getticketsbyid/21885
+
+
+TEST LIST PROPOSAL SURVEY
+curl -d 'segment=0&offset=10' -X POST localhost:20215/listsurveyproposal/

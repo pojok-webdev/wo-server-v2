@@ -17,6 +17,9 @@ i.app.post('/updateclient',(req,res)=>{
 i.app.post('/proposesurvey',(req,res)=>{
     i.execute.transaction.proposeSurvey(req,res)
 })
+i.app.post('/listsurveyproposal',(req,res)=>{
+    i.execute.list.getSurveyProposal(req,res)
+})
 i.app.post('/proposeinstall',(req,res)=>{
     i.execute.transaction.proposeInstall(req,res)
 })

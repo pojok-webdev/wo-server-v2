@@ -1,7 +1,7 @@
 # list kebutuhan api
 
 - create lead/prospect/client D
-- update lead/prospect/client 
+- update lead/prospect/client D (not included pic)
 
 - create pengajuan (jenis sesuai work order) D
 - update pengajuan (jenis sesuai work order) 
@@ -12,7 +12,7 @@
 - list kategori layanan by name D
 - list layanan per kategori by name (sudah ada, perlu di sesuaikan) D
 
-   - butuh data harga dan harga diskon (sudah di sampaikan ke mas puji)
+   - butuh data harga dan harga diskon (sudah di sampaikan ke mas puji) D
    - butuh data nama promo, diskon dari promo (sudah di sampaikan ke mas puji, mas ardi dan mas gilang akan koordinasi dengan pak ketut terlebih dahulu)
    - butuh data apakah layanan ini berubah subscription dan periode subscription (perlu koordinasi dengan pak ketut)
 

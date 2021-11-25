@@ -22,6 +22,9 @@ var connection = require('./connection'),
             lead: require('./queries/lists/leads'),
             prospect: require('./queries/lists/prospects'),
             client: require('./queries/lists/clients'),
+        },
+        propose:{
+            survey:require('./queries/lists/survey_requests')
         }
     },
     field = {

@@ -62,6 +62,13 @@ getclientservicebyclientid = (req,res) => {
         }
     )
 }
+getsurveyproposal = (req,res) => {
+    i.connection.doQuery(
+        i.query.propose.survey.getLast(req.body),result=>{
+            res.send({result:true,description:result})
+        }
+    )
+}
 module.exports = {
     getLeadsByName:getleadsbyname,
     getProspectsByName:getprospectsbyname,
@@ -71,5 +78,6 @@ module.exports = {
     getTicketsByClientId:getticketsbyclientid,
     getTicketsByKdTicket:getticketsbykdticket,
     getTicketsById:getticketsbyid,
-    getClientServiceByClientId:getclientservicebyclientid
+    getClientServiceByClientId:getclientservicebyclientid,
+    getSurveyProposal:getsurveyproposal
 }

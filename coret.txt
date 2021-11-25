@@ -21,3 +21,12 @@ table-table pada createsurveyreport:
 | survey_site_distances                             |
 | survey_sites                                      |
 | survey_surveyors                                  |
+
+PROPOSE SURVEY
+survey_requests (client_id),
+survey_sites (survey_request_id)
+client_sites (survey_request_id),
+Skenario update propse survey:
+get list of propose survey
+get list of survey_sites
+List of survey_requests by client_id, client_name -> konsekwensi dari update propose survey
