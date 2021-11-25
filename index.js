@@ -5,6 +5,9 @@ i.app.get('/help',(req,res)=>{
 i.app.get('/getclientpicbyclientid/:id',(req,res)=>{
     i.execute.master.getClientPicByClientId(req,res)
 })
+i.app.get('/getclientservicebyclientid/:id',(req,res)=>{
+    i.execute.list.getClientServiceByClientId(req,res)
+})
 i.app.post('/insertsuspect',(req,res)=>{
     i.execute.transaction.insertSuspect(req,res)
 })

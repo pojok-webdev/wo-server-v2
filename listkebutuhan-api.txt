@@ -21,8 +21,8 @@
 - list lead/prospect/client by name (sudah ada, perlu di test) D
 - list ticket by lead/prospect/client id D (by client)
 
-- list pic by lead/prospect/client id (sudah ada, perlu di test)
-- list layanan by lead/prospect/client id (sudah ada, perlu di test)
+- list pic by lead/prospect/client id (sudah ada, perlu di test) D
+- list layanan by lead/prospect/client id (sudah ada, perlu di test) D
 
 - get lead/prospect/client by id (sudah ada, perlu di test) D curl localhost:20215/getlistclientsbyid/4
 - get ticket by id D

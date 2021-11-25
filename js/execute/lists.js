@@ -55,6 +55,13 @@ getticketsbykdticket = (req,res) => {
         }
     )
 }
+getclientservicebyclientid = (req,res) => {
+    i.connection.doQuery(
+        i.query.list.client.getClientServiceByClientId(req.params),result=>{
+            res.send({result:true,description:result})
+        }
+    )
+}
 module.exports = {
     getLeadsByName:getleadsbyname,
     getProspectsByName:getprospectsbyname,
@@ -63,5 +70,6 @@ module.exports = {
     getTicketsByClientName:getticketsbyclientname,
     getTicketsByClientId:getticketsbyclientid,
     getTicketsByKdTicket:getticketsbykdticket,
-    getTicketsById:getticketsbyid
+    getTicketsById:getticketsbyid,
+    getClientServiceByClientId:getclientservicebyclientid
 }

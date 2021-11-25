@@ -63,6 +63,10 @@ curl localhost:20215/getlistclientsbyid/4
 TEST GET CLIENT PICS BY CLIENT ID
 curl localhost:20215/getclientpicbyclientid/4
 
+
+TEST GET CLIENT SERVICES BY CLIENT ID
+curl localhost:20215/getclientservicebyclientid/9879
+
 TEST LIST PROSPECTS
 curl localhost:20215/getlistprospectsbyname/hanam
 
