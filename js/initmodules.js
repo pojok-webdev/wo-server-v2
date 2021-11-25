@@ -24,7 +24,8 @@ var connection = require('./connection'),
             client: require('./queries/lists/clients'),
         },
         propose:{
-            survey:require('./queries/lists/survey_requests')
+            survey:require('./queries/lists/survey_requests'),
+            survey_sites: require('./queries/lists/survey_sites')
         }
     },
     field = {
