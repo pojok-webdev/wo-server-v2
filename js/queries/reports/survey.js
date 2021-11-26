@@ -1,5 +1,6 @@
 var con = require('./../../connection')
 doInsert = (tableName,obj) => {
+    console.log("Survey invoked",tableName)
     const myPromise = new Promise((resolve,reject)=>{
         obj.forEach(e=>{
             keys = []

@@ -64,14 +64,14 @@ getclientservicebyclientid = (req,res) => {
 }
 getsurveyproposal = (req,res) => {
     i.connection.doQuery(
-        i.query.propose.survey.getLast(req.body),result=>{
+        i.query.survey.getLast(req.body),result=>{
             res.send({result:true,description:result})
         }
     )
 }
 getsurveysitesbysurveyproposalid = (req,res) => {
     i.connection.doQuery(
-        i.query.propose.survey_sites.getByRequestId(req,res),result=>{
+        i.query.survey.getByRequestId(req.body),result=>{
             res.send({result:true,description:result})
         }
     )

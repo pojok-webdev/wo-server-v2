@@ -23,19 +23,22 @@ var connection = require('./connection'),
             prospect: require('./queries/lists/prospects'),
             client: require('./queries/lists/clients'),
         },
-        propose:{
-            survey:require('./queries/lists/survey_requests'),
-            survey_sites: require('./queries/lists/survey_sites')
-        }
+        survey:require('./queries/transactions/surveys')
     },
     field = {
-        suspect : require('../app_modules/insertsuspect/fields'),
-        updateclient : require('../app_modules/updateclient/fields'),
-        proposesurvey : require('../app_modules/proposesurvey/fields'),
-        proposeinstall : require('../app_modules/proposeinstall/fields'),
-        createReport : {
-            install : require('../app_modules/createreport/install/fields'),
-            survey : require('../app_modules/createreport/survey/fields')
+        suspect : require('../fields/insertsuspect/fields'),
+        updateclient : require('../fields/updateclient/fields'),
+        survey : {
+            propose:require('../fields/surveys/propose'),
+            update:require('../fields/surveys/update'),
+            report:require('../fields/report/survey/create')
+        },
+        install : {
+            propose:require('../fields/installs/propose'),
+            report:require('../fields/report/install/create')
+        },
+        report : {
+            install : require('../fields/report/install/create')
         }
     }
 module.exports = {
