@@ -1,3 +1,9 @@
+total:19, Done: 15, Progress:
+update pengajuan Kompleks: depend on list pengajuan, list services,
+update laporan Kompleks: depend on list pengajuan, list services, list devices dll,
+nama promo : konsepnya belum tahu
+apakah data berubah subscription : konsepnya belum tahu
+
 beberapa parameter POS berformat json, beberapa berformat string (dengan delimiter & sign)
 parameter json terdapat pada:
 createinstallreport
@@ -44,3 +50,11 @@ window.myFunction = function(a, b, c) {
     throw e;
   }
 }
+
+
+
+permaslahan :
+Kompleks
+terutama update transaksi, misalnya update pengajuan survey, update laporan survey, karena terasosiasi dengan lebih dari satu table
+Return value harus menampilkan penyebab error dengan format json, sehingga menambah Kompleks, karena ini terkait dengan struktur input, tipe input,   
+Harus ditest dengan berbagai kondisi
