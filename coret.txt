@@ -30,3 +30,17 @@ Skenario update propse survey:
 get list of propose survey
 get list of survey_sites
 List of survey_requests by client_id, client_name -> konsekwensi dari update propose survey
+
+var originalFunction = myFunction;
+window.myFunction = function(a, b, c) {
+  /* work before the function is called */
+  try {
+    var returnValue = originalFunction.call(this, a, b, c);
+    /* work after the function is called */
+    return returnValue;
+  }
+  catch (e) {
+    /* work in case there is an error */
+    throw e;
+  }
+}

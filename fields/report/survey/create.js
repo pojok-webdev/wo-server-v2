@@ -1,7 +1,8 @@
-mandatories = [
-    {"parent_fields":["survey_site_id"]}
-]
-allfields = [
+var surveyCreate = {
+    mandatories : [
+        {"parent_fields":["survey_site_id"]}
+    ],
+allfields : [
     'name',
     'phone_area',
     'phone',
@@ -20,10 +21,11 @@ allfields = [
     'isoryza',
     'active',
     'prospectdate'
-]
-numberfields = []
+],
+numberfields : []
+}
 module.exports = {
-    mandatories:mandatories,
-    allfields:allfields,
-    numberfields:numberfields
+    mandatories:surveyCreate.mandatories,
+    allfields:surveyCreate.allfields,
+    numberfields:surveyCreate.numberfields
 }
