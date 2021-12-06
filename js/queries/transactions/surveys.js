@@ -1,3 +1,4 @@
+routines = require('./../../execute/routines')
 var transactionSurvey = {
     getLast : obj => {
         sql = 'select a.id,a.client_id,a.create_date,b.name from survey_requests a '
@@ -19,11 +20,19 @@ var transactionSurvey = {
         sql = 'update survey_requests '
         sql+= 'set '+arr.join()+' '
         sql+= 'where id='+obj.id+' '
+        console.log('SQL udpate req survey',sql)
         return sql
-    }
+    },
+
+}
+site = {    
+    update: obj =>{
+        return routines.update(obj)
+    },
 }
 module.exports = {
     update:transactionSurvey.update,
     getLast:transactionSurvey.getLast,
-    getByRequestId:transactionSurvey.getByRequestId
+    getByRequestId:transactionSurvey.getByRequestId,
+    site:site
 }

@@ -58,3 +58,34 @@ Kompleks
 terutama update transaksi, misalnya update pengajuan survey, update laporan survey, karena terasosiasi dengan lebih dari satu table
 Return value harus menampilkan penyebab error dengan format json, sehingga menambah Kompleks, karena ini terkait dengan struktur input, tipe input,   
 Harus ditest dengan berbagai kondisi
+
+
+| survey_bas                                        |
+| survey_bts_distances                              |
+| survey_client_distances                           |
+| survey_client_services                            |
+| survey_dates                                      |
+| survey_devices                                    |
+| survey_gps_datas                                  |
+| survey_images                                     |
+| survey_materials                                  |
+| survey_requests                                   |
+| survey_requests_users                             |
+| survey_resumes                                    |
+| survey_site_distances                             |
+| survey_sites                                      |
+| survey_surveyors                                  |
+| surveypackagedetails                              |
+| surveypackages                                    |
+| surveys               
+
+
+1 function find_max(nums) {
+2 let max_num = Number.NEGATIVE_INFINITY; // smaller than all other numbers
+3 for (let num of nums) {
+4 if (num > max_num) {
+5 // (Fill in the missing line here)
+6 }
+7 }
+8 return max_num;
+9 }

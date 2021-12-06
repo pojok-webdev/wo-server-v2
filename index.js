@@ -77,4 +77,7 @@ i.app.get('/getticketsbyid/:id',(req,res)=>{
 i.app.get('/getticketsbykdticket/:kdticket',(req,res)=>{
     i.execute.list.getTicketsByKdTicket(req,res)
 })
+i.app.post('/updatesurveysite',(req,res)=>{
+    i.execute.transaction.survey.site.update(req,res)
+})
 i.app.listen(process.env.PORT||i.appSetting.port)
