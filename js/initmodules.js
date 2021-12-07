@@ -31,7 +31,8 @@ var connection = require('./connection'),
         survey : {
             propose:require('../fields/surveys/propose'),
             update:require('../fields/surveys/update'),
-            report:require('../fields/report/survey/create')
+            report:require('../fields/report/survey/create'),
+            site:require('./../fields/surveys/site/update')
         },
         install : {
             propose:require('../fields/installs/propose'),

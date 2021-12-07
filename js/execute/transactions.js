@@ -119,7 +119,7 @@ survey = {
             res.send({result:false,comment:chk.description})
         }
     },
-    site:surveys.site      
+    site:surveys.site
 }
 
 module.exports = {

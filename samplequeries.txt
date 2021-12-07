@@ -10,10 +10,10 @@ curl -d 'id=1899&city=Surabayo&address=Jl. Ciliwung No. 74-B' -X POST localhost:
 TEST UPDATE SURVEY SITE
 curl -H 'Content-Type:application/json' -H 'Accept: application/json' -d' {
         "identifier":"id","identifierValue":1894,"tableName":"survey_sites","columns":{
-            "address":"Jl Gadjah Mada Sidoarjo","city":"Sidahardja","id":1894}
+            "address":"Jl Gadjuah Mada Sidoarja","city":"Sidahardja","id":1894}
         }' -X POST localhost:20215/updatesurveysite
 
-
+officially syntax:
 curl -d 'id=1899&city=Surabayo&address=Jl. Ciliwung No. 74-B' -X POST localhost:20215/updatesurveysite
 
 TEST PROPOSE INSTALL
