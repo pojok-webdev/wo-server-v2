@@ -32,7 +32,7 @@ var connection = require('./connection'),
             propose:require('../fields/surveys/propose'),
             update:require('../fields/surveys/update'),
             report:require('../fields/report/survey/create'),
-            site:require('./../fields/surveys/site/update')
+            site:require('./../fields/surveys/sites')
         },
         install : {
             propose:require('../fields/installs/propose'),

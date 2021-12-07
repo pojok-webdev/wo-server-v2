@@ -80,4 +80,16 @@ i.app.get('/getticketsbykdticket/:kdticket',(req,res)=>{
 i.app.post('/updatesurveysite',(req,res)=>{
     i.execute.transaction.survey.site.update(req,res)
 })
+i.app.post('/updatesurveybas',(req,res)=>{
+    i.execute.transaction.survey.bas.update(req,res)
+})
+i.app.post('/updatesurveybtsdistances',(req,res)=>{
+    i.execute.transaction.survey.bts_distance.update(req,res)
+})
+i.app.post('/createsurveyclientdistances',(req,res)=>{
+    i.execute.transaction.survey.client_distance.create(req,res)
+})
+i.app.post('/updatesurveyclientdistances',(req,res)=>{
+    i.execute.transaction.survey.client_distance.update(req,res)
+})
 i.app.listen(process.env.PORT||i.appSetting.port)

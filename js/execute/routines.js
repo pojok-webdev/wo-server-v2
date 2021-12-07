@@ -1,4 +1,18 @@
 routines = {
+    create: obj => {
+        keys = []
+        vals = []
+        for(let e in obj.columns){
+            keys.push(e)
+            vals.push(obj.columns[e])
+        }
+        sql = 'insert into ' + obj.tableName + ' '
+        sql+= '('+keys.join()+')'
+        sql+= 'values '
+        sql+= '("'+vals.join('","')+'")'
+        console.log('Create SQL',sql)
+        return sql
+    },
     update : obj =>{
         arr = []
         for(let e in obj.columns){
@@ -11,5 +25,6 @@ routines = {
     }
 }
 module.exports = {
+    create:routines.create,
     update:routines.update
 }

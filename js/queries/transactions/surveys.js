@@ -29,10 +29,30 @@ site = {
     update: obj =>{
         return routines.update(obj)
     },
+},
+bas =  {
+    update: obj => {
+        return routines.update(obj)
+    }
+},
+bts_distance = {
+    update: obj => {
+        return routines.update(obj)
+    }
+},
+client_distance = {
+    create: obj => {
+        return routines.create(obj)
+    },
+    update: obj => {
+        return routines.update(obj)
+    }
 }
+
+
 module.exports = {
     update:transactionSurvey.update,
     getLast:transactionSurvey.getLast,
     getByRequestId:transactionSurvey.getByRequestId,
-    site:site
+    site:site,bas:bas,bts_distance:bts_distance,client_distance:client_distance
 }
