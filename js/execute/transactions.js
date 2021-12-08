@@ -132,8 +132,7 @@ module.exports = {
     updateClient:updateclient,
     proposeInstall:install.propose,
     createInstallReport:install.createreport,
-    proposeSurvey:survey.propose,
-    createSurveyReport:survey.createreport,
+//    createSurveyReport:survey.createreport,
     updateSurvey:survey.update,
     survey:survey
 }

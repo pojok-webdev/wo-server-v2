@@ -30,7 +30,6 @@ curl -d 'survey_site_id=2386&distance=1' -X POST localhost:20215/createsurveycli
 TEST SURVEY DEVICES
 curl -d 'survey_site_id=2386&device_id=1&name=semeru&amount=5' -X POST localhost:20215/createsurveydevices
 curl -d 'id=530&device_id=1&name=merapi&amount=5' -X POST localhost:20215/updatesurveydevices
-
 TEST SURVEY MATERIALS
 curl -d 'survey_site_id=2386&material_type=1&name=semeru&amount=5' -X POST localhost:20215/createsurveymaterials
 curl -d 'id=5973&material_type=Selang&name=semeru&amount=5' -X POST localhost:20215/updatesurveymaterials
@@ -78,9 +77,19 @@ curl -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{
             "amount":"1",
             "description":"Pak Kris/Bu Linda"
             }],
-	"images":[{"img":""}],
+	"imagesv2":[{"img":""}],
         "bas":[{"name":"ba"}]}' -X POST localhost:20215/createsurveyreport
 
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{
+	"parent_fields":[{"survey_site_id":28}],
+        "materials":[{"name":"3mm","amount":10,"material_type":"Seling"}],
+        "devices":[{
+            "name":"Mikrotik RB411",
+            "amount":"1",
+            "description":"Pak Kris/Bu Linda"
+            }],
+	"imagesv2":[{"path":"tesx"}],
+        "bas":[{"name":"ba"}]}' -X POST localhost:20215/createsurveyreport
 
 
 TEST UPDATE CLIENT

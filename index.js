@@ -15,7 +15,7 @@ i.app.post('/updateclient',(req,res)=>{
     i.execute.transaction.updateClient(req,res)
 })
 i.app.post('/proposesurvey',(req,res)=>{
-    i.execute.transaction.proposeSurvey(req,res)
+    i.execute.transaction.survey.propose(req,res)
 })
 i.app.post('/listsurveyproposal',(req,res)=>{
     i.execute.list.getSurveyProposal(req,res)
@@ -33,7 +33,7 @@ i.app.post('/createinstallreport',(req,res)=>{
     i.execute.transaction.createInstallReport(req,res)
 })
 i.app.post('/createsurveyreport',(req,res)=>{
-    i.execute.transaction.createSurveyReport(req,res)
+    i.execute.transaction.survey.createreport(req,res)
 })
 i.app.get('/getmasterservice',(req,res)=>{
     i.execute.master.getMasterService(req,res)
