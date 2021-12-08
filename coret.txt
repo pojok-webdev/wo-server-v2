@@ -60,24 +60,25 @@ Return value harus menampilkan penyebab error dengan format json, sehingga menam
 Harus ditest dengan berbagai kondisi
 
 
-| survey_bas                                        |
-| survey_bts_distances                              |
-| survey_client_distances                           |
-| survey_client_services                            |
+| survey_bas                (D)                        |
+| survey_bts_distances      (D)                       |
+| survey_client_distances   (D)                       |
+| survey_client_services    (D)
 | survey_dates                                      |
-| survey_devices                                    |
+| survey_devices            (D)                        |
 | survey_gps_datas                                  |
-| survey_images                                     |
-| survey_materials                                  |
+| survey_images             (D)                        |
+| survey_materials          (D)                        |
 | survey_requests                                   |
 | survey_requests_users                             |
 | survey_resumes                                    |
-| survey_site_distances                             |
-| survey_sites                                      |
-| survey_surveyors                                  |
+| survey_site_distances     (D)                        |
+| survey_sites              (D)                        |
+| survey_surveyors          (D)                        |
 | surveypackagedetails                              |
 | surveypackages                                    |
 | surveys               
+KARENA PERTIMBANGAN PERFORMA, TABLE SURVEY_IMAGES AKAN BERUBAH MENJADI TABLE SURVEY_IMAGESV2, yaitu dengan membuang kolom img
 
 
 1 function find_max(nums) {

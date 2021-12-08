@@ -10,7 +10,7 @@ routines = {
         sql+= '('+keys.join()+')'
         sql+= 'values '
         sql+= '("'+vals.join('","')+'")'
-        console.log('Create SQL',sql)
+        console.log('Create '+obj.tableName+' SQL',sql)
         return sql
     },
     update : obj =>{
@@ -21,6 +21,7 @@ routines = {
         sql = 'update '+obj.tableName+' '
         sql+= 'set '+arr.join()+' '
         sql+= 'where ' + obj.identifier + ' = ' + obj.identifierValue
+        console.log('Update '+obj.tableName+' SQL',sql)
         return sql
     }
 }

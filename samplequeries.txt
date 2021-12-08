@@ -15,16 +15,41 @@ curl -H 'Content-Type:application/json' -H 'Accept: application/json' -d' {
 
 officially syntax:
 curl -d 'id=1899&city=Surabayo&address=Jl. Ciliwung No. 74-B' -X POST localhost:20215/updatesurveysite
+curl -d 'survey_request_id=1908&city=Surabayo&address=Jl. Ciliwung No. 74-B' -X POST localhost:20215/createsurveysite
 
 TEST UPDATE SURVEY_BAS
 curl -d 'id=131&name=Surabayo' -X POST localhost:20215/updatesurveybas
 
 TEST UPDATE SURVEY_BTS_DISTANCE
-curl -d 'id=2385&description=Dilihat dari bulan' -X POST localhost:20215/updatesurveybtsdistance
+curl -d 'id=2385&description=Dilihat dari bulan' -X POST localhost:20215/updatesurveybtsdistances
 
 TEST CLIENT_DISTANCE
 curl -d 'id=2385&distance=1' -X POST localhost:20215/updatesurveyclientdistances
 curl -d 'survey_site_id=2386&distance=1' -X POST localhost:20215/createsurveyclientdistances
+
+TEST SURVEY DEVICES
+curl -d 'survey_site_id=2386&device_id=1&name=semeru&amount=5' -X POST localhost:20215/createsurveydevices
+curl -d 'id=530&device_id=1&name=merapi&amount=5' -X POST localhost:20215/updatesurveydevices
+
+TEST SURVEY MATERIALS
+curl -d 'survey_site_id=2386&material_type=1&name=semeru&amount=5' -X POST localhost:20215/createsurveymaterials
+curl -d 'id=5973&material_type=Selang&name=semeru&amount=5' -X POST localhost:20215/updatesurveymaterials
+
+TEST SURVEY RESUMES
+curl -d 'survey_site_id=2386&name=semeru' -X POST localhost:20215/createsurveyresumes
+curl -d 'id=5973&name=semeru' -X POST localhost:20215/updatesurveyresumes
+
+TEST SURVEY_SITE_DISTANCES
+curl -d 'survey_site_id=2386&address=gunung semeru&createuser=bebop&distance=20m' -X POST localhost:20215/createsurveysitedistances
+curl -d 'id=92&address=gunung semeru&createuser=bebob&distance=20 m' -X POST localhost:20215/updatesurveysitedistances
+
+TEST SURVEY_SURVEYORS
+curl -d 'survey_request_id=2386&name=gunung semeru&createuser=bebop&email=20m' -X POST localhost:20215/createsurveysurveyors
+curl -d 'id=2284&name=gunung bromo&createuser=bebob&email=20 m' -X POST localhost:20215/updatesurveysurveyors
+
+TEST SURVEY_IMAGES
+curl -d 'survey_site_id=2386&path=gunung semeru&createuser=bebop&description=20m' -X POST localhost:20215/createsurveyimages
+curl -d 'id=1&path=gunung bromo&createuser=bebob&roworder=2' -X POST localhost:20215/updatesurveyimages
 
 
 

@@ -122,7 +122,9 @@ survey = {
     site:surveys.site,
     bas:surveys.bas,
     bts_distance:surveys.bts_distance,
-    client_distance:surveys.client_distance
+    client_distance:surveys.client_distance,
+    device: surveys.device,material:surveys.material,
+    resume:surveys.resume,site_distance:surveys.site_distance,surveyor:surveys.surveyor,imagesv2:surveys.imagesv2
 }
 
 module.exports = {

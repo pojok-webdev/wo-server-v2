@@ -26,6 +26,9 @@ var transactionSurvey = {
 
 }
 site = {    
+    create: obj => {
+        return routines.create(obj)
+    },
     update: obj =>{
         return routines.update(obj)
     },
@@ -47,12 +50,61 @@ client_distance = {
     update: obj => {
         return routines.update(obj)
     }
-}
+},
+device = {
+    create: obj => {
+        return routines.create(obj)
+    },
+    update: obj => {
+        return routines.update(obj)
+    }
+},
+material = {
+    create: obj => {
+        return routines.create(obj)
+    },
+    update: obj => {
+        return routines.update(obj)
+    }
+},
+resume = {
+    create: obj => {
+        return routines.create(obj)
+    },
+    update: obj => {
+        return routines.update(obj)
+    }
+},
+site_distance = {
+    create: obj => {
+        return routines.create(obj)
+    },
+    update: obj => {
+        return routines.update(obj)
+    }
+},
+surveyor = {
+    create: obj => {
+        return routines.create(obj)
+    },
+    update: obj => {
+        return routines.update(obj)
+    }
+},
+imagesv2 = {
+    create: obj => {
+        return routines.create(obj)
+    },
+    update: obj => {
+        return routines.update(obj)
+    }
+},
 
 
 module.exports = {
     update:transactionSurvey.update,
     getLast:transactionSurvey.getLast,
     getByRequestId:transactionSurvey.getByRequestId,
-    site:site,bas:bas,bts_distance:bts_distance,client_distance:client_distance
+    site:site,bas:bas,bts_distance:bts_distance,client_distance:client_distance,
+    device:device,material:material,resume:resume,site_distance,surveyor:surveyor,imagesv2:imagesv2
 }

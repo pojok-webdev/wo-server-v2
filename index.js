@@ -77,6 +77,9 @@ i.app.get('/getticketsbyid/:id',(req,res)=>{
 i.app.get('/getticketsbykdticket/:kdticket',(req,res)=>{
     i.execute.list.getTicketsByKdTicket(req,res)
 })
+i.app.post('/createsurveysite',(req,res)=>{
+    i.execute.transaction.survey.site.create(req,res)
+})
 i.app.post('/updatesurveysite',(req,res)=>{
     i.execute.transaction.survey.site.update(req,res)
 })
@@ -92,4 +95,41 @@ i.app.post('/createsurveyclientdistances',(req,res)=>{
 i.app.post('/updatesurveyclientdistances',(req,res)=>{
     i.execute.transaction.survey.client_distance.update(req,res)
 })
+i.app.post('/createsurveydevices',(req,res)=>{
+    i.execute.transaction.survey.device.create(req,res)
+})
+i.app.post('/updatesurveydevices',(req,res)=>{
+    i.execute.transaction.survey.device.update(req,res)
+})
+i.app.post('/createsurveymaterials',(req,res)=>{
+    i.execute.transaction.survey.material.create(req,res)
+})
+i.app.post('/updatesurveymaterials',(req,res)=>{
+    i.execute.transaction.survey.material.update(req,res)
+})
+i.app.post('/createsurveyresumes',(req,res)=>{
+    i.execute.transaction.survey.resume.create(req,res)
+})
+i.app.post('/updatesurveyresumes',(req,res)=>{
+    i.execute.transaction.survey.resume.update(req,res)
+})
+i.app.post('/createsurveysitedistances',(req,res)=>{
+    i.execute.transaction.survey.site_distance.create(req,res)
+})
+i.app.post('/updatesurveysitedistances',(req,res)=>{
+    i.execute.transaction.survey.site_distance.update(req,res)
+})
+i.app.post('/createsurveysurveyors',(req,res)=>{
+    i.execute.transaction.survey.surveyor.create(req,res)
+})
+i.app.post('/updatesurveysurveyors',(req,res)=>{
+    i.execute.transaction.survey.surveyor.update(req,res)
+})
+i.app.post('/createsurveyimages',(req,res)=>{
+    i.execute.transaction.survey.imagesv2.create(req,res)
+})
+i.app.post('/updatesurveyimages',(req,res)=>{
+    i.execute.transaction.survey.imagesv2.update(req,res)
+})
+
 i.app.listen(process.env.PORT||i.appSetting.port)
