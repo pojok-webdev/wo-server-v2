@@ -135,5 +135,5 @@ var site = {
     },
 }
 module.exports = {
-    site:site.site,antenna:site.antenna,ap_wifi:site.ap_wifi,ba:site.ba
+    site:site.site,antenna:site.antenna,ap_wifi:site.ap_wifi,ba:site.ba,client_service:client_service
 }

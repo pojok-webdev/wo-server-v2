@@ -62,7 +62,7 @@ install = {
             res.send({result:false,description:err})
         })
     },
-    site:installs.site,antenna:installs.antenna,ap_wifi:installs.ap_wifi,ba:installs.ba
+    site:installs.site,antenna:installs.antenna,ap_wifi:installs.ap_wifi,ba:installs.ba,client_service:installs.client_service
 }
 survey = {
     propose : (req,res) => {

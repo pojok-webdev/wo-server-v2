@@ -48,11 +48,15 @@ site = {
 ba = {
     create:(req,res)=>{create(req,res,'ba','install_bas')},
     update:(req,res)=>{update(req,res,'ba','install_bas')}
+},
+client_service = {
+    create:(req,res)=>{create(req,res,'client_service','install_client_services')},
+    update:(req,res)=>{update(req,res,'client_service','install_client_services')}
 }
 
 module.exports = {
     site:site,
     antenna:antenna,
     ap_wifi:ap_wifi,
-    ba:ba
+    ba:ba,client_service:client_service
 }

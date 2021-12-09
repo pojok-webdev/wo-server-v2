@@ -13,3 +13,8 @@ curl -d 'id=143&tipe=Surabayeah&macboard=Jl. Ciliwung No. 74-Ba' -X POST localho
 TEST INSTALL BA
 curl -d 'install_site_id=1908&name=Surabayo&path=beb' -X POST localhost:20215/createinstallba
 curl -d 'id=1229&name=Surabayeah&path=Jl. Ciliwung No. 74-Ba' -X POST localhost:20215/updateinstallba
+
+TEST INSTALL BA
+curl -d 'install_site_id=1908&name=Surabayo&path=beb' -X POST localhost:20215/createinstallclientservice
+curl -d 'id=1229&name=Surabayeah&path=Jl. Ciliwung No. 74-Ba' -X POST localhost:20215/updateinstallclientservice
+
