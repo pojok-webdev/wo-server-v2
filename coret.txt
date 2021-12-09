@@ -11,22 +11,24 @@ createsurveyreport
 
 
 
-table-table pada createsurveyreport:
-| survey_bas                                        |
-| survey_bts_distances                              |
-| survey_client_distances                           |
-| survey_client_services                            |
-| survey_dates                                      |
-| survey_devices                                    |
-| survey_gps_datas                                  |
-| survey_images                                     |
-| survey_materials                                  |
-| survey_requests                                   |
-| survey_requests_users                             |
-| survey_resumes                                    |
-| survey_site_distances                             |
-| survey_sites                                      |
-| survey_surveyors                                  |
+| install_antennas                      f
+| install_ap_wifis                      f
+| install_bas                           f
+| install_client_services               f
+| install_client_servies                            |
+| install_dates                                     |
+| install_files                                     |
+| install_images                                    |
+| install_installers                   f
+| install_materials                    f
+| install_pccards                      f
+| install_requests                                  |
+| install_requests_users                            |
+| install_resumes                     f
+| install_routers                     f
+| install_sites                       f
+| install_switches                                  |
+| install_wireless_radios                           |
 
 PROPOSE SURVEY
 survey_requests (client_id),

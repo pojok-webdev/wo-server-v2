@@ -1,5 +1,6 @@
-i = require('./../../js/initmodules')
-surveys = require('./surveys')
+i = require('./../../js/initmodules'),
+surveys = require('./surveys'),
+installs = require('./installs')
 insertsuspect = (req,res) => {
     chk = i.check.transactions.check(req.body,i.field.suspect.mandatories,i.field.suspect.allfields,i.field.suspect.numberfields)
     if(chk.result){
@@ -60,8 +61,8 @@ install = {
         },err=>{
             res.send({result:false,description:err})
         })
-    }
-        
+    },
+    site:installs.site,antenna:installs.antenna,ap_wifi:installs.ap_wifi,ba:installs.ba
 }
 survey = {
     propose : (req,res) => {
@@ -132,7 +133,7 @@ module.exports = {
     updateClient:updateclient,
     proposeInstall:install.propose,
     createInstallReport:install.createreport,
-//    createSurveyReport:survey.createreport,
     updateSurvey:survey.update,
-    survey:survey
+    survey:survey,
+    install:install
 }

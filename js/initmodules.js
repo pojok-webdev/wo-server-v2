@@ -23,7 +23,8 @@ var connection = require('./connection'),
             prospect: require('./queries/lists/prospects'),
             client: require('./queries/lists/clients'),
         },
-        survey:require('./queries/transactions/surveys')
+        survey:require('./queries/transactions/surveys'),
+        install:require('./queries/transactions/installs')
     },
     field = {
         suspect : require('../fields/insertsuspect/fields'),
@@ -36,7 +37,8 @@ var connection = require('./connection'),
         },
         install : {
             propose:require('../fields/installs/propose'),
-            report:require('../fields/report/install/create')
+            report:require('../fields/report/install/create'),
+            transaction:require('./../fields/installs/sites')
         },
         report : {
             install : require('../fields/report/install/create')

@@ -1,0 +1,15 @@
+TEST INSTALL SITE
+curl -d 'install_request_id=1908&city=Surabayo&address=Jl. Ciliwung No. 74-B' -X POST localhost:20215/createinstallsite
+curl -d 'id=193&city=Surabayo&address=Jl. Ciliwung No. 74-Bi' -X POST localhost:20215/updateinstallsite
+
+TEST INSTALL ANTENNAS
+curl -d 'install_site_id=1908&name=Surabayo&amount=beb' -X POST localhost:20215/createinstallantenna
+curl -d 'id=522&name=Surabayeo&amount=Jl. Ciliwung No. 74-Be' -X POST localhost:20215/updateinstallantenna
+
+TEST INSTALL APWIFIS
+curl -d 'install_site_id=1908&tipe=Surabayo&macboard=beb' -X POST localhost:20215/createinstallapwifi
+curl -d 'id=143&tipe=Surabayeah&macboard=Jl. Ciliwung No. 74-Ba' -X POST localhost:20215/updateinstallapwifi
+
+TEST INSTALL BA
+curl -d 'install_site_id=1908&name=Surabayo&path=beb' -X POST localhost:20215/createinstallba
+curl -d 'id=1229&name=Surabayeah&path=Jl. Ciliwung No. 74-Ba' -X POST localhost:20215/updateinstallba

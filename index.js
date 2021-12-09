@@ -131,5 +131,28 @@ i.app.post('/createsurveyimages',(req,res)=>{
 i.app.post('/updatesurveyimages',(req,res)=>{
     i.execute.transaction.survey.imagesv2.update(req,res)
 })
-
+i.app.post('/createinstallsite',(req,res)=>{
+    i.execute.transaction.install.site.create(req,res)
+})
+i.app.post('/updateinstallsite',(req,res)=>{
+    i.execute.transaction.install.site.update(req,res)
+})
+i.app.post('/createinstallantenna',(req,res)=>{
+    i.execute.transaction.install.antenna.create(req,res)
+})
+i.app.post('/updateinstallantenna',(req,res)=>{
+    i.execute.transaction.install.antenna.update(req,res)
+})
+i.app.post('/createinstallapwifi',(req,res)=>{
+    i.execute.transaction.install.ap_wifi.create(req,res)
+})
+i.app.post('/updateinstallapwifi',(req,res)=>{
+    i.execute.transaction.install.ap_wifi.update(req,res)
+})
+i.app.post('/createinstallba',(req,res)=>{
+    i.execute.transaction.install.ba.create(req,res)
+})
+i.app.post('/updateinstallba',(req,res)=>{
+    i.execute.transaction.install.ba.update(req,res)
+})
 i.app.listen(process.env.PORT||i.appSetting.port)
