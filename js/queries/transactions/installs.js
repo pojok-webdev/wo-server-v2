@@ -64,6 +64,14 @@ install = {
         create:obj=>{return routines.create(obj)},
         update:obj=>{return routines.update(obj)}
     },
+    switches:{
+        create:obj=>{return routines.create(obj)},
+        update:obj=>{return routines.update(obj)}
+    },
+    request:{
+        create:obj=>{return routines.create(obj)},
+        update:obj=>{return routines.update(obj)}
+    },
 }
 module.exports = {
     site:install.site,
@@ -81,5 +89,5 @@ module.exports = {
     request_user:install.request_user,
     resume:install.resume,
     router:install.router,
-    wireless_radio:install.wireless_radio,
+    wireless_radio:install.wireless_radio,switches:install.switches,request:install.request
 }

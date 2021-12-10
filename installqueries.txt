@@ -14,7 +14,24 @@ TEST INSTALL BA
 curl -d 'install_site_id=1908&name=Surabayo&path=beb' -X POST localhost:20215/createinstallba
 curl -d 'id=1229&name=Surabayeah&path=Jl. Ciliwung No. 74-Ba' -X POST localhost:20215/updateinstallba
 
-TEST INSTALL BA
-curl -d 'install_site_id=1908&name=Surabayo&path=beb' -X POST localhost:20215/createinstallclientservice
-curl -d 'id=1229&name=Surabayeah&path=Jl. Ciliwung No. 74-Ba' -X POST localhost:20215/updateinstallclientservice
+TEST INSTALL CLIENT SERVICES
+curl -d 'client_id=1908&client_site_id=2&service_type=2' -X POST localhost:20215/createinstallclientservice
+curl -d 'client_id=1229&client_site_id=3&service_type=1' -X POST localhost:20215/updateinstallclientservice
+
+TEST INSTALL SWITCHES
+curl -d 'install_site_id=1908&name=Surabayo&user=beb' -X POST localhost:20215/createinstallswitches
+curl -d 'id=1229&name=Surabayeah&user=Jl. Ciliwung No. 74-Ba' -X POST localhost:20215/updateinstallswitches
+
+TEST INSTALL WIRELESS RADIO
+curl -d 'install_site_id=1908&tipe=Surabayo&macboard=beb' -X POST localhost:20215/createinstallwirelessradio
+curl -d 'id=516&tipe=xxx&macboard=hehe' -X POST localhost:20215/updateinstallwirelessradio
+
+TEST INSTALL IMAGES
+curl -d 'install_site_id=1908&path=Surabayo&title=beb' -X POST localhost:20215/createinstallimage
+curl -d 'id=5195&path=xxx&title=hehe' -X POST localhost:20215/updateinstallimage
+
+TEST INSTALL REQUEST
+curl -d 'survey_request_id=1908&pic_name=Surabayo&pic_position=beb' -X POST localhost:20215/createinstallrequest
+curl -d 'id=934&pic_name=xxx&pic_position=hehe' -X POST localhost:20215/updateinstallrequest
+
 

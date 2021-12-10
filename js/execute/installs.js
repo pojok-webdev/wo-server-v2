@@ -52,11 +52,26 @@ ba = {
 client_service = {
     create:(req,res)=>{create(req,res,'client_service','install_client_services')},
     update:(req,res)=>{update(req,res,'client_service','install_client_services')}
+},
+switches = {
+    create:(req,res)=>{create(req,res,'switches','install_switches')},
+    update:(req,res)=>{update(req,res,'switches','install_switches')}
+},
+wireless_radio = {
+    create:(req,res)=>{create(req,res,'wireless_radio','install_wireless_radios')},
+    update:(req,res)=>{update(req,res,'wireless_radio','install_wireless_radios')}
+},
+image = {
+    create:(req,res)=>{create(req,res,'image','install_imagesv2')},
+    update:(req,res)=>{update(req,res,'image','install_imagesv2')}
 }
-
+request = {
+    create:(req,res)=>{create(req,res,'request','install_requests')},
+    update:(req,res)=>{update(req,res,'request','install_requests')}
+}
 module.exports = {
     site:site,
     antenna:antenna,
     ap_wifi:ap_wifi,
-    ba:ba,client_service:client_service
+    ba:ba,client_service:client_service,switches:switches,wireless_radio:wireless_radio,image:image,request:request
 }

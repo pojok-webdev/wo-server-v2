@@ -161,4 +161,28 @@ i.app.post('/createinstallclientservice',(req,res)=>{
 i.app.post('/updateinstallclientservice',(req,res)=>{
     i.execute.transaction.install.client_service.update(req,res)
 })
+i.app.post('/createinstallswitches',(req,res)=>{
+    i.execute.transaction.install.switches.create(req,res)
+})
+i.app.post('/updateinstallswitches',(req,res)=>{
+    i.execute.transaction.install.switches.update(req,res)
+})
+i.app.post('/createinstallwirelessradio',(req,res)=>{
+    i.execute.transaction.install.wireless_radio.create(req,res)
+})
+i.app.post('/updateinstallwirelessradio',(req,res)=>{
+    i.execute.transaction.install.wireless_radio.update(req,res)
+})
+i.app.post('/createinstallimage',(req,res)=>{
+    i.execute.transaction.install.image.create(req,res)
+})
+i.app.post('/updateinstallimage',(req,res)=>{
+    i.execute.transaction.install.image.update(req,res)
+})
+i.app.post('/createinstallrequest',(req,res)=>{
+    i.execute.transaction.install.request.create(req,res)
+})
+i.app.post('/updateinstallrequest',(req,res)=>{
+    i.execute.transaction.install.request.update(req,res)
+})
 i.app.listen(process.env.PORT||i.appSetting.port)

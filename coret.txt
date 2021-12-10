@@ -18,17 +18,20 @@ createsurveyreport
 | install_client_servies                            |
 | install_dates                                     |
 | install_files                                     |
-| install_images                                    |
+| install_images        -> install_imagesv2   f
 | install_installers                   f
 | install_materials                    f
 | install_pccards                      f
-| install_requests                                  |
+| install_requests                     f
 | install_requests_users                            |
 | install_resumes                     f
 | install_routers                     f
 | install_sites                       f
-| install_switches                                  |
-| install_wireless_radios                           |
+| install_switches                    f              |
+| install_wireless_radios             f              |
+create table install_imagesv2 select id,install_site_id,path,title,roworder,description,username,create_date createdate from
+ install_images;
+
 
 PROPOSE SURVEY
 survey_requests (client_id),

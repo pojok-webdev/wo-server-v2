@@ -133,7 +133,60 @@ var site = {
             numberfields : ['id']
         }
     },
+    client_service : {
+        create:{
+            mandatories : ['install_site_id'],
+            allfields : ['id','install_site_id','name','port','ismanaged','user','password','createuser'],
+            numberfields : ['id','install_site_id']
+        },
+        update:{
+            mandatories : ['id'],
+            allfields : ['id','install_site_id','name','port','ismanaged','user','password'],
+            numberfields : ['id']
+        }
+    },
+    switches : {
+        create:{
+            mandatories : ['install_site_id'],
+            allfields : ['id','install_site_id','name','port','ismanaged','user','password','createuser'],
+            numberfields : ['id','install_site_id']
+        },
+        update:{
+            mandatories : ['id'],
+            allfields : ['id','install_site_id','name','port','ismanaged','user','password'],
+            numberfields : ['id']
+        }
+    },
+    image : {
+        create:{
+            mandatories : ['install_site_id'],
+            allfields : ['id','install_site_id','path','title','roworder','description','username'],
+            numberfields : ['id','install_site_id','roworder']
+        },
+        update:{
+            mandatories : ['id'],
+            allfields : ['id','install_site_id','path','title','roworder','description','username'],
+            numberfields : ['id','install_site_id','roworder']
+        }
+    },
+    request : {
+        create:{
+            mandatories : ['survey_request_id'],
+            allfields : ['id','survey_request_id','client_id','client_site_id','service_id','direction','pic_name','pic_position','pic_phone_area','pic_phone','pic_email','install_date','withtrial','trialdistance','trial_permanent','trial_periode1','trial_period1exec','trial_periode2','trial_period2exec','accepted','permit','reschedule1','reschedule2','fix_install_date','description','status','createuser'],
+            numberfields : ['id','survey_request_id','roworder']
+        },
+        update:{
+            mandatories : ['id'],
+            allfields : ['id','survey_request_id','client_id','client_site_id','service_id','direction','pic_name','pic_position','pic_phone_area','pic_phone','pic_email','install_date','withtrial','trialdistance','trial_permanent','trial_periode1','trial_period1exec','trial_periode2','trial_period2exec','accepted','permit','reschedule1','reschedule2','fix_install_date','description','status'],
+            numberfields : ['id','survey_request_id','roworder']
+        }
+    },
 }
 module.exports = {
-    site:site.site,antenna:site.antenna,ap_wifi:site.ap_wifi,ba:site.ba,client_service:client_service
+    site:site.site,
+    antenna:site.antenna,
+    ap_wifi:site.ap_wifi,
+    ba:site.ba,
+    client_service:site.client_service,
+    switches:site.switches,wireless_radio:site.wireless_radio,image:site.image,request:site.request
 }
