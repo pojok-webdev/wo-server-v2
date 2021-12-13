@@ -9,7 +9,10 @@ parameter json terdapat pada:
 createinstallreport
 createsurveyreport
 
-
+penambahan PIC
+add
+edit
+list
 
 | install_antennas                      f
 | install_ap_wifis                      f

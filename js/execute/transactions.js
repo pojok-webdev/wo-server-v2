@@ -1,6 +1,7 @@
 i = require('./../../js/initmodules'),
 surveys = require('./surveys'),
-installs = require('./installs')
+installs = require('./installs'),
+pics = require('./pics')
 insertsuspect = (req,res) => {
     chk = i.check.transactions.check(req.body,i.field.suspect.mandatories,i.field.suspect.allfields,i.field.suspect.numberfields)
     if(chk.result){
@@ -127,7 +128,9 @@ survey = {
     device: surveys.device,material:surveys.material,
     resume:surveys.resume,site_distance:surveys.site_distance,surveyor:surveys.surveyor,imagesv2:surveys.imagesv2
 }
-
+pic = {
+    list:pics.list,create:pics.create,update:pics.update
+}
 module.exports = {
     insertSuspect:insertsuspect,
     updateClient:updateclient,
@@ -135,5 +138,6 @@ module.exports = {
     createInstallReport:install.createreport,
     updateSurvey:survey.update,
     survey:survey,
-    install:install
+    install:install,
+    pic:pic
 }

@@ -1,4 +1,14 @@
 routines = {
+    list:obj=>{
+        cols = []
+        obj.columns.forEach(el=>{
+            cols.push(el)
+        })
+        sql = 'select '+cols.join()+' from '+obj.tableName+' '
+        sql+= 'where '+obj.identifier+' = ' + obj.identifierValue
+        console.log('SQL',sql)
+        return sql
+    },
     create: obj => {
         keys = []
         vals = []
@@ -26,6 +36,7 @@ routines = {
     }
 }
 module.exports = {
+    list:routines.list,
     create:routines.create,
     update:routines.update
 }

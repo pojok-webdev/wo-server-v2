@@ -185,4 +185,13 @@ i.app.post('/createinstallrequest',(req,res)=>{
 i.app.post('/updateinstallrequest',(req,res)=>{
     i.execute.transaction.install.request.update(req,res)
 })
+i.app.post('/getpics',(req,res)=>{
+    i.execute.transaction.pic.list(req,res)
+})
+i.app.post('/createpic',(req,res)=>{
+    i.execute.transaction.pic.create(req,res)
+})
+i.app.post('/updatepic',(req,res)=>{
+    i.execute.transaction.pic.update(req,res)
+})
 i.app.listen(process.env.PORT||i.appSetting.port)

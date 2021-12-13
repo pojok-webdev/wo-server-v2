@@ -24,7 +24,8 @@ var connection = require('./connection'),
             client: require('./queries/lists/clients'),
         },
         survey:require('./queries/transactions/surveys'),
-        install:require('./queries/transactions/installs')
+        install:require('./queries/transactions/installs'),
+        pic:require('./queries/lists/pic')
     },
     field = {
         suspect : require('../fields/insertsuspect/fields'),
@@ -42,7 +43,8 @@ var connection = require('./connection'),
         },
         report : {
             install : require('../fields/report/install/create')
-        }
+        },
+        pic:require('./../fields/pic')
     }
 module.exports = {
     connection:connection,

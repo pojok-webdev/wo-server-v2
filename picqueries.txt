@@ -1,0 +1,4 @@
+getpics
+curl -d 'client_id=10323' -X POST localhost:20215/getpics
+curl -d 'id=7536&name=Pocy&address=Jl. Ciliwung No. 74-B' -X POST localhost:20215/updatepic
+curl -d 'client_id=10323&name=Poco&address=Jl. Ciliwung No. 74-Bi' -X POST localhost:20215/createpic
