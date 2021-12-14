@@ -1,3 +1,4 @@
+//i.app.listen(process.env.PORT||i.appSetting.port)
 getpics
 curl -d 'client_id=10323' -X POST localhost:20215/getpics
 curl -d 'id=7536&name=Pocy&address=Jl. Ciliwung No. 74-B' -X POST localhost:20215/updatepic

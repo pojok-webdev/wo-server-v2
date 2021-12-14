@@ -98,3 +98,4 @@ KARENA PERTIMBANGAN PERFORMA, TABLE SURVEY_IMAGES AKAN BERUBAH MENJADI TABLE SUR
 7 }
 8 return max_num;
 9 }
+//i.app.listen(process.env.PORT||i.appSetting.port)

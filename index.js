@@ -194,4 +194,7 @@ i.app.post('/createpic',(req,res)=>{
 i.app.post('/updatepic',(req,res)=>{
     i.execute.transaction.pic.update(req,res)
 })
-i.app.listen(process.env.PORT||i.appSetting.port)
+
+i.app.listen(i.appSetting.port,_=>{
+    console.log('Server start at port ',i.appSetting.port)
+})
