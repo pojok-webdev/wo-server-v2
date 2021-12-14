@@ -196,5 +196,5 @@ i.app.post('/updatepic',(req,res)=>{
 })
 
 i.app.listen(i.appSetting.port,_=>{
-    console.log('Server start at port ',i.appSetting.port)
+    console.log('Work Order Server start at port ',i.appSetting.port)
 })
