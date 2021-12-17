@@ -20,9 +20,10 @@ describe('Test Survey Functions', () => {
             .end((err, res) => {
                 console.log('should insert',res.text)
                 obj = JSON.parse(res.text)
+                result = JSON.parse(res.result)
                 res.should.have.status(200);
                 obj.should.be.a('object');
-                obj.result.should.be.eql(true);
+                result.should.be.eql(true);
             done();
             });
 
