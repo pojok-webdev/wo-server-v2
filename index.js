@@ -12,6 +12,7 @@ i.app.post('/insertsuspect',(req,res)=>{
     i.execute.transaction.insertSuspect(req,res)
 })
 i.app.post('/updateclient',(req,res)=>{
+    console.log('RES',res)
     i.execute.transaction.updateClient(req,res)
 })
 i.app.post('/proposesurvey',(req,res)=>{

@@ -96,6 +96,7 @@ curl -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{
 TEST UPDATE CLIENT
 curl -d 'id=client_id&prospectdate=YYY-MM-DD' -X POST http://server:port/updateclient
 curl -d 'id=100&npwp=BMP' -X POST localhost:20215/updateclient
+curl -d 'id=1818&npwp=BMP&name=Abdullah M' -X POST localhost:20215/updateclient
 
 curl -d 'id=10320&name=PadiOK' -X POST http://localhost:20215/updateclient
 

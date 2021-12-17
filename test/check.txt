@@ -1,0 +1,4 @@
+getclientpicbyclientid -> getclientpicbyclientid
+getclientservicebyclientid -> clients.js
+insertsuspect -> suspects.js
+updateclient -> clients.js
