@@ -18,7 +18,7 @@ describe('Test Survey Functions', () => {
             .post('/proposesurvey')
             .send(client)
             .end((err, res) => {
-                console.log('should insert',res.text)
+                console.log('should insert',res)
                 obj = JSON.parse(res.text)
                 result = JSON.parse(res.result)
                 res.should.have.status(200);
