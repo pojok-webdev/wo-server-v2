@@ -5,7 +5,7 @@ chaiHttp = require('chai-http'),
 expect = require('chai').expect,
 request = require('request'),
 should = chai.should(),
-server = 'localhost:20215'
+server = 'localhost:'+i.appSetting.port
 chai.use(chaiHttp)
 describe('Test Client Functions ',_=>{
     it('Get List Client By Name', function(done) {

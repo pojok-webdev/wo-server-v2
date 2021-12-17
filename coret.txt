@@ -98,6 +98,14 @@ KARENA PERTIMBANGAN PERFORMA, TABLE SURVEY_IMAGES AKAN BERUBAH MENJADI TABLE SUR
 7 }
 8 return max_num;
 9 }
+
+    it('Get List Client By Name', function(done) {
+        request('http://localhost:20215/getlistclientsbyname/tdjak' , function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
+            done();
+        });
+    });
+
 //i.app.listen(process.env.PORT||i.appSetting.port)
 describe.skip( to skip test )
 simulation server : ~/jsserver/padiappisimulasi$
