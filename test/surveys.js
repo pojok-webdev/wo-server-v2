@@ -7,7 +7,7 @@ request = require('request'),
 should = chai.should(),
 server = 'localhost:'+i.appSetting.port
 chai.use(chaiHttp)
-describe.skip('Test Survey Functions', () => {
+describe('Test Survey Functions', () => {
     it('it should propose survey',(done)=>{
         let client = {
             name: "Tjakrindow",
