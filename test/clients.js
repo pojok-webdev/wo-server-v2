@@ -7,7 +7,7 @@ request = require('request'),
 should = chai.should(),
 server = 'localhost:'+i.appSetting.port
 chai.use(chaiHttp)
-describe('Test Client Functions ',_=>{
+describe('TEST CLIENT FUNCTIONS ',_=>{
     it('Get List Client By Name', function(done) {
         request('http://localhost:20215/getlistclientsbyname/tdjak' , function(error, response, body) {
             expect(response.statusCode).to.equal(200);

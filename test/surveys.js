@@ -7,8 +7,8 @@ request = require('request'),
 should = chai.should(),
 server = 'localhost:'+i.appSetting.port
 chai.use(chaiHttp)
-describe('Test Survey Functions', () => {
-    it('it should propose survey',(done)=>{
+describe('TEST SURVEY FUNCTIONS', () => {
+    it('it should not propose survey, check don have item',(done)=>{
         let client = {
             name: "Tjakrindow",
             phone_area: "031",
@@ -18,12 +18,32 @@ describe('Test Survey Functions', () => {
             .post('/proposesurvey')
             .send(client)
             .end((err, res) => {
-                console.log('should insert',res)
+                console.log('should insert',res.text)
                 obj = JSON.parse(res.text)
-                result = JSON.parse(res.result)
                 res.should.have.status(200);
                 obj.should.be.a('object');
-                res.result.should.be.eql(true);
+                obj.result.should.be.eql(false);
+            done();
+            });
+
+    })
+    it('it should propose survey, complete mandatories',(done)=>{
+        let client = {
+            name: "Tjakrindow",
+            client_id:1,
+            branch_id:1,survey_date:'2021-12-01',city:'Surayba',pic_name:'Jojo',pic_phone:'',
+            phone_area: "031",
+            phone: "1954",address:"Majyjen Sungkono",business_field:"COmpany"
+        }
+        chai.request(server)
+            .post('/proposesurvey')
+            .send(client)
+            .end((err, res) => {
+                console.log('should insert',res.text)
+                obj = JSON.parse(res.text)
+                res.should.have.status(200);
+                obj.should.be.a('object');
+                obj.result.should.be.eql(true);
             done();
             });
 

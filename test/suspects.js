@@ -7,7 +7,7 @@ request = require('request'),
 should = chai.should(),
 server = 'localhost:'+i.appSetting.port
 chai.use(chaiHttp)
-describe('Test Suspect Functions', () => {
+describe('TEST SUSPECT FUNCTIONS', () => {
     it('it should not POST a suspect without mandatory field', (done) => {
         let client = {
             name: "Tjakrindow",
