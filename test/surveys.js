@@ -23,7 +23,7 @@ describe('Test Survey Functions', () => {
                 result = JSON.parse(res.result)
                 res.should.have.status(200);
                 obj.should.be.a('object');
-                result.should.be.eql(true);
+                res.result.should.be.eql(true);
             done();
             });
 
