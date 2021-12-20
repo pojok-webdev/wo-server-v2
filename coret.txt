@@ -109,3 +109,5 @@ KARENA PERTIMBANGAN PERFORMA, TABLE SURVEY_IMAGES AKAN BERUBAH MENJADI TABLE SUR
 //i.app.listen(process.env.PORT||i.appSetting.port)
 describe.skip( to skip test )
 simulation server : ~/jsserver/padiappisimulasi$
+conf : /etc/init/wo-server-v2-simulasi.conf 
+start : sudo service wo-server-v2-simulasi start

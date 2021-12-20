@@ -103,8 +103,46 @@
                         <h5>Contoh</h5>
                         <code>
                                 curl -d 'install_request_id=1908&city=Surabayo&address=Jl. Ciliwung No. 74-B' -X POST localhost:20215/createinstallsite
-
                         </code>
+                        <h5>Syntax</h5>
+                        <code>
+                                curl -d 'id=<strong>install_site_id</strong>&city=<strong>request_city</strong>&<strong>request_address</strong>' -X POST localhost:20215/updateinstallsite
+                        </code>
+                        <h5>Contoh</h5>
+                        <code>
+                                curl -d 'id=193&city=Surabayo&address=Jl. Ciliwung No. 74-Bi' -X POST localhost:20215/updateinstallsite
+                        </code>
+                        <h4>Antenna</h4>
+                        <h5>Syntax</h5>
+                        <code>
+                                curl -d 'install_site_id=<strong>install_site_id</strong>&name=<strong>antenna_name</strong>&amount=<strong>amount</strong>' -X POST localhost:20215/createinstallantenna
+                        </code>
+                        <h5>Contoh</h5>
+                        <code>
+                                curl -d 'install_site_id=1908&name=Pigtail&amount=1' -X POST localhost:20215/createinstallantenna
+                        </code>
+                        <h4>AP Wifi</h4>
+                        <h5>Syntax</h5>
+                        <code>
+                                curl -d 'install_site_id=<strong>install_site_id</strong>&tipe=<strong>apwifi_type</strong>&macboard=<strong>apwifi_macboard</strong>' -X POST localhost:20215/createinstallapwifi
+                        </code>
+                        <h5>Contoh</h5>
+                        <code>
+                                curl -d 'install_site_id=1908&tipe=Surabayo&macboard=beb' -X POST localhost:20215/createinstallapwifi
+                        </code>
+                        <h4>BA</h4>
+                        <h5>Syntax</h5>
+                        <code>
+                                curl -d 'install_site_id=<strong>install_site_id</strong>&name=<strong>ba_name</strong>&path=<strong>ba_path</strong>' -X POST localhost:20215/createinstallba
+                        </code>
+                        <h5>Contoh</h5>
+                        <code>
+                                curl -d 'install_site_id=1908&name=Surabayo&path=beb' -X POST localhost:20215/createinstallba
+                        </code>
+                        <h4>Layanan Pelanggan</h4>
+                        <h4>Switch</h4>
+                        <h4>Wireless Radio</h4>
+                        <h4>Gambar</h4>
                         <h1>Ticket</h1>
                         <h1>Service</h1>
                         <h1>Devices</h1>
@@ -117,7 +155,6 @@
     (function($){
         $('#btnCloser').click(function(){
             $('#divListOfContent').toggle()
-            //$('#idSticky').css('left',$("#divListOfContent").css("width"))
         })
         $("#btnTop").click(function(){
             document.documentElement.scrollTop = 0;
