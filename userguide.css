@@ -1,3 +1,54 @@
 h2{
     color:tomato
 }
+h3{
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+#idSticky{
+    position:fixed;
+    top:50%;
+    width:20px;
+    height: 50px;
+}
+#wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+#divListOfContent{
+    width:100px;
+    background-color: gold;
+    padding:10px;
+}
+#main{
+    padding-left: 10px;
+}
+.ullistofcontent{
+    list-style-type: none;
+    margin:1;
+    padding:0;
+}
+.ullistofcontent:link{
+    text-decoration: none;
+}
+.ullistofcontent:visited{
+    text-decoration: none;
+}
+.ullistofcontent:hover{
+    text-decoration: none;
+}
+.ullistofcontent:active{
+    text-decoration: none;
+}
+.ulnavigator{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+}
+.btn{
+    padding: 5px;
+    margin: 5px;
+}
+.btn:hover{
+    color: red;
+}
