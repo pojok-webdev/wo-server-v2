@@ -1,7 +1,8 @@
 var i = require('./js/initapp')
 i.app.get('/help',(req,res)=>{
-    res.send(i.help.parse(i.help.common()))
+    res.render('home',{})
 })
+
 i.app.get('/getclientpicbyclientid/:id',(req,res)=>{
     i.execute.master.getClientPicByClientId(req,res)
 })
@@ -195,7 +196,32 @@ i.app.post('/createpic',(req,res)=>{
 i.app.post('/updatepic',(req,res)=>{
     i.execute.transaction.pic.update(req,res)
 })
-
+i.app.post('/uplaa',(req,res)=>{
+    var form = new formidable.IncomingForm()
+    form.parse(req,(err,field,files)=>{
+        oldpath = files.image.filepath;
+        timestamp = Date.now()
+        newpath = '/home/webdev/'+timestamp+'.jpg'
+        fs.rename(oldpath,newpath,err=>{
+            console.log(oldpath)
+            res.send({result:'ok',id:timestamp})
+        })
+    })
+})
+i.app.post('/surveyimages',(req,res)=>{
+    var form = new formidable.IncomingForm()
+    form.parse(req,(err,field,files)=>{
+        oldpath = files.image.filepath;
+        timestamp = Date.now()
+        newpath = '/home/webdev/'+timestamp+'.jpg'
+        fs.rename(oldpath,newpath,err=>{
+            console.log(oldpath)
+            console.log('REQ',req.body)
+            //i.execute.transaction.survey.imagesv2.create(req,res)
+            res.send({result:'ok',id:timestamp})
+        })
+    })
+})
 i.app.listen(i.appSetting.port,_=>{
     console.log('Work Order Server start at port ',i.appSetting.port)
 })

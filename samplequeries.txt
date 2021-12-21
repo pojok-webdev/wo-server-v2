@@ -146,3 +146,6 @@ curl localhost:20215/getticketsbyid/21885
 
 TEST LIST PROPOSAL SURVEY
 curl -d 'segment=0&offset=10' -X POST localhost:20215/listsurveyproposal/
+
+
+curl -k -X POST -F 'image=@/home/webdev/pisau.jpg' -v  http://localhost:20215/uplaa/

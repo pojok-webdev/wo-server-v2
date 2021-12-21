@@ -3,11 +3,21 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     appconfig = require('./configs'),
     appSetting = appconfig.appSetting(),
-    help = require('./../js/help/index'),
     execute_transaction = require('./../js/execute/transactions'),
     execute_master = require('./../js/execute/masters'),
     execute_list = require('./../js/execute/lists');
-    app.engine('html',require('ejs').renderFile)
+    formidable = require('formidable');
+    fs = require('fs');
+    path = require('path');
+    app.set('view engine','ejs')
+    app.set('views',path.join(__dirname,'../help'))
+    //app.use(express.static(__dirname+'/../help'))
+    app.use(express.static(__dirname+'/../'))
+
+
+
+
+   // app.engine('html',require('ejs').renderFile)
     app.use(function(req,res,next){
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept");
@@ -18,12 +28,10 @@ app.use(bodyParser.urlencoded({limit:'10mb',extended:true}))
 
 module.exports = {
     execute:{
-        help:help,
         transaction:execute_transaction,
         master:execute_master,
         list:execute_list
     },
-    help:help,
     app:app,
     appSetting:appSetting,
 }

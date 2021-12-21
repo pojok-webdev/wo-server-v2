@@ -1,0 +1,24 @@
+<h2 id="survey">Survey</h2>
+<h3>Get Surveys</h3>
+<h5>Syntax</h5>
+<code>curl -d 'segment= <strong> baris_awal </strong> &offset= <strong> jumlah_baris </strong> ' -X POST localhost:20215/listsurveyproposal/</code>
+<h5>Contoh</h5>
+<code>curl -d 'segment=0&offset=10' -X POST localhost:20215/listsurveyproposal/</code>
+<h3>Pengajuan Survey</h3>
+<h5>Syntax</h5>
+<code>
+        curl -d "client_id= <strong> client_id </strong> &branch_id= <strong> branch_id </strong> &survey_date= <strong> survey_date </strong> &address= <strong> client_address </strong> &city= <strong> client_city </strong> &pic_name= <strong> client_pic </strong> &pic_phone= <strong> pic_phone </strong> &pic_email= <strong>pic_email</strong> " -X POST localhost:20215/proposesurvey
+</code>
+<h5>Contoh</h5>
+<code>
+        curl -d "client_id=111&branch_id=1&survey_date=2021-11-30&address=Jl Gadjah Mada Sidoarjo&city=Sidoarjo&pic_name=Budi&pic_phone=0888123456&pic_email=budi@company.com" -X POST localhost:20215/proposesurvey
+</code>
+<h3>Update Pengajuan Survey</h3>
+<h5>Syntax</h5>
+<code>
+    curl -d 'id=<strong>survey_id</strong>&city=<strong>city_name</strong>&address=<strong>alamat_survey</strong>' -X POST localhost:20215/surveyupdate
+</code>
+<h5>Contoh</h5>
+<code>
+    curl -d 'id=1897&city=Surabaya&address=Jl. Ciliwung No. 74-B' -X POST localhost:20215/surveyupdate
+</code>
