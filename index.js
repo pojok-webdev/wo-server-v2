@@ -210,15 +210,15 @@ i.app.post('/uplaa',(req,res)=>{
 })
 i.app.post('/surveyimages',(req,res)=>{
     var form = new formidable.IncomingForm()
+    console.log('REQ',req.body)
     form.parse(req,(err,field,files)=>{
         oldpath = files.image.filepath;
         timestamp = Date.now()
         newpath = '/home/webdev/'+timestamp+'.jpg'
         fs.rename(oldpath,newpath,err=>{
             console.log(oldpath)
-            console.log('REQ',req.body)
-            //i.execute.transaction.survey.imagesv2.create(req,res)
-            res.send({result:'ok',id:timestamp})
+            i.execute.transaction.survey.imagesv2.create(req,res)
+            //res.send({result:'ok',id:timestamp})
         })
     })
 })

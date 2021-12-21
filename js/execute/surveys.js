@@ -324,7 +324,6 @@ imagesv2 = {
             i.field.survey.site.site.imagesv2.create.numberfields
             )
             if(chk.result){
-                console.log('CREATE IMAGE',req.body)
                 params = {
                     tableName:'survey_imagesv2',columns:req.body
                 }
@@ -332,7 +331,6 @@ imagesv2 = {
                     res.send({result:true,description:result})
                 })
             }else{
-                console.log('NOT CREATE IMAGE',req.body)
                 res.send({result:false,comment:chk.description})
             }
     },

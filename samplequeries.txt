@@ -149,3 +149,5 @@ curl -d 'segment=0&offset=10' -X POST localhost:20215/listsurveyproposal/
 
 
 curl -k -X POST -F 'image=@/home/webdev/pisau.jpg' -v  http://localhost:20215/uplaa/
+curl -k -X POST -F 'image=@/home/webdev/pisau.jpg;survey_site_id=1' -v  http://localhost:20215/surveyimages/
+curl -k -X POST -d 'survey_site_id:1' -F 'image=@/home/webdev/pisau.jpg' -v  http://localhost:20215/surveyimages/
