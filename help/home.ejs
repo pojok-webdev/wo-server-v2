@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/help/home.css">
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <link rel="stylesheet" href="/vendors/useiconic/font/css/open-iconic.css" />
-    <title>Dokumentasi PadiApp API</title>
-</head>
+    <%- include('head')%>
 <body>
     <div id="wrapper">
         <%- include('listofcontent') %>
         <%- include ('sidemenu') %>
         <div id="main">
             <strong>Work Order API</strong>
-            <p>last update: 21 Desember 2021</p>
+            <p>last update: 22 Desember 2021</p>
+            <p>Server Simulasi: <i>192.168.0.117:20216</i>, Server Produksi: <i>192.168.0.117:20215</i></p>
             <h1 id="client">Client</h1>
             <%- include('suspect')%>
             <%- include('prospect')%>
             <%- include('survey')%>
-            <%- include('install')%>
+            <%- include('install')%></i>
             <%- include('ticket')%>
             <%- include('service')%>
             <%- include('device')%>

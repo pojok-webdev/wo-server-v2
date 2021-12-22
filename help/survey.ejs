@@ -1,5 +1,8 @@
 <h2 id="survey">Survey</h2>
-<h3>Get Surveys</h3>
+<p>
+    Proses <i>Survey</i> terdiri atas beberapa proses yang lebih detail. Diantaranya entri <i>Berita Acara</i>, <i>Jarak antar BTS</i>, <i>Perangkat</i>, <i>Material</i>, <i>Resume</i>, <i>Jarak antar Site</i>, <i>Petugas Survey</i>, dan <i>Gambar Survey</i>. 
+</p>
+<h3>Menampilkan Surveys</h3>
 <h5>Syntax</h5>
 <code>curl -d 'segment= <strong> baris_awal </strong> &offset= <strong> jumlah_baris </strong> ' -X POST localhost:20215/listsurveyproposal/</code>
 <h5>Contoh</h5>
@@ -21,4 +24,152 @@
 <h5>Contoh</h5>
 <code>
     curl -d 'id=1897&city=Surabaya&address=Jl. Ciliwung No. 74-B' -X POST localhost:20215/surveyupdate
+</code>
+<h3>Insert Gambar Survey</h3>
+<p>
+    <i>Gambar survey</i> dientri terpisah dari <i>data survey</i>, karena karakteristik gambar (data-multipart) berbeda dengan data biasa dalam request POST. Data selain gambar yang dibutuhkan adalah <i>survey_site_id</i>,<i>path</i>,<i>roworder</i>,<i>description</i>
+</p>
+<p>
+    Entri <i>Gambar survey</i> akan mengembalikan nilai nama file gambar survey. Nama file ini bersama dengan data-data lain dikirim ulang ke server.
+</p>
+<p>
+    Gambar Survey disimpan dalam suatu direktori bernama <i>surveyimages</i>
+</p>
+<p>
+    Jadi gambar diupload terlebih dahulu, selanjutnya data pelengkap di post setelahnya.
+</p>
+<h5>Syntax</h5>
+<code>
+    curl -k -X POST -F 'image=@/home/webdev/pisau.jpg' -v  http://localhost:20215/surveyimages/
+</code>
+<p>
+    return value jika sukses adalah {"result":<strong>status</strong>,"id":<strong>namafile (timestamp)</strong>},<strong>status</strong> bernilai <strong>true</strong> jika berhasil dan <strong>false</strong> jika tidak berhasil
+</p>
+<h5>Contoh</h5>
+<code>
+    curl -k -X POST -F 'image=@/home/webdev/pisau.jpg;survey_site_id=1' -v  http://localhost:20215/surveyimages/
+</code>
+<p>
+    return value {"result":"ok","id":1640153893998}
+    Insert ke database:
+</p>
+<code>
+    curl -d 'survey_site_id=2386&path=1640153893998&createuser=bebop&description=gambar survey 01' -X POST localhost:20215/createsurveyimages
+</code>
+<h3>Menghapus Gambar Survey</h3>
+<h4>Syntax</h4>
+<code>
+    curl -d 'filename=<strong>filename</strong>' -X POST http://localhost:20215/removesurveyimage
+</code>
+<h4>Contoh</h4>
+<code>
+    curl -d 'filename=1640153893998.jpg' -X POST http://localhost:20215/removesurveyimage
+</code>
+<h3>Berita Acara</h3>
+<h4>Syntax</h4>
+<code>
+    curl -d 'id=<strong>id_BA</strong>&name=<strong>nama_BA</strong>' -X POST localhost:20215/updatesurveybas
+</code>
+<h4>Contoh</h4>
+<code>
+    curl -d 'id=131&name=BA Surabaya' -X POST localhost:20215/updatesurveybas
+</code>
+<h3>Jarak Antar BTS</h3>
+<h4>Syntax</h4>
+<code>
+    curl -d 'survey_site_id=<strong>survey_site_id</strong>&description=<strong>description</strong>' -X POST localhost:20215/updatesurveybtsdistances
+</code>
+<h4>Contoh</h4>
+<code>
+    curl -d 'survey_site_id=2385&description=Dilihat dari bulan' -X POST localhost:20215/updatesurveybtsdistances
+</code>
+<h3>Perangkat Survey</h3>
+<h4>Syntax</h4>
+<code>
+    curl -d 'survey_site_id=<strong>survey_site_id</strong>&device_id=<strong>device_id</strong>&name=<strong>device name</strong>&amount=<strong>amount</strong>' -X POST localhost:20215/createsurveydevices
+</code>
+<h4>Code</h4>
+<code>
+    curl -d 'survey_site_id=2386&device_id=1&name=mikrotik RB 750&amount=5' -X POST localhost:20215/createsurveydevices
+</code>
+<h4>Syntax</h4>
+<code>
+    curl -d 'survey_site_id=<strong>survey_site_id</strong>&device_id=<strong>device_id</strong>&name=<strong>device_name</strong>&amount=<strong>device_amount</strong>' -X POST localhost:20215/updatesurveydevices
+</code>
+<h4>Code</h4>
+<code>
+    curl -d 'id=530&device_id=1&name=merapi&amount=5' -X POST localhost:20215/updatesurveydevices
+</code>
+
+<h3>Jarak dengan Pelanggan Lain</h3>
+<h4>Syntax</h4>
+<code>
+    curl -d 'survey_site_id=<strong>survey_site_id</strong>&distance=<strong>distance</strong>' -X POST localhost:20215/createsurveyclientdistances
+</code>
+<h4>Contoh</h4>
+<code>
+    curl -d 'survey_site_id=2386&distance=1' -X POST localhost:20215/createsurveyclientdistances
+</code>
+<h4>Syntax</h4>
+<code>
+        curl -d 'id=<strong>id</strong>&distance=<strong>distance</strong>' -X POST localhost:20215/updatesurveyclientdistances
+</code>
+<h4>Contoh</h4>
+<code>
+        curl -d 'id=2385&distance=1' -X POST localhost:20215/updatesurveyclientdistances
+</code>
+<h3>Material</h3>
+<h4>Syntax</h4>
+<code>
+    curl -d 'survey_site_id=<strong>survey_site_id</strong>&material_type=<strong>material_type</strong>&name=<strong>material_name</strong>&amount=<strong>material_amount</strong>' -X POST localhost:20215/createsurveymaterials
+</code>
+<h4>Contoh</h4>
+<code>
+    curl -d 'survey_site_id=2386&material_type=1&name=semeru&amount=5' -X POST localhost:20215/createsurveymaterials
+</code>
+<h4>Syntax</h4>
+<code>
+    curl -d 'id=<strong>material_id</strong>&material_type=<strong>material_type</strong>&name=<strong>material_name</strong>&amount=<strong>material_amount</strong>' -X POST localhost:20215/updatesurveymaterials
+</code>
+<h4>Contoh</h4>
+<code>
+    curl -d 'id=5973&material_type=Selang&name=semeru&amount=5' -X POST localhost:20215/updatesurveymaterials
+</code>
+
+
+<h3>Resume</h3>
+<h4>Syntax</h4>
+<code>
+    curl -d 'survey_site_id=<strong>survey_site_id</strong>&name=<strong>resume_name</strong>' -X POST localhost:20215/createsurveyresumes
+</code>
+<h4>Contoh</h4>
+<code>
+    curl -d 'survey_site_id=2386&name=semeru' -X POST localhost:20215/createsurveyresumes
+</code>
+<h4>Syntax</h4>
+<code>
+    curl -d 'id=<strong>id</strong>&name=<strong>resume_name</strong>' -X POST localhost:20215/updatesurveyresumes
+</code>
+<h4>Contoh</h4>
+<code>
+    curl -d 'id=5973&name=semeru' -X POST localhost:20215/updatesurveyresumes
+</code>
+
+
+<h3>Petugas Survey</h3>
+<h4>Syntax</h4>
+<code>
+    curl -d 'survey_request_id=<strong>survey_request_id</strong>&name=<strong>staff_name</strong>&createuser=<strong>creator_name</strong>&email=<strong>staff_email</strong>' -X POST localhost:20215/createsurveysurveyors
+</code>
+<h4>Contoh</h4>
+<code>
+    curl -d 'survey_request_id=2386&name=marius&createuser=bebop&email=20m' -X POST localhost:20215/createsurveysurveyors
+</code>
+<h4>Syntax</h4>
+<code>
+    curl -d 'id=<strong>id</strong>&name=<strong>staff_name</strong>&createuser=<strong>creator_name</strong>&email=<strong>staff_email</strong>' -X POST localhost:20215/updatesurveysurveyors
+</code>
+<h4>Contoh</h4>
+<code>
+    curl -d 'id=2284&name=Gilang&createuser=bebob&email=20 m' -X POST localhost:20215/updatesurveysurveyors
 </code>

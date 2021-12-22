@@ -56,6 +56,70 @@
         curl -d 'install_site_id=1908&name=Surabayo&path=beb' -X POST localhost:20215/createinstallba
 </code>
 <h4>Layanan Pelanggan</h4>
+<h5>Syntax</h5>
+<code>
+        curl -d 'client_id=<strong>client_id</strong>&client_site_id=<strong>client_site_id</strong>&service_type=<strong>service_type</strong>' -X POST localhost:20215/createinstallclientservice
+</code>
+<h5>Code</h5>
+<code>
+        curl -d 'client_id=1908&client_site_id=2&service_type=2' -X POST localhost:20215/createinstallclientservice
+</code>
+<h5>Syntax</h5>
+<code>
+        curl -d 'client_id=<strong>client_id</strong>&client_site_id=<strong>client_site_id</strong>&service_type=<strong>service_type</strong>' -X POST localhost:20215/updateinstallclientservice
+</code>
+<h5>Code</h5>
+<code>
+        curl -d 'client_id=1908&client_site_id=2&service_type=2' -X POST localhost:20215/updateinstallclientservice
+</code>
 <h4>Switch</h4>
+<h5>Syntax</h5>
+<code>
+        curl -d 'install_site_id=<strong>install_site_id</strong>&name=<strong>switch_name</strong>&user=<strong>creator_user</strong>' -X POST localhost:20215/createinstallswitches
+</code>
+<h5>Contoh</h5>
+<code>
+        curl -d 'install_site_id=1908&name=DLink8Port&user=Kholis' -X POST localhost:20215/createinstallswitches
+</code>
+<h5>Syntax</h5>
+<code>
+        curl -d 'id=<strong>id</strong>&name=<strong>switch_name</strong>&user=<strong>creator_user</strong>' -X POST localhost:20215/updateinstallswitches
+</code>
+<h5>Contoh</h5>
+<code>
+        curl -d 'id=1908&name=DLink8Port&user=Kholis' -X POST localhost:20215/updateinstallswitches
+</code>
 <h4>Wireless Radio</h4>
+<h5>Syntax</h5>
+<code>
+        curl -d 'id=<strong>id</strong>&tipe=<strong>wireless_radio_name</strong>&macboard=<strong>macboard</strong>' -X POST localhost:20215/createinstallwirelessradio
+</code>
+<h5>Contoh</h5>
+<code>
+        curl -d 'install_site_id=1908&tipe=Mikrotik RB 411 L&macboard=D4:CA:6D:84:C1:51' -X POST localhost:20215/createinstallwirelessradio
+</code>
+<h5>Syntax</h5>
+<code>
+        curl -d 'id=<strong>id</strong>&tipe=<strong>wireless_radio_name</strong>&macboard=<strong>macboard</strong>' -X POST localhost:20215/updateinstallwirelessradio
+</code>
+<h5>Contoh</h5>
+<code>
+        curl -d 'id=1908&tipe=Mikrotik RB 411 L&macboard=D4:CA:6D:84:C1:51' -X POST localhost:20215/updateinstallwirelessradio
+</code>
 <h4>Gambar</h4>
+<h5>Syntax</h5>
+<code>
+        curl -k -X POST -F 'image=<strong>image_path</strong>' -v  http://localhost:20215/installimages
+</code>
+<h5>Contoh</h5>
+<code>
+        curl -k -X POST -F 'image=@/home/webdev/pisau.jpg' -v  http://localhost:20215/installimages
+</code>
+<h5>Syntax</h5>
+<code>
+        curl -d 'filename=<strong>file_name</strong>' -X POST http://localhost:20215/removeinstallimage
+</code>
+<h5>Contoh</h5>
+<code>
+        curl -d 'filename=1640163675618.jpg' -X POST http://localhost:20215/removeinstallimage
+</code>

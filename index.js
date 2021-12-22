@@ -210,16 +210,53 @@ i.app.post('/uplaa',(req,res)=>{
 })
 i.app.post('/surveyimages',(req,res)=>{
     var form = new formidable.IncomingForm()
+    console.log('REQ',req)
+    form.parse(req,(err,field,files)=>{
+        if(err){
+            console.log("Err",err)
+            res.send({result:false})
+        }
+        oldpath = files.image.filepath;
+        timestamp = Date.now()
+        newpath = '/home/webdev/'+timestamp+'.jpg'
+        fs.rename(oldpath,newpath,err=>{
+            console.log(oldpath)
+            res.send({result:true,id:timestamp})
+        })
+    })
+})
+i.app.post('/removesurveyimage',(req,res)=>{
     console.log('REQ',req.body)
+    fs.unlink('/home/webdev/'+req.body.filename,err=>{
+        if(err){
+            console.log(err)
+            res.send(err)
+        }else{
+            res.send({result:true,description:'remove file success'})
+        }
+    })
+})
+i.app.post('/installimages',(req,res)=>{
+    var form = new formidable.IncomingForm()
     form.parse(req,(err,field,files)=>{
         oldpath = files.image.filepath;
         timestamp = Date.now()
         newpath = '/home/webdev/'+timestamp+'.jpg'
         fs.rename(oldpath,newpath,err=>{
             console.log(oldpath)
-            i.execute.transaction.survey.imagesv2.create(req,res)
-            //res.send({result:'ok',id:timestamp})
+            res.send({result:'ok',id:timestamp})
         })
+    })
+})
+i.app.post('/removeinstallimage',(req,res)=>{
+    console.log('REQ',req.body)
+    fs.unlink('/home/webdev/'+req.body.filename,err=>{
+        if(err){
+            console.log(err)
+            res.send(err)
+        }else{
+            res.send({result:true,description:'remove file success'})
+        }
     })
 })
 i.app.listen(i.appSetting.port,_=>{

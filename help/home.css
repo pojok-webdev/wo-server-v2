@@ -1,5 +1,7 @@
 h2{
-    color:tomato
+    color:tomato;
+    border: black solid 1px;
+    background-color: black;
 }
 h3{
     text-decoration: underline;
@@ -28,18 +30,27 @@ h3{
     margin:1;
     padding:0;
 }
-.ullistofcontent:link{
+.ullistofcontent a:link{
     text-decoration: none;
+    color: black;
 }
-.ullistofcontent:visited{
+.ullistofcontent a:visited{
     text-decoration: none;
+    color: black;
 }
-.ullistofcontent:hover{
+.ullistofcontent a:hover{
     text-decoration: none;
+    color: crimson;
+    font-size: 15px;
+    text-indent: 25pt;
 }
-.ullistofcontent:active{
+.ullistofcontent a:active{
     text-decoration: none;
+    color: black;
 }
+
+
+
 .ulnavigator{
     list-style-type: none;
     margin:0;
@@ -51,4 +62,13 @@ h3{
 }
 .btn:hover{
     color: red;
+}
+#toc{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15pt;
+    font-weight: bold;
+}
+code{
+    text-indent: 50px;
+    color:blueviolet;
 }

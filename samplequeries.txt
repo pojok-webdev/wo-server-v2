@@ -150,4 +150,10 @@ curl -d 'segment=0&offset=10' -X POST localhost:20215/listsurveyproposal/
 
 curl -k -X POST -F 'image=@/home/webdev/pisau.jpg' -v  http://localhost:20215/uplaa/
 curl -k -X POST -F 'image=@/home/webdev/pisau.jpg;survey_site_id=1' -v  http://localhost:20215/surveyimages/
-curl -k -X POST -d 'survey_site_id:1' -F 'image=@/home/webdev/pisau.jpg' -v  http://localhost:20215/surveyimages/
+curl -X POST -F 'survey_site_id=1' -F 'image=@/home/webdev/pisau.jpg' -v  http://localhost:20215/surveyimages/
+curl -X POST -F "nama=bejo" http://localhost:20215/test
+
+curl -d 'filename=1640153893998.jpg' -X POST http://localhost:20215/removesurveyimage
+
+curl -k -X POST -F 'image=@/home/webdev/pisau.jpg' -v  http://localhost:20215/installimages
+curl -d 'filename=1640163675618.jpg' -X POST http://localhost:20215/removeinstallimage
