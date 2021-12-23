@@ -1,1 +1,32 @@
 <h1 id="service">Layanan / Service</h1>
+<p>Layanan diretrieve dengan 3 cara, yaitu: </p>
+<ol>
+    <li>Seluruh Master Layanan</li>
+    <li>Master Layanan berdasarkan Kategori</li>
+    <li>Master Layanan berdasarkan nama</li>
+</ol>
+<h5>Syntax</h5>
+<code>
+    curl localhost:20215/getmasterservice
+</code>
+<h5>Contoh</h5>
+<code>
+    curl localhost:20215/getmasterservice
+</code>
+<h5>Syntax</h5>
+<code>
+    curl localhost:20215/getmasterservicebycategory/<strong>service_category</strong>
+</code>
+<h5>Contoh</h5>
+<code>
+    curl localhost:20215/getmasterservicebycategory/IDW990
+</code>
+<h5>Syntax</h5>
+<code>
+    curl 192.168.0.117:20215/getmasterservicebyname/<strong>service_name</strong>
+</code>
+<h5>Contoh</h5>
+<code>
+    curl 192.168.0.117:20215/getmasterservicebyname/dedicated
+</code>
+

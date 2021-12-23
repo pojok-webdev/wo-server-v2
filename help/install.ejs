@@ -106,7 +106,19 @@
 <code>
         curl -d 'id=1908&tipe=Mikrotik RB 411 L&macboard=D4:CA:6D:84:C1:51' -X POST localhost:20215/updateinstallwirelessradio
 </code>
-<h4>Gambar</h4>
+<h4>Gambar Instalasi</h4>
+<p>
+<i>Gambar instalasi</i> dientri terpisah dari <i>data instalasi</i>, karena karakteristik gambar (data-multipart) berbeda dengan data biasa dalam request POST. Data selain gambar yang dibutuhkan adalah <i>instalasi_site_id</i>,<i>path</i>,<i>roworder</i>,<i>description</i>
+</p>
+<p>
+Entri <i>Gambar instalasi</i> akan mengembalikan nilai nama file gambar instalasi. Nama file ini bersama dengan data-data lain dikirim ulang ke server.
+</p>
+<p>
+<i>Gambar instalasi</i> disimpan dalam direktori aplikasi bernama <i>images/installs</i>
+</p>
+<p>
+Jadi gambar diupload terlebih dahulu, selanjutnya data pelengkap dipost setelahnya.
+</p>
 <h5>Syntax</h5>
 <code>
         curl -k -X POST -F 'image=<strong>image_path</strong>' -v  http://localhost:20215/installimages

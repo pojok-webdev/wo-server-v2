@@ -4,6 +4,10 @@ update laporan Kompleks: depend on list pengajuan, list services, list devices d
 nama promo : konsepnya belum tahu
 apakah data berubah subscription : konsepnya belum tahu
 
+
+2021-12-23
+menentukan folder untuk image
+
 beberapa parameter POS berformat json, beberapa berformat string (dengan delimiter & sign)
 parameter json terdapat pada:
 createinstallreport
@@ -13,27 +17,6 @@ penambahan PIC
 add
 edit
 list
-
-| install_antennas                      f
-| install_ap_wifis                      f
-| install_bas                           f
-| install_client_services               f
-| install_client_servies                            |
-| install_dates                                     |
-| install_files                                     |
-| install_images        -> install_imagesv2   f
-| install_installers                   f
-| install_materials                    f
-| install_pccards                      f
-| install_requests                     f
-| install_requests_users                            |
-| install_resumes                     f
-| install_routers                     f
-| install_sites                       f
-| install_switches                    f              |
-| install_wireless_radios             f              |
-create table install_imagesv2 select id,install_site_id,path,title,roworder,description,username,create_date createdate from
- install_images;
 
 
 PROPOSE SURVEY

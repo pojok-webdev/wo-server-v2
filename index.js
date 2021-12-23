@@ -218,7 +218,6 @@ i.app.post('/surveyimages',(req,res)=>{
         }
         oldpath = files.image.filepath;
         timestamp = Date.now()
-//        newpath = '/home/webdev/'+timestamp+'.jpg'
         newpath = i.appSetting.imagePath.surveys+timestamp+'.jpg'
         fs.rename(oldpath,newpath,err=>{
             console.log(oldpath)
@@ -243,7 +242,6 @@ i.app.post('/installimages',(req,res)=>{
     form.parse(req,(err,field,files)=>{
         oldpath = files.image.filepath;
         timestamp = Date.now()
-        //newpath = '/home/webdev/'+timestamp+'.jpg'
         newpath = i.appSetting.imagePath.installs+timestamp+'.jpg'
         fs.rename(oldpath,newpath,err=>{
             console.log(oldpath)
@@ -253,7 +251,7 @@ i.app.post('/installimages',(req,res)=>{
 })
 i.app.post('/removeinstallimage',(req,res)=>{
     console.log('REQ',req.body)
-    newpath = i.appSetting.imagePath.surveys
+    newpath = i.appSetting.imagePath.installs
     fs.unlink(newpath+req.body.filename,err=>{
         if(err){
             console.log(err)
