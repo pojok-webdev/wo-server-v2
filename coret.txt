@@ -111,3 +111,7 @@ describe.skip( to skip test )
 simulation server : ~/jsserver/padiappisimulasi$
 conf : /etc/init/wo-server-v2-simulasi.conf 
 start : sudo service wo-server-v2-simulasi start
+
+~/jsserver/wo-server-v2
+conf : /etc/init/wo-server-v2.conf
+production server : sudo service wo-server-v2 stop
