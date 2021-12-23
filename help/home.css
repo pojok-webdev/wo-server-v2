@@ -72,3 +72,12 @@ code{
     text-indent: 50px;
     color:blueviolet;
 }
+
+@media print{
+    #idSticky{
+        display: none
+    }
+    #wrapper{
+        display: block;
+    }
+}
