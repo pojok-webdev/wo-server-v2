@@ -18,7 +18,7 @@ h3{
     justify-content: space-between;
 }
 #divListOfContent{
-    width:100px;
+    width:150px;
     background-color: gold;
     padding:10px;
 }
@@ -48,7 +48,19 @@ h3{
     text-decoration: none;
     color: black;
 }
-
+.ullistofcontent ul{
+    list-style-type: none;
+    text-indent: -10px;
+    padding-left: -10px;
+    margin-left: -20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 11px;
+}
+.ullistofcontent ul a:hover{
+    list-style-type: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 11px;
+}
 
 
 .ulnavigator{

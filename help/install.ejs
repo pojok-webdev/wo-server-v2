@@ -4,9 +4,17 @@
 <code>
         curl -d "client_id=<strong>client_id</strong>&client_site_id=<strong>client_site_id</strong>&install_date=<strong>install_date</strong>&address=<strong>installation_address</strong>&city=<strong>installation_city</strong>&pic_name=<strong>installation_pic</strong>&pic_phone=<strong>pic_phone</strong>&pic_email=<strong>pic_email</strong>" -X POST localhost:20215/proposeinstall
 </code>
+<p>Nilai kembalian sebagai berikut</p>
+<code>
+        {"result":<strong>Boolean</strong>,"install_request_id":<strong>install_request_id</strong>,"install_site_id":<strong>instalasi_site_id</strong>}
+</code>
 <h5>Contoh</h5>
 <code>
         curl -d "client_id=111&client_site_id=1&install_date=2021-11-30&address=Jl Gadjah Mada Sidoarjo&city=Sidoarjo&pic_name=John&pic_phone=123&pic_email=john@satya.com" -X POST localhost:20215/proposeinstall
+</code>
+<p>Kode di atas akan menghasilkan nilai kembalian sebagai berikut</p>
+<code>
+        {"result":true,"install_request_id":935,"install_site_id":937}
 </code>
 <h3>Update Instalasi</h3>
 <p>Instalasi memiliki banyak data pendukung yang masing-masing dapat diperlakukan sebagai tindakan tersendiri</p>

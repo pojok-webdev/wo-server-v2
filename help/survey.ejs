@@ -2,21 +2,30 @@
 <p>
     Proses <i>Survey</i> terdiri atas beberapa proses yang lebih detail. Diantaranya entri <i>Berita Acara</i>, <i>Jarak antar BTS</i>, <i>Perangkat</i>, <i>Material</i>, <i>Resume</i>, <i>Jarak antar Site</i>, <i>Petugas Survey</i>, dan <i>Gambar Survey</i>. 
 </p>
-<h3>Menampilkan Surveys</h3>
+<h3 id="showsurveys">Menampilkan Surveys</h3>
 <h5>Syntax</h5>
 <code>curl -d 'segment= <strong> baris_awal </strong> &offset= <strong> jumlah_baris </strong> ' -X POST localhost:20215/listsurveyproposal/</code>
 <h5>Contoh</h5>
 <code>curl -d 'segment=0&offset=10' -X POST localhost:20215/listsurveyproposal/</code>
 <h3>Pengajuan Survey</h3>
+<p>Setiap kali Sales mengajukan Survey, maka sistem menambahkan record ke table <strong>survey_requests</strong> dan juga <strong>survey_sites</strong></p>
 <h5>Syntax</h5>
 <code>
         curl -d "client_id= <strong> client_id </strong> &branch_id= <strong> branch_id </strong> &survey_date= <strong> survey_date </strong> &address= <strong> client_address </strong> &city= <strong> client_city </strong> &pic_name= <strong> client_pic </strong> &pic_phone= <strong> pic_phone </strong> &pic_email= <strong>pic_email</strong> " -X POST localhost:20215/proposesurvey
+</code>
+<p>Format nilai yang dikembalikan adalah sebagai berikut:</p>
+<code>
+    {"result":<strong>boolean</strong>,"client_site_id":<strong>client_site_id</strong>,"survey_request_id":<strong>survey_request_id</strong>,"survey_site_id":<strong>survey_site_id</strong>}
 </code>
 <h5>Contoh</h5>
 <code>
         curl -d "client_id=111&branch_id=1&survey_date=2021-11-30&address=Jl Gadjah Mada Sidoarjo&city=Sidoarjo&pic_name=Budi&pic_phone=0888123456&pic_email=budi@company.com" -X POST localhost:20215/proposesurvey
 </code>
-<h3>Update Pengajuan Survey</h3>
+<p>Nilai yang dikembalikan adalah sebagai berikut:</p>
+<code>
+    {"result":true,"client_site_id":3038,"survey_request_id":1910,"survey_site_id":1906}
+</code>
+<h3 id="updatesurvey">Update Pengajuan Survey</h3>
 <h5>Syntax</h5>
 <code>
     curl -d 'id=<strong>survey_id</strong>&city=<strong>city_name</strong>&address=<strong>alamat_survey</strong>' -X POST localhost:20215/surveyupdate
@@ -25,7 +34,7 @@
 <code>
     curl -d 'id=1897&city=Surabaya&address=Jl. Ciliwung No. 74-B' -X POST localhost:20215/surveyupdate
 </code>
-<h3>Insert Gambar Survey</h3>
+<h3 id="insertsurveyimage">Insert Gambar Survey</h3>
 <p>
     <i>Gambar survey</i> dientri terpisah dari <i>data survey</i>, karena karakteristik gambar (data-multipart) berbeda dengan data biasa dalam request POST. Data selain gambar yang dibutuhkan adalah <i>survey_site_id</i>,<i>path</i>,<i>roworder</i>,<i>description</i>
 </p>
@@ -56,7 +65,7 @@
 <code>
     curl -d 'survey_site_id=2386&path=1640153893998&createuser=bebop&description=gambar survey 01' -X POST localhost:20215/createsurveyimages
 </code>
-<h3>Menghapus Gambar Survey</h3>
+<h3 id="removesurveyimage">Menghapus Gambar Survey</h3>
 <h4>Syntax</h4>
 <code>
     curl -d 'filename=<strong>filename</strong>' -X POST http://localhost:20215/removesurveyimage
