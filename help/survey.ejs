@@ -73,7 +73,7 @@
             "bas":[{"name":"ba"}]}' -X POST localhost:20215/createsurveyreport
 </code>
 
-<h3 id="insertsurveyimage">Insert Gambar Survey</h3>
+<h4 id="insertsurveyimage">Insert Gambar Survey</h4>
 <p>
     <i>Gambar survey</i> dientri terpisah dari <i>data survey</i>, karena karakteristik gambar (data-multipart) berbeda dengan data biasa dalam request POST. Data selain gambar yang dibutuhkan adalah <i>survey_site_id</i>,<i>path</i>,<i>roworder</i>,<i>description</i>
 </p>
@@ -104,120 +104,146 @@
 <code>
     curl -d 'survey_site_id=2386&path=1640153893998&createuser=bebop&description=gambar survey 01' -X POST localhost:20215/createsurveyimages
 </code>
-<h3 id="removesurveyimage">Menghapus Gambar Survey</h3>
-<h4>Syntax</h4>
+<h4 id="removesurveyimage">Menghapus Gambar Survey</h4>
+<h5>Syntax</h5>
 <code>
     curl -d 'filename=<strong>filename</strong>' -X POST http://localhost:20215/removesurveyimage
 </code>
-<h4>Contoh</h4>
+<h5>Contoh</h5>
 <code>
     curl -d 'filename=1640153893998.jpg' -X POST http://localhost:20215/removesurveyimage
 </code>
 <h3>Berita Acara</h3>
-<h4>Syntax</h4>
+<h4>Update</h4>
+<h5>Syntax</h5>
 <code>
     curl -d 'id=<strong>id_BA</strong>&name=<strong>nama_BA</strong>' -X POST localhost:20215/updatesurveybas
 </code>
-<h4>Contoh</h4>
+<h5>Contoh</h5>
 <code>
     curl -d 'id=131&name=BA Surabaya' -X POST localhost:20215/updatesurveybas
 </code>
 <h3>Jarak Antar BTS</h3>
-<h4>Syntax</h4>
+<h4>Update</h4>
+<h5>Syntax</h5>
 <code>
     curl -d 'survey_site_id=<strong>survey_site_id</strong>&description=<strong>description</strong>' -X POST localhost:20215/updatesurveybtsdistances
 </code>
-<h4>Contoh</h4>
+<h5>Contoh</h5>
 <code>
     curl -d 'survey_site_id=2385&description=Dilihat dari bulan' -X POST localhost:20215/updatesurveybtsdistances
 </code>
 <h3>Perangkat Survey</h3>
-<h4>Syntax</h4>
+<h4>Penambahan</h4>
+<h5>Syntax</h5>
 <code>
     curl -d 'survey_site_id=<strong>survey_site_id</strong>&device_id=<strong>device_id</strong>&name=<strong>device name</strong>&amount=<strong>amount</strong>' -X POST localhost:20215/createsurveydevices
 </code>
-<h4>Code</h4>
+<h5>Code</h5>
 <code>
     curl -d 'survey_site_id=2386&device_id=1&name=mikrotik RB 750&amount=5' -X POST localhost:20215/createsurveydevices
 </code>
-<h4>Syntax</h4>
+<h4>Update</h4>
+<h5>Syntax</h5>
 <code>
     curl -d 'survey_site_id=<strong>survey_site_id</strong>&device_id=<strong>device_id</strong>&name=<strong>device_name</strong>&amount=<strong>device_amount</strong>' -X POST localhost:20215/updatesurveydevices
 </code>
-<h4>Code</h4>
+<h5>Code</h5>
 <code>
     curl -d 'id=530&device_id=1&name=merapi&amount=5' -X POST localhost:20215/updatesurveydevices
 </code>
 
 <h3>Jarak dengan Pelanggan Lain</h3>
-<h4>Syntax</h4>
+<h4>Penambahan</h4>
+<h5>Syntax</h5>
 <code>
     curl -d 'survey_site_id=<strong>survey_site_id</strong>&distance=<strong>distance</strong>' -X POST localhost:20215/createsurveyclientdistances
 </code>
-<h4>Contoh</h4>
+<h5>Contoh</h5>
 <code>
     curl -d 'survey_site_id=2386&distance=1' -X POST localhost:20215/createsurveyclientdistances
 </code>
-<h4>Syntax</h4>
+<h4>Update</h4>
+<h5>Syntax</h5>
 <code>
         curl -d 'id=<strong>id</strong>&distance=<strong>distance</strong>' -X POST localhost:20215/updatesurveyclientdistances
 </code>
-<h4>Contoh</h4>
+<h5>Contoh</h5>
 <code>
         curl -d 'id=2385&distance=1' -X POST localhost:20215/updatesurveyclientdistances
 </code>
 <h3>Material</h3>
-<h4>Syntax</h4>
+<h4>Penambahan</h4>
+<h5>Syntax</h5>
 <code>
     curl -d 'survey_site_id=<strong>survey_site_id</strong>&material_type=<strong>material_type</strong>&name=<strong>material_name</strong>&amount=<strong>material_amount</strong>' -X POST localhost:20215/createsurveymaterials
 </code>
-<h4>Contoh</h4>
+<h5>Contoh</h5>
 <code>
     curl -d 'survey_site_id=2386&material_type=1&name=semeru&amount=5' -X POST localhost:20215/createsurveymaterials
 </code>
-<h4>Syntax</h4>
+<h4>Update</h4>
+<h5>Syntax</h5>
 <code>
     curl -d 'id=<strong>material_id</strong>&material_type=<strong>material_type</strong>&name=<strong>material_name</strong>&amount=<strong>material_amount</strong>' -X POST localhost:20215/updatesurveymaterials
 </code>
-<h4>Contoh</h4>
+<h5>Contoh</h5>
 <code>
     curl -d 'id=5973&material_type=Selang&name=semeru&amount=5' -X POST localhost:20215/updatesurveymaterials
 </code>
 
 
 <h3>Resume</h3>
-<h4>Syntax</h4>
+<h4>Penambahan</h4>
+<h5>Syntax</h5>
 <code>
     curl -d 'survey_site_id=<strong>survey_site_id</strong>&name=<strong>resume_name</strong>' -X POST localhost:20215/createsurveyresumes
 </code>
-<h4>Contoh</h4>
+<h5>Contoh</h5>
 <code>
     curl -d 'survey_site_id=2386&name=semeru' -X POST localhost:20215/createsurveyresumes
 </code>
-<h4>Syntax</h4>
+<h4>Update</h4>
+<h5>Syntax</h5>
 <code>
     curl -d 'id=<strong>id</strong>&name=<strong>resume_name</strong>' -X POST localhost:20215/updatesurveyresumes
 </code>
-<h4>Contoh</h4>
+<h5>Contoh</h5>
 <code>
     curl -d 'id=5973&name=semeru' -X POST localhost:20215/updatesurveyresumes
 </code>
 
 
 <h3>Petugas Survey</h3>
-<h4>Syntax</h4>
+<h4>Penambahan</h4>
+<h5>Syntax</h5>
 <code>
     curl -d 'survey_request_id=<strong>survey_request_id</strong>&name=<strong>staff_name</strong>&createuser=<strong>creator_name</strong>&email=<strong>staff_email</strong>' -X POST localhost:20215/createsurveysurveyors
 </code>
-<h4>Contoh</h4>
+<h5>Contoh</h5>
 <code>
-    curl -d 'survey_request_id=2386&name=marius&createuser=bebop&email=20m' -X POST localhost:20215/createsurveysurveyors
+    curl -d 'survey_request_id=2386&name=marius&createuser=agus&email=marius@padi.net.id' -X POST localhost:20215/createsurveysurveyors
 </code>
-<h4>Syntax</h4>
+<p>
+    Kode di atas akan memberikan nilai kembalian sebagai berikut:
+</p>
+<code>
+        {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":2285,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}}
+</code>
+<h4>Update</h4>
+<h5>Syntax</h5>
 <code>
     curl -d 'id=<strong>id</strong>&name=<strong>staff_name</strong>&createuser=<strong>creator_name</strong>&email=<strong>staff_email</strong>' -X POST localhost:20215/updatesurveysurveyors
 </code>
-<h4>Contoh</h4>
+<p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
-    curl -d 'id=2284&name=Gilang&createuser=bebob&email=20 m' -X POST localhost:20215/updatesurveysurveyors
+    {"result":<strong>boolean</strong>,"description":<strong>keterangan</strong>}
+</code>
+<h5>Contoh</h5>
+<code>
+    curl -d 'id=2284&name=Gilang&createuser=agus&email=gilang@padi.net.id' -X POST localhost:20215/updatesurveysurveyors
+</code>
+<p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
+<code>
+    {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
 </code>

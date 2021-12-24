@@ -99,3 +99,8 @@ start : sudo service wo-server-v2-simulasi start
 ~/jsserver/wo-server-v2
 conf : /etc/init/wo-server-v2.conf
 production server : sudo service wo-server-v2 stop
+sudo service wo-server-v2 stop
+sudo service wo-server-v2 start
+simulasi:
+sudo service wo-server-v2-simulasi stop
+sudo service wo-server-v2-simulasi start

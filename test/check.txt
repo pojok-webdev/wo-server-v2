@@ -8,3 +8,4 @@ updateclient -> clients.js
 entri gambar survey
 dokumentasi report survey
 pencarian dalam dokumentasi
+survey surveyor

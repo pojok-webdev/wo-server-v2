@@ -60,6 +60,10 @@
                 "images":[{"img":""}],
                 "bas":[{"name":"ba"}]}' -X POST localhost:20215/createinstallreport        
 </code>
+<p>masing-masing id terbaru dari table terkait akan diberikan dalam nilai kembalian. Pada contoh di atas, nilai kembalian adalah:</p>
+<code>
+        {"result":true,"invoked_tables":[{"tableName":"antennas","insertId":523},{"tableName":"ap_wifis","insertId":144},{"tableName":"images","insertId":5195},{"tableName":"bas","insertId":1230}]}
+</code>
 <h4>Antenna</h4>
 <h5>Syntax</h5>
 <code>
