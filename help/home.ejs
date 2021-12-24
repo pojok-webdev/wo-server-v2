@@ -38,6 +38,9 @@
         $('#btnSearch').click(function(){
             window.find($('#txtSearch').val(),false,false,true,true)
         })
+        $('#txtSearch').on('focus',function(){
+            $(this).select()
+        })
     }(jQuery))
 </script>
 </html>
