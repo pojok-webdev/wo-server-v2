@@ -12,6 +12,7 @@ beberapa parameter POS berformat json, beberapa berformat string (dengan delimit
 parameter json terdapat pada:
 createinstallreport
 createsurveyreport
+laporan Instalasi
 
 penambahan PIC
 add

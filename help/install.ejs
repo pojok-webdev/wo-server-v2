@@ -36,6 +36,30 @@
 <code>
         curl -d 'id=193&city=Surabayo&address=Jl. Ciliwung No. 74-Bi' -X POST localhost:20215/updateinstallsite
 </code>
+<h3>Laporan Instalasi</h3>
+<h5>Syntax</h5>
+<code>
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{
+                "parent_fields":[{"install_site_id":<strong>install_site_id</strong>}],
+                "antennas":<strong>array_antenna</strong>,
+                "ap_wifis":<strong>array_apwifi</strong>,
+                "images":<strong>array_image</strong>,
+                "bas":<strong>array_image</strong>}' -X POST localhost:20215/createinstallreport        
+</code>
+<h5>Contoh</h5>
+<code>
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{
+                "parent_fields":[{"install_site_id":28}],
+                "antennas":[{"name":"Grid 27 dBi 5.8 GHz","amount":1,"location":"Tower 20 meter"}],
+                "ap_wifis":[{
+                    "tipe":"Linksys WRT54GL",
+                    "macboard":"B4750EBA5538",
+                    "owner":"Pak Kris/Bu Linda",
+                    "ip_address":"192.168.1.2","essid":"sni","security_key":"freddy123","user":"root","password":"admin","location":"depan pintu"}
+                ],
+                "images":[{"img":""}],
+                "bas":[{"name":"ba"}]}' -X POST localhost:20215/createinstallreport        
+</code>
 <h4>Antenna</h4>
 <h5>Syntax</h5>
 <code>

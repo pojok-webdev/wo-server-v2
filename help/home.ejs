@@ -24,12 +24,19 @@
     (function($){
         $('#btnCloser').click(function(){
             $('#divListOfContent').toggle()
+            $(".sidebar").toggle()
         })
         $("#btnTop").click(function(){
             document.documentElement.scrollTop = 0;
         })
         $("#btnDownload").click(function(){
             window.print()
+        })
+        $('#btnFind').click(function(){
+            $('#txtSearch').toggle();
+        })
+        $('#btnSearch').click(function(){
+            window.find($('#txtSearch').val(),false,false,true,true)
         })
     }(jQuery))
 </script>
