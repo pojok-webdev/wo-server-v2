@@ -2,6 +2,7 @@ i = require('./../../js/initmodules'),
 surveys = require('./surveys'),
 installs = require('./installs'),
 pics = require('./pics')
+r = require('./../../js/execute/routines')
 insertsuspect = (req,res) => {
     chk = i.check.transactions.check(req.body,i.field.suspect.mandatories,i.field.suspect.allfields,i.field.suspect.numberfields)
     if(chk.result){
@@ -14,10 +15,21 @@ insertsuspect = (req,res) => {
 }
 updateclient = (req,res) => {
     chk = i.check.transactions.check(
-        req.body,i.field.updateclient.mandatories,i.field.updateclient.allfields,i.field.updateclient.numberfields
+        req.body,
+        i.field.updateclient.mandatories,
+        i.field.updateclient.allfields,
+        i.field.updateclient.numberfields
         )
     if(chk.result){
-        i.connection.doQuery(i.query.client.updateClient(req.body),result=>{
+        useremail = req.body.useremail
+        i.connection.doQuery(i.query.client.updateClient(r.exclude(req.body,['useremail'])),result=>{
+            i.connection.doQuery(
+            r.create({
+                tableName:'app_logs',
+                columns:{subject:'updateClient',description:'update from wo, client_id:'+req.body.id,user:useremail}
+            }),result=>{
+                console.log('Success create log',result)
+            })
             res.send({result:true,description:result})
         })
     }else{

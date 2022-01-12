@@ -3,13 +3,13 @@
 <p>Demikian pula mengganti nilai kolom lain misalnya nama, alamat serta AM</p>
 <h3>Update Client</h3>
 <h5>Syntax</h5>
-<code>curl -d 'id=<strong> client_id</strong> &prospectdate=<strong> YYYY-MM-DD </strong> '&status=1 -X POST http://localhost:20215/updateclient</code>
+<code>curl -d 'id=<strong> client_id</strong> &useremail=<strong> useremail </strong>  &prospectdate=<strong> YYYY-MM-DD </strong> &status=1' -X POST http://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":<strong>boolean</strong>,"description":<strong>description</strong>}}
 </code>
 <h5>Contoh</h5>
-<code>curl -d 'id=10320&prospectdate=2021-12-31&status=1' -X POST http://localhost:20215/updateclient</code>
+<code>curl -d 'id=10320&prospectdate=2021-12-31&useremail=jo@padi.net.id&status=1' -X POST http://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0}
@@ -39,35 +39,35 @@
     <li>period2 (tanggal akhir kontrak)</li>
 </ol>
 <h5>Contoh Update nama</h5>
-<code>curl -d 'id=10320&name=ROY ADIDHARMA BAYUATMODJA' -X POST http://localhost:20215/updateclient</code>
+<code>curl -d 'id=10320&useremail=jo@padi.net.id&name=ROY ADIDHARMA BAYUATMODJA' -X POST http://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
 </code>
 
 <h5>Contoh Update alias</h5>
-<code>curl -d 'id=10320&alias=Dharma' -X POST http://localhost:20215/updateclient</code>
+<code>curl -d 'id=10320&useremail=jo@padi.net.id&alias=Dharma' -X POST http://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
 </code>
 
 <h5>Contoh Update npwp,siup dan business_field</h5>
-<code>curl -d 'id=10320&npwp=22.1234.23423.33&siup=888.3434.343242&business_field=internet' -X POST http://localhost:20215/updateclient</code>
+<code>curl -d 'id=10320&useremail=jo@padi.net.id&npwp=22.1234.23423.33&siup=888.3434.343242&business_field=internet' -X POST http://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
 </code>
 
 <h5>Contoh Update billaddress,address,phone_area,phone,fax_area,fax dan prospectdate</h5>
-<code>curl -d 'id=10320&billaddress=Mayjen Suprapto 45&address=Mayjen Sungkon 38&phone_area=031&phone=88882345&fax_area=031&fax=88882345&prospectdate=2021-12-31' -X POST http://localhost:20215/updateclient</code>
+<code>curl -d 'id=10320&useremail=jo@padi.net.id&billaddress=Mayjen Suprapto 45&address=Mayjen Sungkon 38&phone_area=031&phone=88882345&fax_area=031&fax=88882345&prospectdate=2021-12-31' -X POST http://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
 </code>
 
 <h5>Contoh Update user_id (Hunter) dan sale_id (Farmer)</h5>
-<code>curl -d 'id=10320&user_id=113&sale_id=52' -X POST http://localhost:20215/updateclient</code>
+<code>curl -d 'id=10320&useremail=jo@padi.net.id&user_id=113&sale_id=52' -X POST http://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
@@ -75,7 +75,7 @@
 
 
 <h5>Contoh Update status,active,period1 dan period2 (Farmer)</h5>
-<code>curl -d 'id=10320&status=1&active=1&period1=2021-12-31&period2=2022-12-30' -X POST http://localhost:20215/updateclient</code>
+<code>curl -d 'id=10320&useremail=jo@padi.net.id&status=1&active=1&period1=2021-12-31&period2=2022-12-30' -X POST http://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}

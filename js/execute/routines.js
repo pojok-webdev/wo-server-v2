@@ -33,10 +33,17 @@ routines = {
         sql+= 'where ' + obj.identifier + ' = ' + obj.identifierValue
         console.log('Update '+obj.tableName+' SQL',sql)
         return sql
+    },
+    exclude: (objs,props) => {
+        props.forEach(p=>{
+            delete objs[p]
+        })
+        return objs
     }
 }
 module.exports = {
     list:routines.list,
     create:routines.create,
-    update:routines.update
+    update:routines.update,
+    exclude:routines.exclude
 }
