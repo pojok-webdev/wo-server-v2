@@ -1,4 +1,8 @@
 var masterService = {
+    getMasterServiceCategories : _=>{
+        sql = 'select id,category_id,createdate from pricelists2.categories '
+        return sql
+    },
     getMasterServices : _ => {
         sql = 'select id,category_id,product_id,name,price,discount from pricelists2.products    '
         console.log(sql)
@@ -20,6 +24,7 @@ var masterService = {
     }
 }
 module.exports = {
+    getMasterServiceCategories:masterService.getMasterServiceCategories,
     getMasterServices:masterService.getMasterServices,
     getMasterServiceByName:masterService.getMasterServiceByName,
     getMasterServiceByCategory:masterService.getMasterServiceByCategory,

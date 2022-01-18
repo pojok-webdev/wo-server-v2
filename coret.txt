@@ -4,6 +4,14 @@ update laporan Kompleks: depend on list pengajuan, list services, list devices d
 nama promo : konsepnya belum tahu
 apakah data berubah subscription : konsepnya belum tahu
 
+2022-01-18
+
+kategori layanan
+layanan berdasarkan kategori berdasarkan nama
+pic 
+pic by id pelanggan
+layanan berdasarkan pelanggan
+pelanggan tampilkan semua field
 
 2021-12-23
 menentukan folder untuk image

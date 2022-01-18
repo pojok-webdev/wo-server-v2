@@ -43,6 +43,9 @@ i.app.get('/getmasterservice',(req,res)=>{
 i.app.get('/getmasterservicebyname/:name',(req,res)=>{
     i.execute.master.getMasterServiceByName(req,res)
 })
+i.app.get('/getmasterservicecategories',(req,res)=>{
+    i.execute.master.getMasterServiceCategories(req,res)
+})
 i.app.get('/getmasterservicebycategory/:category_id',(req,res)=>{
     i.execute.master.getMasterServiceByCategory(req,res)
 })

@@ -43,6 +43,13 @@ getmasterservicebycategory = (req,res) => {
         }
     )
 }
+getmasterservicecategories = (req,res) => {
+    i.connection.doQuery(
+        i.master.service.getMasterServiceCategories(req.params),result=>{
+            res.send({result:true,description:result})
+        }
+    )
+}
 getmastermaterial = (req,res) => {
     i.connection.doQuery(
         i.master.material.getMasterMaterials(),result=>{
@@ -78,6 +85,7 @@ getlistleadsbyname = (req,res) => {
 }
 module.exports = {
     getClientPicByClientId:getclientpicbyclientid,
+    getMasterServiceCategories:getmasterservicecategories,
     getMasterService:getmasterservice,
     getMasterServiceByName:getmasterservicebyname,
     getMasterServiceByCategory:getmasterservicebycategory,
