@@ -6,12 +6,13 @@ apakah data berubah subscription : konsepnya belum tahu
 
 2022-01-18
 
-kategori layanan
+kategori layanan (done)
 layanan berdasarkan kategori berdasarkan nama
 pic 
-pic by id pelanggan
+pic by id pelanggan (done)
 layanan berdasarkan pelanggan
 pelanggan tampilkan semua field
+layanan ada yang one time dan berlangganan
 
 2021-12-23
 menentukan folder untuk image
