@@ -10,8 +10,8 @@ kategori layanan (done)
 layanan berdasarkan kategori berdasarkan nama
 pic 
 pic by id pelanggan (done)
-layanan berdasarkan pelanggan
-pelanggan tampilkan semua field
+layanan berdasarkan pelanggan (done)
+pelanggan tampilkan semua field (done)
 layanan ada yang one time dan berlangganan
 
 2021-12-23

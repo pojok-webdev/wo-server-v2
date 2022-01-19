@@ -1,6 +1,41 @@
 <h2 id="clientoperation">Operasi</h2>
-<p><i> Operasi Pelanggan</i> atau <i> Client</i> meliputi edit, dalam hal ini merubah dari suspect, prospek, dan menonaktifkan dengan mengganti nilai status</p>
+<p><i> Operasi Pelanggan</i> atau <i> Client</i> meliputi get dan edit, dalam hal ini merubah dari suspect, prospek, dan menonaktifkan dengan mengganti nilai status</p>
 <p>Demikian pula mengganti nilai kolom lain misalnya nama, alamat serta AM</p>
+
+<h3>Get List Client By Id</h3>
+<h5>Syntax</h5>
+<code>curl localhost:20215/getlistclientsbyid/<strong>client_id</strong></code>
+<p>Syntax di atas digunakan untuk mendapatkan data Pelanggan dengan id <i>client_id</i></p>
+<p>Kolom-kolom yang dikembalikan antara lain adalah:</p>
+<p>id,name,alias,npwp,siup,address,city,billaddress,business_field,phone_area,phone,fax_area,fax,sale_id,user_id,period1,period2</p>
+<h5>Contoh</h5>
+<code>curl localhost:20215/getlistclientsbyid/1000</code>
+<p>Nilai kembalian adalah:</p>
+<p>{"result":true,"description":[{"id":1000,"name":"MAKSIMEDA","alias":null,"npwp":null,"siup":null,"address":"Graha Sucofindo lantai 11, Jl.Raya Pasar Minggu","city":"Jakarta","billaddress":null,"business_field":"Badan Usaha","phone_area":"021","phone":"79188188","fax_area":"","fax":"","sale_id":100,"user_id":100,"period1":null,"period2":null}]}</p>
+
+
+<h3>Get List Client By Name</h3>
+<h5>Syntax</h5>
+<code>curl localhost:20215/getlistclientsbyname/<strong>client_name</strong></code>
+<p>Syntax di atas digunakan untuk mendapatkan data Pelanggan dengan nama <i>client_name</i></p>
+<p>Kolom-kolom yang dikembalikan antara lain adalah:</p>
+<p>id,name,alias,npwp,siup,address,city,billaddress,business_field,phone_area,phone,fax_area,fax,sale_id,user_id,period1,period2</p>
+<h5>Contoh</h5>
+<code>curl localhost:20215/getlistclientsbyname/maksimedia</code>
+<p>Nilai kembalian adalah:</p>
+<p>{"result":true,"description":[{"id":4035,"name":"PT MAKSIMEDIA","alias":null,"npwp":null,"siup":null,"address":"Gd. Sucofindo Lt. 10","city":"Jakarta Selatan","billaddress":null,"business_field":"Badan Usaha","phone_area":" ","phone":"021-79188188 ","fax_area":" ","fax":" ","sale_id":161,"user_id":161,"period1":null,"period2":null}]}</p>
+
+
+<h3>Layanan yang dimiliki Pelanggan</h3>
+<p>Pelanggan dapat memiliki beberapa Layanan sekaligus. Layanan yang dimiliki Pelanggan dapat didapatkan dengan syntax sebagai berikut</p>
+<h5>Syntax</h5>
+<code>curl http://localhost:20215/getclientservicebyclientid/:id</code>
+
+<h5>Contoh</h5>
+<code>curl localhost:20215/getclientservicebyclientid/1500</code>
+<p>Kode di atas akan memberikan hasil sebagai berikut:</p>
+<p>{"result":true,"description":[{"category":"Symetrical Broadband Internet (SBI)","fb_id":"SBY20190618001500001","name":"Kepatihan","bandwidth":"3 Mbps","upstr":"0","dnstr":"0","space":"0"},{"category":"Local Loop","fb_id":"SBY20190618001500001","name":"Dukuh Kupang - Kepatihan","bandwidth":"0","upstr":"02.","dnstr":"0","space":"0"}]}</p>
+
 <h3>Update Client</h3>
 <h5>Syntax</h5>
 <code>curl -d 'id=<strong> client_id</strong> &useremail=<strong> useremail </strong>  &prospectdate=<strong> YYYY-MM-DD </strong> &status=1' -X POST http://localhost:20215/updateclient</code>

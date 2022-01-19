@@ -214,9 +214,13 @@ i.app.post('/uplaa',(req,res)=>{
         })
     })
 })
+getFileType = (fileName,callback)=>{
+    tmp = fileName.originalFilename
+    arr = tmp.split(".")
+    callback(arr[1])
+}
 i.app.post('/surveyimages',(req,res)=>{
     var form = new formidable.IncomingForm()
-    console.log('REQ',req)
     form.parse(req,(err,field,files)=>{
         if(err){
             console.log("Err",err)
@@ -224,10 +228,11 @@ i.app.post('/surveyimages',(req,res)=>{
         }
         oldpath = files.image.filepath;
         timestamp = Date.now()
-        newpath = i.appSetting.imagePath.surveys+timestamp+'.jpg'
-        fs.rename(oldpath,newpath,err=>{
-            console.log(oldpath)
-            res.send({result:true,id:timestamp})
+        getFileType(files.image,fType=>{
+            newpath = i.appSetting.imagePath.surveys+timestamp+'.'+fType
+            fs.rename(oldpath,newpath,err=>{
+                res.send({result:true,id:timestamp})
+            })    
         })
     })
 })

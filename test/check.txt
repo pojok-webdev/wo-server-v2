@@ -9,3 +9,7 @@ entri gambar survey
 dokumentasi report survey
 pencarian dalam dokumentasi
 survey surveyor
+
+select id,name,alias,npwp,siup,address,city,billaddress,business_field,phone_area,phone, 
+fax_area,fax,sale_id,user_id,period1,period2 
+from clients where id = 1000 ;

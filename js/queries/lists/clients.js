@@ -1,11 +1,15 @@
 var listClient = {
     getClientsByName : obj => {
-        sql = 'select id,name from clients '
+        sql = 'select id,name,alias,npwp,siup,address,city,billaddress,business_field,phone_area,phone, '
+        sql+= 'fax_area,fax,sale_id,user_id,period1,period2 '
+        sql+= 'from clients '
         sql+= 'where name like "%'+obj.name+'%"'
         return sql
     },
     getClientsById : obj => {
-        sql = 'select id,name from clients '
+        sql = 'select id,name,alias,npwp,siup,address,city,billaddress,business_field,phone_area,phone, '
+        sql+= 'fax_area,fax,sale_id,user_id,period1,period2 '
+        sql+= 'from clients '
         sql+= 'where id = '+obj.id+' '
         return sql
     },
