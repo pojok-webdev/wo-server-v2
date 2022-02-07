@@ -5,7 +5,9 @@ var express = require('express'),
     appSetting = appconfig.appSetting(),
     execute_transaction = require('./../js/execute/transactions'),
     execute_master = require('./../js/execute/masters'),
-    execute_list = require('./../js/execute/lists');
+    execute_list = require('./../js/execute/lists'),
+    fs = require('fs');
+    const https = require('https')
     formidable = require('formidable');
     fs = require('fs');
     path = require('path');
@@ -34,4 +36,6 @@ module.exports = {
     },
     app:app,
     appSetting:appSetting,
+    https:https,
+    fs:fs
 }

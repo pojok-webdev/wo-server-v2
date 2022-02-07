@@ -272,6 +272,12 @@ i.app.post('/removeinstallimage',(req,res)=>{
         }
     })
 })
-i.app.listen(i.appSetting.port,_=>{
+/*i.app.listen(i.appSetting.port,_=>{
     console.log('Work Order Server start at port ',i.appSetting.port)
-})
+})*/
+i.https.createServer(
+    {
+        cert:i.fs.readFileSync('selfsigned.crt'),
+        key:i.fs.readFileSync('selfsigned.key')
+    },i.app)
+    .listen(i.appSetting.port)

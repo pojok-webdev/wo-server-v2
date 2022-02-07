@@ -12,7 +12,7 @@ pic
 pic by id pelanggan (done)
 layanan berdasarkan pelanggan (done)
 pelanggan tampilkan semua field (done)
-layanan ada yang one time dan berlangganan
+layanan ada yang one time dan berlangganan (Ini merupakan fitur baru, tidak ada fitur ini sebelumnya)
 
 2021-12-23
 menentukan folder untuk image
