@@ -4,24 +4,24 @@
 
 <h3>Get List Client By Id</h3>
 <h5>Syntax</h5>
-<code>curl localhost:20215/getlistclientsbyid/<strong>client_id</strong></code>
+<code>curl https://localhost:20215/getlistclientsbyid/<strong>client_id</strong></code>
 <p>Syntax di atas digunakan untuk mendapatkan data Pelanggan dengan id <i>client_id</i></p>
 <p>Kolom-kolom yang dikembalikan antara lain adalah:</p>
 <p>id,name,alias,npwp,siup,address,city,billaddress,business_field,phone_area,phone,fax_area,fax,sale_id,user_id,period1,period2</p>
 <h5>Contoh</h5>
-<code>curl localhost:20215/getlistclientsbyid/1000</code>
+<code>curl https://localhost:20215/getlistclientsbyid/1000</code>
 <p>Nilai kembalian adalah:</p>
 <p>{"result":true,"description":[{"id":1000,"name":"MAKSIMEDA","alias":null,"npwp":null,"siup":null,"address":"Graha Sucofindo lantai 11, Jl.Raya Pasar Minggu","city":"Jakarta","billaddress":null,"business_field":"Badan Usaha","phone_area":"021","phone":"79188188","fax_area":"","fax":"","sale_id":100,"user_id":100,"period1":null,"period2":null}]}</p>
 
 
 <h3>Get List Client By Name</h3>
 <h5>Syntax</h5>
-<code>curl localhost:20215/getlistclientsbyname/<strong>client_name</strong></code>
+<code>curl https://localhost:20215/getlistclientsbyname/<strong>client_name</strong></code>
 <p>Syntax di atas digunakan untuk mendapatkan data Pelanggan dengan nama <i>client_name</i></p>
 <p>Kolom-kolom yang dikembalikan antara lain adalah:</p>
 <p>id,name,alias,npwp,siup,address,city,billaddress,business_field,phone_area,phone,fax_area,fax,sale_id,user_id,period1,period2</p>
 <h5>Contoh</h5>
-<code>curl localhost:20215/getlistclientsbyname/maksimedia</code>
+<code>curl https://localhost:20215/getlistclientsbyname/maksimedia</code>
 <p>Nilai kembalian adalah:</p>
 <p>{"result":true,"description":[{"id":4035,"name":"PT MAKSIMEDIA","alias":null,"npwp":null,"siup":null,"address":"Gd. Sucofindo Lt. 10","city":"Jakarta Selatan","billaddress":null,"business_field":"Badan Usaha","phone_area":" ","phone":"021-79188188 ","fax_area":" ","fax":" ","sale_id":161,"user_id":161,"period1":null,"period2":null}]}</p>
 
@@ -29,22 +29,22 @@
 <h3>Layanan yang dimiliki Pelanggan</h3>
 <p>Pelanggan dapat memiliki beberapa Layanan sekaligus. Layanan yang dimiliki Pelanggan dapat didapatkan dengan syntax sebagai berikut</p>
 <h5>Syntax</h5>
-<code>curl http://localhost:20215/getclientservicebyclientid/:id</code>
+<code>curl https://localhost:20215/getclientservicebyclientid/:id</code>
 
 <h5>Contoh</h5>
-<code>curl localhost:20215/getclientservicebyclientid/1500</code>
+<code>curl https://localhost:20215/getclientservicebyclientid/1500</code>
 <p>Kode di atas akan memberikan hasil sebagai berikut:</p>
 <p>{"result":true,"description":[{"category":"Symetrical Broadband Internet (SBI)","fb_id":"SBY20190618001500001","name":"Kepatihan","bandwidth":"3 Mbps","upstr":"0","dnstr":"0","space":"0"},{"category":"Local Loop","fb_id":"SBY20190618001500001","name":"Dukuh Kupang - Kepatihan","bandwidth":"0","upstr":"02.","dnstr":"0","space":"0"}]}</p>
 
 <h3>Update Client</h3>
 <h5>Syntax</h5>
-<code>curl -d 'id=<strong> client_id</strong> &useremail=<strong> useremail </strong>  &prospectdate=<strong> YYYY-MM-DD </strong> &status=1' -X POST http://localhost:20215/updateclient</code>
+<code>curl -k -d 'id=<strong> client_id</strong> &useremail=<strong> useremail </strong>  &prospectdate=<strong> YYYY-MM-DD </strong> &status=1' -X POST https://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":<strong>boolean</strong>,"description":<strong>description</strong>}}
 </code>
 <h5>Contoh</h5>
-<code>curl -d 'id=10320&prospectdate=2021-12-31&useremail=jo@padi.net.id&status=1' -X POST http://localhost:20215/updateclient</code>
+<code>curl -k -d 'id=10320&prospectdate=2021-12-31&useremail=jo@padi.net.id&status=1' -X POST https://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0}
@@ -74,35 +74,35 @@
     <li>period2 (tanggal akhir kontrak)</li>
 </ol>
 <h5>Contoh Update nama</h5>
-<code>curl -d 'id=10320&useremail=jo@padi.net.id&name=ROY ADIDHARMA BAYUATMODJA' -X POST http://localhost:20215/updateclient</code>
+<code>curl -k -d 'id=10320&useremail=jo@padi.net.id&name=ROY ADIDHARMA BAYUATMODJA' -X POST https://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
 </code>
 
 <h5>Contoh Update alias</h5>
-<code>curl -d 'id=10320&useremail=jo@padi.net.id&alias=Dharma' -X POST http://localhost:20215/updateclient</code>
+<code>curl -k -d 'id=10320&useremail=jo@padi.net.id&alias=Dharma' -X POST https://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
 </code>
 
 <h5>Contoh Update npwp,siup dan business_field</h5>
-<code>curl -d 'id=10320&useremail=jo@padi.net.id&npwp=22.1234.23423.33&siup=888.3434.343242&business_field=internet' -X POST http://localhost:20215/updateclient</code>
+<code>curl -k -d 'id=10320&useremail=jo@padi.net.id&npwp=22.1234.23423.33&siup=888.3434.343242&business_field=internet' -X POST https://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
 </code>
 
 <h5>Contoh Update billaddress,address,phone_area,phone,fax_area,fax dan prospectdate</h5>
-<code>curl -d 'id=10320&useremail=jo@padi.net.id&billaddress=Mayjen Suprapto 45&address=Mayjen Sungkon 38&phone_area=031&phone=88882345&fax_area=031&fax=88882345&prospectdate=2021-12-31' -X POST http://localhost:20215/updateclient</code>
+<code>curl -k -d 'id=10320&useremail=jo@padi.net.id&billaddress=Mayjen Suprapto 45&address=Mayjen Sungkon 38&phone_area=031&phone=88882345&fax_area=031&fax=88882345&prospectdate=2021-12-31' -X POST https://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
 </code>
 
 <h5>Contoh Update user_id (Hunter) dan sale_id (Farmer)</h5>
-<code>curl -d 'id=10320&useremail=jo@padi.net.id&user_id=113&sale_id=52' -X POST http://localhost:20215/updateclient</code>
+<code>curl -k -d 'id=10320&useremail=jo@padi.net.id&user_id=113&sale_id=52' -X POST https://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
@@ -110,7 +110,7 @@
 
 
 <h5>Contoh Update status,active,period1 dan period2 (Farmer)</h5>
-<code>curl -d 'id=10320&useremail=jo@padi.net.id&status=1&active=1&period1=2021-12-31&period2=2022-12-30' -X POST http://localhost:20215/updateclient</code>
+<code>curl -k -d 'id=10320&useremail=jo@padi.net.id&status=1&active=1&period1=2021-12-31&period2=2022-12-30' -X POST https://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
@@ -119,14 +119,14 @@
 
 <h2 id="pic">PICs</h2>
 <h5>Syntax</h5>
-<code>curl -d 'client_id=1000' -X POST localhost:20215/getpics</code>
+<code>curl -k -d 'client_id=1000' -X POST https://localhost:20215/getpics</code>
 <p>Kode di atas akan menampilkan semua PIC dari pelanggan dengan id 1000</p>
 <code>
     {"result":true,"description":[{"name":"Yuswin","position":"IT Dept","hp":""}]}
 </code>
 <h5>Syntax</h5>
 
-<code>curl -d 'client_id=1000&name=agus&prole=teknis&phone_area=031&telp_hp=123456&position=staff it&email=agus@company.com&address=jl sukomanunggal 123&ktp=351515220420' -X POST localhost:20215/createpic</code>
+<code>curl -k -d 'client_id=1000&name=agus&prole=teknis&phone_area=031&telp_hp=123456&position=staff it&email=agus@company.com&address=jl sukomanunggal 123&ktp=351515220420' -X POST https://localhost:20215/createpic</code>
 <p>Kode di atas akan membuat PIC baru </p>
 Dengan kembalian sebagai berikut
 <code>
@@ -134,7 +134,7 @@ Dengan kembalian sebagai berikut
 </code>
 <h5>Syntax</h5>
 
-<code>curl -d 'client_id=1000&name=bagus&prole=teknis&phone_area=031&telp_hp=123456&position=staff it&email=bagus@company.com&address=jl sukomanunggal 123&ktp=351515220420' -X POST localhost:20215/updatepic</code>
+<code>curl -k -d 'client_id=1000&name=bagus&prole=teknis&phone_area=031&telp_hp=123456&position=staff it&email=bagus@company.com&address=jl sukomanunggal 123&ktp=351515220420' -X POST https://localhost:20215/updatepic</code>
 <p>Kode di atas akan mengupdate PIC </p>
 Dengan kembalian sebagai berikut
 <code>
@@ -143,10 +143,10 @@ Dengan kembalian sebagai berikut
 
 <h2>Layanan yang dimiliki Pelanggan</h2>
 <h5>Syntax</h5>
-<code>curl localhost:20215/getclientservicebyclientid/:id</code>
+<code>curl https://localhost:20215/getclientservicebyclientid/:id</code>
 <p>Kode di atas akan menampilkan semua PIC dari pelanggan dengan id 1000</p>
 <h5>Syntax</h5>
-<code>curl localhost:20215/getclientservicebyclientid/1000</code>
+<code>curl https://localhost:20215/getclientservicebyclientid/1000</code>
 <code>
     {"result":true,"description":[{"name":"Yuswin","position":"IT Dept","hp":""}]}
 </code>
