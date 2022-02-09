@@ -1,3 +1,5 @@
+const quotation = require('../fields/quotation')
+
 var connection = require('./connection'),
     connectionChained = require('./connectionchained'),
     master = {
@@ -25,7 +27,8 @@ var connection = require('./connection'),
         },
         survey:require('./queries/transactions/surveys'),
         install:require('./queries/transactions/installs'),
-        pic:require('./queries/lists/pic')
+        pic:require('./queries/lists/pic'),
+        quotation:require('./queries/lists/quotation')
     },
     field = {
         suspect : require('../fields/insertsuspect/fields'),
@@ -44,7 +47,8 @@ var connection = require('./connection'),
         report : {
             install : require('../fields/report/install/create')
         },
-        pic:require('./../fields/pic')
+        pic:require('./../fields/pic'),
+        quotation:require('./../fields/quotation')
     }
 module.exports = {
     connection:connection,

@@ -1,7 +1,8 @@
 i = require('./../../js/initmodules'),
 surveys = require('./surveys'),
 installs = require('./installs'),
-pics = require('./pics')
+pics = require('./pics'),
+quotation = require('./quotations'),
 r = require('./../../js/execute/routines')
 insertsuspect = (req,res) => {
     chk = i.check.transactions.check(req.body,i.field.suspect.mandatories,i.field.suspect.allfields,i.field.suspect.numberfields)
@@ -143,6 +144,9 @@ survey = {
 pic = {
     list:pics.list,create:pics.create,update:pics.update
 }
+quotation = {
+    list:quotation.list,create:quotation.create,update:quotation.update
+}
 module.exports = {
     insertSuspect:insertsuspect,
     updateClient:updateclient,
@@ -151,5 +155,6 @@ module.exports = {
     updateSurvey:survey.update,
     survey:survey,
     install:install,
-    pic:pic
+    pic:pic,
+    quotation:quotation
 }
