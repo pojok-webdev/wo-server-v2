@@ -197,6 +197,7 @@ i.app.post('/getpics',(req,res)=>{
     i.execute.transaction.pic.list(req,res)
 })
 i.app.post('/createpic',(req,res)=>{
+    console.log("req",req)
     i.execute.transaction.pic.create(req,res)
 })
 i.app.post('/updatepic',(req,res)=>{

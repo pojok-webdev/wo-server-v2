@@ -124,6 +124,22 @@
 <code>
     {"result":true,"description":[{"name":"Yuswin","position":"IT Dept","hp":""}]}
 </code>
+<h5>Syntax</h5>
+
+<code>curl -d 'client_id=1000&name=agus&prole=teknis&phone_area=031&telp_hp=123456&position=staff it&email=agus@company.com&address=jl sukomanunggal 123&ktp=351515220420' -X POST localhost:20215/createpic</code>
+<p>Kode di atas akan membuat PIC baru </p>
+Dengan kembalian sebagai berikut
+<code>
+    {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":7538,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}}
+</code>
+<h5>Syntax</h5>
+
+<code>curl -d 'client_id=1000&name=bagus&prole=teknis&phone_area=031&telp_hp=123456&position=staff it&email=bagus@company.com&address=jl sukomanunggal 123&ktp=351515220420' -X POST localhost:20215/updatepic</code>
+<p>Kode di atas akan mengupdate PIC </p>
+Dengan kembalian sebagai berikut
+<code>
+    {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
+</code>
 
 <h2>Layanan yang dimiliki Pelanggan</h2>
 <h5>Syntax</h5>
