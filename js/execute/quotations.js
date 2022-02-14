@@ -1,4 +1,4 @@
-create = (req,res,field,tableName) => {
+var create = (req,res,field,tableName) => {
     chk = i.check.transactions.check(
         req.body,i.field.quotation.create.mandatories,
         i.field.quotation.allfields,
@@ -50,14 +50,34 @@ list = (req,res,field,tableName) => {
         })
     }else{
         res.send({result:false,comment:chk.description})
+    }    
+},
+listall = (req,res,field,tableName) => {
+    console.log('execute listall invoked')
+    chk = i.check.transactions.check(
+        req.body,i.field.quotation.listall.mandatories,
+        i.field.quotation.allfields,
+        i.field.quotation.numberfields
+        )
+    if(chk.result){
+        params = {
+            identifier:'id',identifierValue:req.body.client_id,
+            columns:['id','kdoffer','clientname','email'],tableName:tableName
+        }
+        i.connection.doQuery(i.query.quotation.listall(params),result=>{
+            res.send({result:true,description:result})
+        })
+    }else{
+        res.send({result:false,comment:chk.description})
     }
-}
+},
 request = {
     create:(req,res)=>{create(req,res,'quotation','offers')},
     update:(req,res)=>{update(req,res,'quotation','offers')},
-    list:(req,res)=>{list(req,res,'quotation','offers')}
+    list:(req,res)=>{list(req,res,'quotation','offers')},
+    listall:(req,res)=>{listall(req,res,'quotation','offers')}
 }
 
 module.exports = {
-    list:request.list,create:request.create,update:request.update
+    listall:request.listall,list:request.list,create:request.create,update:request.update
 }

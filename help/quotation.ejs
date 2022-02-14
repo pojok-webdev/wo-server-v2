@@ -1,21 +1,7 @@
-curl -k -d 'id=7538&name=bagus&prole=teknis&phone_area=031&telp_hp=123456&position=staff it&email=bagus@company.com&address=jl sukomanunggal 123&ktp=351515220420' -X POST https://localhost:20215/createquotation 
-
-
-curl -k -d 'clientname=Indosat PT&branch=1&kdoffer=hehe&offerdate=2022-02-09&client_id=1&client_site_id=1&address=jl sukomanunggal 123&city=Surabaya' -X POST https://localhost:20215/createquotation 
-
-contoh salah:
-
-
-<code>
-    curl -k -d 'clientname=Indosat PT&branch=1&kdoffer=hehe&offerdate=2022-02-09&client_id=1&client_site_id=1&address=jl sukomanunggal 123&city=Surabaya' -X POST https://localhost:20215/createquotation 
-</code>
-Kembalian:
-<code>
-    {"result":false,"comment":{"dont have":["name"]}}
-</code>
-
-
-contoh benar:
+<h2 id="prospect">Quotation</h2>
+<p>Quotation adalah penawaran layanan kepada calon Pelanggan <strong>PadiNET</strong></p>
+<h3>Create Quotations</h3>
+<h5>Syntax</h5>
 <code>
     curl -k -d 'clientname=Indosat PT&branch=1&kdoffer=hehe&offerdate=2022-02-09&client_id=1&client_site_id=1&address=jl sukomanunggal 123&city=Surabaya&email=abc@yahoo.com&pic=zebob&phone=08888888888&service=Enterprize&price=1000000&uc=1&source=phonecall&description=tes&sale_id=2' -X POST https://localhost:20215/createquotation 
 </code>
@@ -23,3 +9,25 @@ Kembalian
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":2209,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}}
 </code>
+
+
+<h3>List Quotations</h3>
+<h5>Syntax</h5>
+<code>
+    curl  -X POST https://localhost:20215/listallquotation -k
+</code>
+Kembalian
+<code>
+    {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":2209,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}}
+</code>
+
+<h3>Update Quotations</h3>
+<h5>Syntax</h5>
+<code>
+    curl -k -d 'id=1&clientname=Indosat PT&branch=1&kdoffer=hehe&offerdate=2022-02-09&client_id=1&client_site_id=1&address=jl sukomanunggal 123&city=Surabaya&email=abc@yahoo.com&pic=zebob&phone=08888888888&service=Enterprize&price=1000000&uc=1&source=phonecall&description=tes&sale_id=2' -X POST https://localhost:20215/createquotation 
+</code>
+Kembalian
+<code>
+    {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
+</code>
+

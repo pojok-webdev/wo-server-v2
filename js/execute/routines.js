@@ -1,4 +1,13 @@
 routines = {
+    listall:obj=>{
+        cols = []
+        obj.columns.forEach(el=>{
+            cols.push(el)
+        })
+        sql = 'select '+cols.join()+' from '+obj.tableName+' '
+        console.log('SQL',sql)
+        return sql
+    },
     list:obj=>{
         cols = []
         obj.columns.forEach(el=>{
@@ -42,6 +51,7 @@ routines = {
     }
 }
 module.exports = {
+    listall:routines.listall,
     list:routines.list,
     create:routines.create,
     update:routines.update,

@@ -206,6 +206,12 @@ i.app.post('/updatepic',(req,res)=>{
 i.app.post('/createquotation',(req,res)=>{
     i.execute.transaction.quotation.create(req,res)
 })
+i.app.post('/listallquotation',(req,res)=>{
+    i.execute.transaction.quotation.listall(req,res)
+})
+i.app.post('/updatequotation',(req,res)=>{
+    i.execute.transaction.quotation.update(req,res)
+})
 i.app.post('/uplaa',(req,res)=>{
     var form = new formidable.IncomingForm()
     form.parse(req,(err,field,files)=>{
