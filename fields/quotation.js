@@ -11,8 +11,9 @@ var list = {
 
     create : {
         mandatories:['clientname'],
-        allfields:['id','branch','kdoffer','offerdate','client_id','client_site_id','clientname','address','city','email','pic','phone','service','price','uc','source','description','sale_id','img'],
-        numberfields:['id','client_id','client_site_id']
+        allfields:['id','branch','kdoffer','offerdate','client_id','client_site_id','clientname','address','city','email','pic','phone','service','price','uc','source','description','sale_id','sale_email','img'],
+        numberfields:['id','client_id','client_site_id'],
+        columntoskip:['sale_email']
     },
     update : {
         mandatories:['id'],

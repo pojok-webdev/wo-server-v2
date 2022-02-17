@@ -48,12 +48,24 @@ routines = {
             delete objs[p]
         })
         return objs
+    },
+    salemailtoid: (obj) => {
+        console.log("OBJ got",obj)
+        sql = 'select id from users where email = "' + obj.sale_email + '" ';
+        return sql
+    },
+    saleidtomail: (obj) => {
+        sql = 'select email from users where id = ' + obj.id + ' ';
+        return sql
     }
+
 }
 module.exports = {
     listall:routines.listall,
     list:routines.list,
     create:routines.create,
     update:routines.update,
-    exclude:routines.exclude
+    exclude:routines.exclude,
+    salemailtoid:routines.salemailtoid,
+    saleidtomail:routines.saleidtomail
 }

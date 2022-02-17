@@ -1,20 +1,30 @@
+var routines = require('./../execute/routines')
 var create = (req,res,field,tableName) => {
-    chk = i.check.transactions.check(
-        req.body,i.field.quotation.create.mandatories,
-        i.field.quotation.allfields,
-        i.field.quotation.numberfields
-        )
-        if(chk.result){
-            params = {
-                tableName:tableName,columns:req.body
+    console.log("SQL",routines.salemailtoid(req.body))
+    i.connection.doQuery(routines.salemailtoid(req.body),result=>{
+        console.log("email sales",req.body.sale_email)
+        console.log("ID From Email",result[0].id)
+        chk = i.check.transactions.check(
+            req.body,i.field.quotation.create.mandatories,
+            i.field.quotation.create.allfields,
+            i.field.quotation.numberfields
+            )
+            if(chk.result){
+                req.body.sale_id = result[0].id
+                delete req.body.sale_email
+                params = {
+                    tableName:tableName,columns:req.body
+                }
+                console.log("Params req body",params.columns)
+                console.log('query quotation',i.query.quotation)
+                i.connection.doQuery(i.query.quotation.create(params),result=>{
+                    res.send({result:true,description:result})
+                })
+            }else{
+                res.send({result:false,comment:chk.description})
             }
-            console.log('query quotation',i.query.quotation)
-            i.connection.doQuery(i.query.quotation.create(params),result=>{
-                res.send({result:true,description:result})
-            })
-        }else{
-            res.send({result:false,comment:chk.description})
-        }
+        })
+//    req.body.sale_id = routines.salemailtoid(req.body.sale_email)
 },
 update = (req,res,field,tableName) => {
     chk = i.check.transactions.check(
