@@ -209,8 +209,17 @@ i.app.post('/createquotation',(req,res)=>{
 i.app.post('/listallquotation',(req,res)=>{
     i.execute.transaction.quotation.listall(req,res)
 })
+i.app.post('/listallquotationservices',(req,res)=>{
+    i.execute.transaction.quotation.listallquotationservices(req,res)
+})
 i.app.post('/updatequotation',(req,res)=>{
     i.execute.transaction.quotation.update(req,res)
+})
+i.app.post('/updatequotationservice',(req,res)=>{
+    i.execute.transaction.quotation.updatequotationservice(req,res)
+})
+i.app.post('/addquotationservice',(req,res)=>{
+    i.execute.transaction.quotation.addquotationservice(req,res)
 })
 i.app.post('/uplaa',(req,res)=>{
     var form = new formidable.IncomingForm()

@@ -20,6 +20,24 @@ var list = {
         allfields:['id','branch','kdoffer','offerdate','client_id','client_site_id','clientname','address','city','email','pic','phone','service','price','uc','source','description','sale_id','sale_email','img'],
         numberfields:['id','client_id','client_site_id'],
         columntoskip:['sale_email']
+    },
+    listallquotationservices:{
+        mandatories:['offer_id'],
+        allfields:['id','servicename','offer_id','capacity','price','createdate'],
+        numberfields:['id','offer_id'],
+        columntoskip:['offer_id']
+    },
+    updatequotationservice:{
+        mandatories:['id'],
+        allfields:['id','servicename','offer_id','capacity','price','createdate'],
+        numberfields:['id','offer_id'],
+        columntoskip:['offer_id']
+    },
+    addquotationservice:{
+        mandatories:['servicename'],
+        allfields:['id','servicename','offer_id','capacity','price','createdate'],
+        numberfields:['id','offer_id'],
+        columntoskip:[]
     }
 }
 module.exports = {
@@ -28,5 +46,8 @@ module.exports = {
     numberfields:list.numberfields,
     create:list.create,
     update:list.update,
-    listall:list.listall
+    listall:list.listall,
+    listallquotationservices:list.listallquotationservices,
+    updatequotationservice:list.updatequotationservice,
+    addquotationservice:list.addquotationservice
 }

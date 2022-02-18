@@ -145,7 +145,13 @@ pic = {
     list:pics.list,create:pics.create,update:pics.update
 }
 quotation = {
-    listall:quotation.listall,list:quotation.list,create:quotation.create,update:quotation.update
+    listall:quotation.listall,
+    list:quotation.list,
+    create:quotation.create,
+    update:quotation.update,
+    listallquotationservices:quotation.listallquotationservices,
+    updatequotationservice:quotation.updatequotationservice,
+    addquotationservice:quotation.addquotationservice
 }
 module.exports = {
     insertSuspect:insertsuspect,

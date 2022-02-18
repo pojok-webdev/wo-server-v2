@@ -117,13 +117,81 @@ listall = (req,res,field,tableName) => {
         res.send({result:false,comment:chk.description})
     }
 },
+listallquotationservices = (req,res,field,tableName) => {
+    console.log('execute listall invoked')
+    chk = i.check.transactions.check(
+        req.body,i.field.quotation.listallquotationservices.mandatories,
+        i.field.quotation.listallquotationservices.allfields,
+        i.field.quotation.listallquotationservices.numberfields
+        )
+    if(chk.result){
+        params = {
+            identifier:'offer_id',identifierValue:req.body.offer_id,
+            columns:i.field.quotation.listallquotationservices.allfields,tableName:tableName
+        }
+        i.connection.doQuery(i.query.quotation.listallquotationservices(params),result=>{
+            res.send({result:true,description:result})
+        })
+    }else{addquotationservice
+        res.send({result:false,comment:chk.description})
+    }
+},
+updatequotationservice = (req,res,field,tableName) => {
+    chk = i.check.transactions.check(
+        req.body,i.field.quotation.updatequotationservice.mandatories,
+        i.field.quotation.updatequotationservice.allfields,
+        i.field.quotation.updatequotationservice.numberfields
+        )
+    if(chk.result){
+        params = {
+            identifier:'id',identifierValue:req.body.id,
+            columns:req.body,tableName:tableName
+        }
+        i.connection.doQuery(i.query.quotation.updatequotationservice(params),result=>{
+            res.send({result:true,description:result})
+        })
+    }else{
+        res.send({result:false,comment:chk.description})
+    }    
+},
+addquotationservice = (req,res,field,tableName) => {
+    chk = i.check.transactions.check(
+        req.body,i.field.quotation.addquotationservice.mandatories,
+        i.field.quotation.addquotationservice.allfields,
+        i.field.quotation.addquotationservice.numberfields
+        )
+        if(chk.result){
+            params = {
+                tableName:tableName,columns:req.body
+            }
+            console.log("TABLENAME",tableName)
+            console.log("Params req body",params.columns)
+            console.log('query quotation',i.query.quotation)
+            i.connection.doQuery(i.query.quotation.addquotationservice(params),result=>{
+                res.send({result:true,description:result})
+            })
+        }else{
+            res.send({result:false,comment:chk.description})
+        }
+
+}
 request = {
     create:(req,res)=>{create(req,res,'quotation','offers')},
     update:(req,res)=>{update(req,res,'quotation','offers')},
     list:(req,res)=>{list(req,res,'quotation','offers')},
-    listall:(req,res)=>{listall(req,res,'quotation','offers')}
+    listall:(req,res)=>{listall(req,res,'quotation','offers')},
+    listallquotationservices:(req,res)=>{listallquotationservices(req,res,'quotationservices','offer_services')},
+    updatequotationservice:(req,res)=>{updatequotationservice(req,res,'quotationservices','offer_services')},
+    addquotationservice:(req,res)=>{addquotationservice(req,res,'quotationservices','offer_services')},
+    removequotationservice:(req,res)=>{removequotationservice(req,res,'quotationservices','offer_services')}
 }
 
 module.exports = {
-    listall:request.listall,list:request.list,create:request.create,update:request.update
+    listall:request.listall,
+    list:request.list,
+    create:request.create,
+    update:request.update,
+    listallquotationservices:request.listallquotationservices,
+    updatequotationservice:request.updatequotationservice,
+    addquotationservice:request.addquotationservice
 }

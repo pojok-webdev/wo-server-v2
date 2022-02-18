@@ -35,3 +35,19 @@ Kembalian
 <code>
     curl -k -d 'id=1&clientname=Kapal Apa PT&sale_email=dhita@padi.net.id' -X POST https://localhost:20215/updatequotation
 </code>
+<h3>List Layanan berdasarkan ID Quotation</h3>
+<code>
+    curl -d 'offer_id=13' -X POST https://localhost:20215/listallquotationservices/ -k
+</code>
+offer_id adalah ID Quotation
+
+<h3>Update Layanan Quotation</h3>
+<code>
+    curl -d 'id=13&servicename=Ajibon' -X POST https://localhost:20215/updatequotationservice/ -k
+</code>
+id adalah ID layanan dalam Quotation
+
+<h3>Penambahan Layanan Quotation</h3>
+<code>
+    curl -d 'offer_id=13&servicename=namalayanan&price=1000000&capacity=2 racks' -X POST https://localhost:20215/addquotationservice/ -k
+</code>
