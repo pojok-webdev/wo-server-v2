@@ -25,10 +25,13 @@ Kembalian
 <h3>Update Quotations</h3>
 <h5>Syntax</h5>
 <code>
-    curl -k -d 'id=1&clientname=Indosat PT&branch=1&kdoffer=hehe&offerdate=2022-02-09&client_id=1&client_site_id=1&address=jl sukomanunggal 123&city=Surabaya&email=abc@yahoo.com&pic=zebob&phone=08888888888&service=Enterprize&price=1000000&uc=1&source=phonecall&description=tes&sale_id=2' -X POST https://localhost:20215/createquotation 
+    curl -k -d 'id=1&clientname=Indosat PT&branch=1&kdoffer=hehe&offerdate=2022-02-09&client_id=1&client_site_id=1&address=jl sukomanunggal 123&city=Surabaya&email=abc@yahoo.com&pic=zebob&phone=08888888888&service=Enterprize&price=1000000&uc=1&source=phonecall&description=tes&sale_email=aristiadi.yuwono@padi.net.id' -X POST https://localhost:20215/updatequotation 
 </code>
 Kembalian
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
 </code>
 
+<code>
+    curl -k -d 'id=1&clientname=Kapal Apa PT&sale_email=dhita@padi.net.id' -X POST https://localhost:20215/updatequotation
+</code>

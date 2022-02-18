@@ -50,8 +50,8 @@ routines = {
         return objs
     },
     salemailtoid: (obj) => {
-        console.log("OBJ got",obj)
         sql = 'select id from users where email = "' + obj.sale_email + '" ';
+        console.log("salemailtoid SQL",sql)
         return sql
     },
     saleidtomail: (obj) => {

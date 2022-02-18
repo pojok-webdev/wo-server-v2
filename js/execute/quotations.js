@@ -24,25 +24,39 @@ var create = (req,res,field,tableName) => {
                 res.send({result:false,comment:chk.description})
             }
         })
-//    req.body.sale_id = routines.salemailtoid(req.body.sale_email)
-},
-update = (req,res,field,tableName) => {
-    chk = i.check.transactions.check(
-        req.body,i.field.quotation.update.mandatories,
-        i.field.quotation.update.allfields,
-        i.field.quotation.update.numberfields
-        )
-    if(chk.result){
-        params = {
-            identifier:'id',identifierValue:req.body.id,
-            columns:req.body,tableName:tableName
-        }
-        i.connection.doQuery(i.query.quotation.update(params),result=>{
-            res.send({result:true,description:result})
+},checkSalemail = (obj,callback) => {
+    if(obj.hasOwnProperty('sale_email')){
+        console.log("OBJ got",obj)
+        i.connection.doQuery(routines.salemailtoid(obj),result=>{
+            console.log('salemailtoid result',result)
+            obj.sale_id = result[0].id
+            delete obj.sale_email
+            callback(obj)
         })
     }else{
-        res.send({result:false,comment:chk.description})
+        callback(obj)
     }
+},
+update = (req,res,field,tableName) => {
+    checkSalemail(req.body,obj=>{
+        console.log("OBJ after remove sales email",obj)
+        chk = i.check.transactions.check(
+            obj,i.field.quotation.update.mandatories,
+            i.field.quotation.update.allfields,
+            i.field.quotation.update.numberfields
+            )
+        if(chk.result){
+            params = {
+                identifier:'id',identifierValue:obj.id,
+                columns:obj,tableName:tableName
+            }
+            i.connection.doQuery(i.query.quotation.update(params),result=>{
+                res.send({result:true,description:result})
+            })
+        }else{
+            res.send({result:false,comment:chk.description})
+        }    
+    })
 },
 list = (req,res,field,tableName) => {
     chk = i.check.transactions.check(
