@@ -1,5 +1,24 @@
 var routines = require('./../execute/routines')
-var create = (req,res,field,tableName) => {
+var saveServices = (obj)=>{
+    obj.services.forEach(service=>{
+        console.log("Result",obj.offer_id)
+        console.log("name",service.servicename)
+        console.log("price",service.price)
+        console.log("price",service.capacity)
+        i.connection.doQuery(routines.create({
+            tableName:"offer_services",
+            columns:{
+                servicename:service.servicename,
+                price:service.price,
+                capacity:service.capacity,
+                offer_id:obj.offer_id
+            }
+        }),result=>{
+            console.log("Execution result",result)
+        })
+    })
+},
+create = (req,res,field,tableName) => {
     console.log("SQL",routines.salemailtoid(req.body))
     i.connection.doQuery(routines.salemailtoid(req.body),result=>{
         console.log("email sales",req.body.sale_email)
@@ -12,12 +31,15 @@ var create = (req,res,field,tableName) => {
             if(chk.result){
                 req.body.sale_id = result[0].id
                 delete req.body.sale_email
+                services = req.body.services
+                delete req.body.services
                 params = {
                     tableName:tableName,columns:req.body
                 }
                 console.log("Params req body",params.columns)
                 console.log('query quotation',i.query.quotation)
                 i.connection.doQuery(i.query.quotation.create(params),result=>{
+                    saveServices({offer_id:result.insertId,services:services})
                     res.send({result:true,description:result})
                 })
             }else{
