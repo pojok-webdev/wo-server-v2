@@ -221,6 +221,9 @@ i.app.post('/updatequotationservice',(req,res)=>{
 i.app.post('/addquotationservice',(req,res)=>{
     i.execute.transaction.quotation.addquotationservice(req,res)
 })
+i.app.post('/removequotationservice',(req,res)=>{
+    i.execute.transaction.quotation.removequotationservice(req,res)
+})
 i.app.post('/uplaa',(req,res)=>{
     var form = new formidable.IncomingForm()
     form.parse(req,(err,field,files)=>{

@@ -151,7 +151,8 @@ quotation = {
     update:quotation.update,
     listallquotationservices:quotation.listallquotationservices,
     updatequotationservice:quotation.updatequotationservice,
-    addquotationservice:quotation.addquotationservice
+    addquotationservice:quotation.addquotationservice,
+    removequotationservice:quotation.removequotationservice
 }
 module.exports = {
     insertSuspect:insertsuspect,

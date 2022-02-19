@@ -38,6 +38,12 @@ var list = {
         allfields:['id','servicename','offer_id','capacity','price','createdate'],
         numberfields:['id','offer_id'],
         columntoskip:[]
+    },
+    removequotationservice:{
+        mandatories:['id'],
+        allfields:['id'],
+        numberfields:['id'],
+        columntoskip:[]
     }
 }
 module.exports = {
@@ -49,5 +55,6 @@ module.exports = {
     listall:list.listall,
     listallquotationservices:list.listallquotationservices,
     updatequotationservice:list.updatequotationservice,
-    addquotationservice:list.addquotationservice
+    addquotationservice:list.addquotationservice,
+    removequotationservice:list.removequotationservice
 }

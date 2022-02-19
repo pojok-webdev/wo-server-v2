@@ -174,6 +174,25 @@ addquotationservice = (req,res,field,tableName) => {
             res.send({result:false,comment:chk.description})
         }
 
+},
+removequotationservice = (req,res,field,tableName)=>{
+    chk = i.check.transactions.check(
+        req.body,i.field.quotation.removequotationservice.mandatories,
+        i.field.quotation.removequotationservice.allfields,
+        i.field.quotation.numberfields
+        )
+        if(chk.result){
+            params = {
+                tableName:tableName,columns:req.body
+            }
+            i.connection.doQuery(routines.remove({
+                tableName:'offer_services',identifier:'id',identifierValue:req.body.id
+            }),result=>{
+                res.send({result:true,description:result})
+            })
+        }else{
+            res.send({result:false,comment:chk.description})
+        }    
 }
 request = {
     create:(req,res)=>{create(req,res,'quotation','offers')},
@@ -193,5 +212,6 @@ module.exports = {
     update:request.update,
     listallquotationservices:request.listallquotationservices,
     updatequotationservice:request.updatequotationservice,
-    addquotationservice:request.addquotationservice
+    addquotationservice:request.addquotationservice,
+    removequotationservice:request.removequotationservice
 }

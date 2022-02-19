@@ -51,3 +51,8 @@ id adalah ID layanan dalam Quotation
 <code>
     curl -d 'offer_id=13&servicename=namalayanan&price=1000000&capacity=2 racks' -X POST https://localhost:20215/addquotationservice/ -k
 </code>
+
+<h3>Penghapusan Layanan Quotation</h3>
+<code>
+    curl -d 'id=75' -X POST https://localhost:20215/removequotationservice/ -k
+</code>

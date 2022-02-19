@@ -43,6 +43,11 @@ routines = {
         console.log('Update '+obj.tableName+' SQL',sql)
         return sql
     },
+    remove : obj => {
+        sql = 'delete from ' + obj.tableName + ' '
+        sql+= 'where ' + obj.identifier + ' = ' + obj.identifierValue
+        return sql
+    },
     exclude: (objs,props) => {
         props.forEach(p=>{
             delete objs[p]
@@ -65,6 +70,7 @@ module.exports = {
     list:routines.list,
     create:routines.create,
     update:routines.update,
+    remove:routines.remove,
     exclude:routines.exclude,
     salemailtoid:routines.salemailtoid,
     saleidtomail:routines.saleidtomail
