@@ -43,7 +43,7 @@ list = (req,res,field,tableName) => {
     if(chk.result){
         params = {
             identifier:'client_id',identifierValue:req.body.client_id,
-            columns:['name','position','hp'],tableName:tableName
+            columns:['id','name','position','hp'],tableName:tableName
         }
         i.connection.doQuery(i.query.pic.list(params),result=>{
             res.send({result:true,description:result})
