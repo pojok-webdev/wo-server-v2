@@ -52,12 +52,31 @@ list = (req,res,field,tableName) => {
         res.send({result:false,comment:chk.description})
     }
 }
+getbyid = (req,res,field,tableName) => {
+    chk = i.check.transactions.check(
+        req.body,i.field.pic.mandatories,
+        i.field.pic.allfields,
+        i.field.pic.numberfields
+        )
+    if(chk.result){
+        params = {
+            identifier:'id',identifierValue:req.body.id,
+            columns:['id','name','position','hp'],tableName:tableName
+        }
+        i.connection.doQuery(i.query.pic.list(params),result=>{
+            res.send({result:true,description:result})
+        })
+    }else{
+        res.send({result:false,comment:chk.description})
+    }
+}
 request = {
     create:(req,res)=>{create(req,res,'pic','pics')},
     update:(req,res)=>{update(req,res,'pic','pics')},
-    list:(req,res)=>{list(req,res,'pic','pics')}
+    list:(req,res)=>{list(req,res,'pic','pics')},
+    getbyid:(req,res)=>{getbyid(req,res,'pic','pics')}
 }
 
 module.exports = {
-    list:request.list,create:request.create,update:request.update
+    list:request.list,create:request.create,update:request.update,getbyid:request.getbyid
 }
