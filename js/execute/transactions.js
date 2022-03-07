@@ -142,7 +142,7 @@ survey = {
     resume:surveys.resume,site_distance:surveys.site_distance,surveyor:surveys.surveyor,imagesv2:surveys.imagesv2
 }
 pic = {
-    list:pics.list,create:pics.create,update:pics.update
+    list:pics.list,create:pics.create,update:pics.update,getbyid:pics.getbyid
 }
 quotation = {
     listall:quotation.listall,
