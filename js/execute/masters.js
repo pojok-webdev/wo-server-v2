@@ -111,6 +111,7 @@ module.exports = {
     getMasterServiceByName:getmasterservicebyname,
     getMasterServiceById:getmasterservicebyid,
     getMasterServiceByCategory:getmasterservicebycategory,
+    getMasterServiceByCategoryname:getMasterServiceByCategoryname,
     getMasterMaterial:getmastermaterial,
     getMasterMaterialByName:getmastermaterialbyname,
     getMasterMaterialById:getmastermaterialbyid,

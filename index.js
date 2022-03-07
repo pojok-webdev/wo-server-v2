@@ -215,6 +215,9 @@ i.app.post('/createpic',(req,res)=>{
 i.app.post('/updatepic',(req,res)=>{
     i.execute.transaction.pic.update(req,res)
 })
+i.app.post('/removepic',(req,res)=>{
+    i.execute.transaction.pic.remove(req,res)
+})
 i.app.post('/createquotation',(req,res)=>{
     i.execute.transaction.quotation.create(req,res)
 })
