@@ -11,6 +11,11 @@ var list = {
         mandatories:['id'],
         allfields:['id','client_id','name','prole','phone_area','telp_hp','position','hp','hp2','email','address','ktp'],
         numberfields:['id','client_id']
+    },
+    getbyid:{
+        mandatories : ['id'],
+        allfields : ['id','client_id','name','prole','phone_area','telp_hp','position','hp','hp2','email','address','ktp'],
+        numberfields : ['id','client_id']
     }
 }
 module.exports = {
@@ -19,4 +24,5 @@ module.exports = {
     numberfields:list.numberfields,
     create:list.create,
     update:list.update,
+    getbyid:list.getbyid
 }
