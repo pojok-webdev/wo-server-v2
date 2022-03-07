@@ -36,6 +36,13 @@ getmasterservicebyname = (req,res) => {
         }
     )
 }
+getmasterservicebyid = (req,res) => {
+    i.connection.doQuery(
+        i.master.service.getMasterServiceById(req.params),result=>{
+            res.send({result:true,description:result})
+        }
+    )
+}
 getmasterservicebycategory = (req,res) => {
     i.connection.doQuery(
         i.master.service.getMasterServiceByCategory(req.params),result=>{

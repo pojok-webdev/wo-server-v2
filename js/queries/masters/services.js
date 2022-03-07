@@ -21,11 +21,19 @@ var masterService = {
         sql+= 'where category_id="'+obj.category_id+'" '
         console.log('SQL',sql)
         return sql
+    },
+    getMasterServiceById : obj => {
+        console.log('OBJ',obj)
+        let sql = 'select id,category_id,product_id,name,price,discount from pricelists2.products '
+        sql+= 'where id = "%'+obj.name+'%" '
+        console.log('SQL',sql)
+        return sql
     }
-}
+ }
 module.exports = {
     getMasterServiceCategories:masterService.getMasterServiceCategories,
     getMasterServices:masterService.getMasterServices,
     getMasterServiceByName:masterService.getMasterServiceByName,
     getMasterServiceByCategory:masterService.getMasterServiceByCategory,
+    getMasterServiceById:masterService.getMasterServiceById,
 }
