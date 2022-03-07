@@ -95,7 +95,7 @@ module.exports = {
     getMasterServiceCategories:getmasterservicecategories,
     getMasterService:getmasterservice,
     getMasterServiceByName:getmasterservicebyname,
-    getMasterServicebyId:getmasterservicebyid,
+    getMasterServiceById:getmasterservicebyid,
     getMasterServiceByCategory:getmasterservicebycategory,
     getMasterMaterial:getmastermaterial,
     getMasterMaterialByName:getmastermaterialbyname,
