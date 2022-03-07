@@ -124,6 +124,18 @@
 <code>
     {"result":true,"description":[{"name":"Yuswin","position":"IT Dept","hp":""}]}
 </code>
+
+
+<h5>Syntax</h5>
+<p>Contoh:</p>
+<code>curl -k -d "id=12" -X POST https://192.168.0.117:20216/getpicbyid</code>
+<p>Kode di atas akan menampilkan semua PIC dari pelanggan dengan id 12</p>
+<code>
+    [{"id":12,"name":"MOCH.FADZARUDDIN","position":"","hp":null}]}
+</code>
+
+
+
 <h5>Syntax</h5>
 
 <code>curl -k -d 'client_id=1000&name=agus&prole=teknis&phone_area=031&telp_hp=123456&position=staff it&email=agus@company.com&address=jl sukomanunggal 123&ktp=351515220420' -X POST https://localhost:20215/createpic</code>
