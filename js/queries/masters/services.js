@@ -25,7 +25,7 @@ var masterService = {
     getMasterServiceById : obj => {
         console.log('OBJ',obj)
         let sql = 'select id,category_id,product_id,name,price,discount from pricelists2.products '
-        sql+= 'where id = "%'+obj.name+'%" '
+        sql+= 'where id = "'+obj.id+'" '
         console.log('SQL',sql)
         return sql
     }
