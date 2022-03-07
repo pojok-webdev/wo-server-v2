@@ -40,7 +40,7 @@ i.app.post('/createsurveyreport',(req,res)=>{
 i.app.get('/getmasterservice',(req,res)=>{
     i.execute.master.getMasterService(req,res)
 })
-i.app.get('/getmasterservicebyid',(req,res)=>{
+i.app.get('/getmasterservicebyid/:id',(req,res)=>{
     i.execute.master.getMasterServiceById(req,res)
 })
 i.app.get('/getmasterservicebyname/:name',(req,res)=>{
