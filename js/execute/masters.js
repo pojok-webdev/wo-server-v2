@@ -71,6 +71,13 @@ getmastermaterialbyname = (req,res) => {
         }
     )
 }
+getmastermaterialbyid = (req,res) => {
+    i.connection.doQuery(
+        i.master.material.getMasterMaterialById(req.params),result=>{
+            res.send({result:true,description:result})
+        }
+    )
+}
 getmasterdevice = (req,res) => {
     i.connection.doQuery(
         i.master.device.getMasterDevice(),result=>{
@@ -106,6 +113,7 @@ module.exports = {
     getMasterServiceByCategory:getmasterservicebycategory,
     getMasterMaterial:getmastermaterial,
     getMasterMaterialByName:getmastermaterialbyname,
+    getMasterMaterialById:getmastermaterialbyid,
     getMasterDevice:getmasterdevice,
     getListLeadsByName:getlistleadsbyname,
     getMasterDeviceByName:getMasterDeviceByName,

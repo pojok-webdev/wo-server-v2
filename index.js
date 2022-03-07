@@ -58,6 +58,9 @@ i.app.get('/getmastermaterial', (req,res) => {
 i.app.get('/getmastermaterialbyname/:name',(req,res)=>{
     i.execute.master.getMasterMaterialByName(req,res)
 })
+i.app.get('/getmastermaterialbyid/:id',(req,res)=>{
+    i.execute.master.getMasterMaterialById(req,res)
+})
 i.app.get('/getmasterdevice', (req,res) => {
     i.execute.master.getMasterDevice(req,res)
 })
