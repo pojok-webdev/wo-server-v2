@@ -135,7 +135,6 @@
 </code>
 
 
-
 <h5>Syntax</h5>
 
 <code>curl -k -d 'client_id=1000&name=agus&prole=teknis&phone_area=031&telp_hp=123456&position=staff it&email=agus@company.com&address=jl sukomanunggal 123&ktp=351515220420' -X POST https://localhost:20215/createpic</code>
@@ -152,6 +151,14 @@ Dengan kembalian sebagai berikut
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
 </code>
+
+<h5>Syntax</h5>
+<p>Contoh:</p>
+<code>curl -k -d "id=12" -X POST https://192.168.0.117:20216/removepic</code>
+<p>Kode di atas akan menghapus PIC dari pelanggan dengan id pic 12</p>
+
+
+
 
 <h2>Layanan yang dimiliki Pelanggan</h2>
 <h5>Syntax</h5>
