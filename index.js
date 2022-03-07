@@ -64,6 +64,9 @@ i.app.get('/getmasterdevice', (req,res) => {
 i.app.get('/getmasterdevicebyname/:name', (req,res) => {
     i.execute.master.getMasterDeviceByName(req,res)
 })
+i.app.get('/getmasterdevicebyid/:id', (req,res) => {
+    i.execute.master.getMasterDeviceById(req,res)
+})
 i.app.get('/getlistleadsbyname/:name', (req,res)=>{
     i.execute.list.getLeadsByName(req,res)
 })

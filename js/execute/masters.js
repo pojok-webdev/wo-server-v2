@@ -85,6 +85,13 @@ getMasterDeviceByName = (req,res) => {
         }
     )
 }
+getMasterDeviceById = (req,res) => {
+    i.connection.doQuery(
+        i.master.device.getMasterDeviceById(req.params),result=>{
+            res.send({result:true,description:result})
+        }
+    )
+}
 getlistleadsbyname = (req,res) => {
     i.connection.doQuery(
         i.list.lead.getLeadsByName()
@@ -101,5 +108,6 @@ module.exports = {
     getMasterMaterialByName:getmastermaterialbyname,
     getMasterDevice:getmasterdevice,
     getListLeadsByName:getlistleadsbyname,
-    getMasterDeviceByName:getMasterDeviceByName
+    getMasterDeviceByName:getMasterDeviceByName,
+    getMasterDeviceById:getMasterDeviceById
 }
