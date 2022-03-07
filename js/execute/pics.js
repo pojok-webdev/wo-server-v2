@@ -54,9 +54,9 @@ list = (req,res,field,tableName) => {
 }
 getbyid = (req,res,field,tableName) => {
     chk = i.check.transactions.check(
-        req.body,i.field.pic.mandatories,
-        i.field.pic.allfields,
-        i.field.pic.numberfields
+        req.body,i.field.pic.getbyid.mandatories,
+        i.field.pic.getbyid.allfields,
+        i.field.pic.getbyid.numberfields
         )
     if(chk.result){
         params = {
