@@ -87,7 +87,14 @@ code{
     text-indent: 50px;
     color:blueviolet;
 }
-
+    
+.description{
+    border: 1px solid black;
+    padding-left: 10px;
+    color:darkblue;
+    font-size: 9px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 @media print{
     #idSticky{
         display: none

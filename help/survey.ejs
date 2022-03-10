@@ -19,6 +19,15 @@
 <code>
     {"result":<strong>boolean</strong>,"client_site_id":<strong>client_site_id</strong>,"survey_request_id":<strong>survey_request_id</strong>,"survey_site_id":<strong>survey_site_id</strong>}
 </code>
+<p class="description">
+    <strong>client_site_id</strong>
+    Merupakan id dari site pelanggan. Tiap pelanggan memiliki setidaknya 1 site.<br />
+    <strong>survey_request_id</strong>
+    Merupakan id dari pengajuan survey<br />
+    <strong>survey_site_id</strong>
+    Merupakan id dari site pengajuan survey<br /> 
+</p>
+
 <h5>Contoh</h5>
 <code>
         curl -d "client_id=111&branch_id=1&survey_date=2021-11-30&address=Jl Gadjah Mada Sidoarjo&city=Sidoarjo&pic_name=Budi&pic_phone=0888123456&pic_email=budi@company.com" -X POST localhost:20215/proposesurvey
