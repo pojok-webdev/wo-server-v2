@@ -9,7 +9,12 @@ var site = {
             mandatories : ['survey_site_id'],
             allfields : ['id','survey_site_id','name','img','description','createuser','createdate'],
             numberfields : ['id']
-        }
+        },
+        delete:{
+            mandatories : ['id'],
+            allfields : ['id','survey_site_id','name','img','description','createuser','createdate'],
+            numberfields : ['id']
+        },
     },
     sites : {
         create:{

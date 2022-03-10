@@ -103,6 +103,9 @@ i.app.post('/updatesurveysite',(req,res)=>{
 i.app.post('/updatesurveybas',(req,res)=>{
     i.execute.transaction.survey.bas.update(req,res)
 })
+i.app.post('/removesurveyba',(req,res)=>{
+    i.execute.transaction.survey.bas.remove(req,res);
+})
 i.app.post('/updatesurveybtsdistances',(req,res)=>{
     i.execute.transaction.survey.bts_distance.update(req,res)
 })

@@ -46,6 +46,9 @@ request = {
         sql = 'select id from survey_requests '
         sql+= 'order by create_date desc limit ' + obj.segment + ',' + obj.offset
         return sql
+    },
+    create: obj => {
+        return routines.create(obj)
     }
 }
 bas =  {
@@ -63,6 +66,20 @@ bas =  {
             i.connection.doQuery(i.query.survey.bas.update(params),result=>{
                 res.send({result:true,description:result})
             })
+        }else{
+            res.send({result:false,comment:chk.description})
+        }
+    },
+    remove: (req,res)=>{
+        chk = i.check.transactions.check(
+            req.body,i.field.survey.site.site.bas.delete.mandatories,
+            i.field.survey.site.site.bas.delete.allfields,
+            i.field.survey.site.site.bas.delete.numberfields
+            )
+        if(chk.result){
+            i.connection.doQuery(routines.remove({identifier:"id",identifierValue:req.body.id,tableName:'survey_bas'}),result=>{
+                res.send({sql:routines.remove({identifier:"id",identifierValue:req.body.id,tableName:'survey_bas'})})
+            })    
         }else{
             res.send({result:false,comment:chk.description})
         }
