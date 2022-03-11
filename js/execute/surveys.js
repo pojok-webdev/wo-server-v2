@@ -83,6 +83,12 @@ bas =  {
         }else{
             res.send({result:false,comment:chk.description})
         }
+    },
+    list: (req,res)=>{
+        let lst = routines.list({columns:['id','name','description'],identifier:'survey_site_id',identifierValue:1,tableName:'survey_bas'})
+        i.connection.doQuery(lst,result=>{
+            res.send(result)
+        })
     }
 }
 bts_distance = {
@@ -103,6 +109,15 @@ bts_distance = {
         }else{
             res.send({result:false,comment:chk.description})
         }
+    },
+    list : (req,res) => {
+        let lst = routines.list({
+            columns:['id','survey_site_id','btstower_id','distance','los','ap','description'],
+            identifier:'survey_site_id',identifierValue:1, tableName:'survey_bts_distances'})
+            i.connection.doQuery(lst,result=>{
+                res.send({sql:result})
+            })
+            
     }
 }
 client_distance = {
