@@ -113,12 +113,12 @@ bts_distance = {
     list : (req,res) => {
         let lst = routines.list({
             columns:['id','survey_site_id','btstower_id','distance','los','ap','description'],
-            identifier:'survey_site_id',identifierValue:1, tableName:'survey_bts_distances'})
+            identifier:'survey_site_id',identifierValue:req.body.survey_site_id, tableName:'survey_bts_distances'})
             i.connection.doQuery(lst,result=>{
                 res.send({sql:result})
             })
-            
-    }
+    },
+    remove : (req,res) => {}
 }
 client_distance = {
     create: (req,res) => {
