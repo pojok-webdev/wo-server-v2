@@ -38,7 +38,7 @@ var site = {
     client_distance : {
         create:{
             mandatories : ['survey_site_id'],
-            allfields : ['id','survey_site_id','distance','user_name'],
+            allfields : ['id','survey_site_id','distance','user_name','client_id'],
             numberfields : ['id','distance']
         },
         update:{

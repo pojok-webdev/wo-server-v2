@@ -160,6 +160,17 @@ client_distance = {
         }else{
             res.send({result:false,comment:chk.description})
         }
+    },
+    list: (req,res) => {
+        let sql = routines.list({
+            columns:['client_id','distance'],
+            tableName:'survey_client_distances',
+            identifier:'survey_site_id',
+            identifierValue:req.body.survey_site_id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
     }
 }
 device = {

@@ -121,6 +121,9 @@ i.app.post('/removesurveybtsdistances',(req,res)=>{
 i.app.post('/createsurveyclientdistances',(req,res)=>{
     i.execute.transaction.survey.client_distance.create(req,res)
 })
+i.app.post('/listsurveyclientdistances',(req,res)=>{
+    i.execute.transaction.survey.client_distance.list(req,res)
+})
 i.app.post('/updatesurveyclientdistances',(req,res)=>{
     i.execute.transaction.survey.client_distance.update(req,res)
 })
