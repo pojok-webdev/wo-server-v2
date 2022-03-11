@@ -85,8 +85,8 @@ bas =  {
         }
     },
     list: (req,res)=>{
-        let lst = routines.list({columns:['id','name','description'],identifier:'survey_site_id',identifierValue:1,tableName:'survey_bas'})
-        i.connection.doQuery(lst,result=>{
+        let sql = routines.list({columns:['id','name','description'],identifier:'survey_site_id',identifierValue:1,tableName:'survey_bas'})
+        i.connection.doQuery(sql,result=>{
             res.send(result)
         })
     }
@@ -111,14 +111,19 @@ bts_distance = {
         }
     },
     list : (req,res) => {
-        let lst = routines.list({
+        let sql = routines.list({
             columns:['id','survey_site_id','btstower_id','distance','los','ap','description'],
             identifier:'survey_site_id',identifierValue:req.body.survey_site_id, tableName:'survey_bts_distances'})
-            i.connection.doQuery(lst,result=>{
+            i.connection.doQuery(sql,result=>{
                 res.send({sql:result})
             })
     },
-    remove : (req,res) => {}
+    remove : (req,res) => {
+        let sql = routines.remove({tableName:'survey_bts_distances',identifier:'id',identifierValue:req.body.id})
+        i.connection.doQuery(sql,result=>{
+            res.send({sql:sql})
+        })
+    }
 }
 client_distance = {
     create: (req,res) => {
