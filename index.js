@@ -139,6 +139,18 @@ i.app.post('/createsurveymaterials',(req,res)=>{
 i.app.post('/updatesurveymaterials',(req,res)=>{
     i.execute.transaction.survey.material.update(req,res)
 })
+i.app.post('/listsurveymaterials',(req,res)=>{
+    i.execute.transaction.survey.material.list(req,res)
+})
+i.app.post('/removesurveymaterials',(req,res)=>{
+    i.execute.transaction.survey.material.remove(req,res)
+})
+i.app.post('/listsurveyresumes',(req,res)=>{
+    i.execute.transaction.survey.resume.list(req,res)
+})
+i.app.post('/removesurveyresumes',(req,res)=>{
+    i.execute.transaction.survey.resume.remove(req,res)
+})
 i.app.post('/createsurveyresumes',(req,res)=>{
     i.execute.transaction.survey.resume.create(req,res)
 })
@@ -151,11 +163,17 @@ i.app.post('/createsurveysitedistances',(req,res)=>{
 i.app.post('/updatesurveysitedistances',(req,res)=>{
     i.execute.transaction.survey.site_distance.update(req,res)
 })
+i.app.post('/listsurveysurveyors',(req,res)=>{
+    i.execute.transaction.survey.surveyor.list(req,res)
+})
 i.app.post('/createsurveysurveyors',(req,res)=>{
     i.execute.transaction.survey.surveyor.create(req,res)
 })
 i.app.post('/updatesurveysurveyors',(req,res)=>{
     i.execute.transaction.survey.surveyor.update(req,res)
+})
+i.app.post('/removesurveysurveyors',(req,res)=>{
+    i.execute.transaction.survey.surveyor.remove(req,res)
 })
 i.app.post('/createsurveyimages',(req,res)=>{
     i.execute.transaction.survey.imagesv2.create(req,res)

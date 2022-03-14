@@ -69,6 +69,11 @@ var site = {
             mandatories : ['id'],
             allfields: ['id','survey_site_id','material_type','name','amount'],
             numberfields:['id','survey_site_id']
+        },
+        list:{
+            mandatories:['survey_site_id'],
+            allfields: ['id','survey_site_id','material_type','name','amount'],
+            numberfields:['id','survey_site_id']
         }
     },
     resume : {

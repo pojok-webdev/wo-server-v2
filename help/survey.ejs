@@ -210,14 +210,37 @@ Nilai kembalian
         curl -d 'id=2385&distance=1' -X POST localhost:20215/updatesurveyclientdistances
 </code>
 <h3>Material</h3>
-<h4>Penambahan</h4>
+
+<h4>List</h4>
 <h5>Syntax</h5>
 <code>
-    curl -d 'survey_site_id=<strong>survey_site_id</strong>&material_type=<strong>material_type</strong>&name=<strong>material_name</strong>&amount=<strong>material_amount</strong>' -X POST localhost:20215/createsurveymaterials
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{ "survey_site_id":<strong>survey_site_id</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/listsurveymaterials
 </code>
 <h5>Contoh</h5>
 <code>
-    curl -d 'survey_site_id=2386&material_type=1&name=semeru&amount=5' -X POST localhost:20215/createsurveymaterials
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{ "survey_site_id":1}' -X POST https://localhost:20215/listsurveymaterials
+</code>
+
+
+<h4>Penghapusan</h4>
+<h5>Syntax</h5>
+<code>
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{ "id":<strong>id</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/removesurveymaterials
+</code>
+<h5>Contoh</h5>
+<code>
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{"id":5974}' -X POST https://localhost:20215/removesurveymaterials
+</code>
+
+
+<h4>Penambahan</h4>
+<h5>Syntax</h5>
+<code>
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"survey_site_id":<strong>survey_site_id</strong>,"material_type":<strong>material_type</strong>,"name":<strong>material_name</strong>,"amount":<strong>material_amount</strong>}' -X POST https://localhost:20215/createsurveymaterials
+</code>
+<h5>Contoh</h5>
+<code>
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"survey_site_id":2386,"material_type":1,"name":"semeru","amount":5}' -X POST https://localhost:20215/createsurveymaterials
 </code>
 <h4>Update</h4>
 <h5>Syntax</h5>
@@ -226,11 +249,24 @@ Nilai kembalian
 </code>
 <h5>Contoh</h5>
 <code>
-    curl -d 'id=5973&material_type=Selang&name=semeru&amount=5' -X POST localhost:20215/updatesurveymaterials
+    curl -d 'id=5973&material_type=Selang&name=semeru&amount=5' -X POST https://localhost:20215/updatesurveymaterials
 </code>
 
 
 <h3>Resume</h3>
+
+
+<h4>List</h4>
+<h5>Syntax</h5>
+<code>
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{"survey_site_id":<strong>survey_site_id</strong>,"name":"<strong>resume_name</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/listsurveyresumes
+</code>
+<h5>Contoh</h5>
+<code>
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"survey_site_id":1883}' -X POST https://localhost:20215/listsurveyresumes
+</code>
+
+
 <h4>Penambahan</h4>
 <h5>Syntax</h5>
 <code>
@@ -250,8 +286,29 @@ Nilai kembalian
     curl -d 'id=5973&name=semeru' -X POST localhost:20215/updatesurveyresumes
 </code>
 
+<h4>Remove</h4>
+<h5>Syntax</h5>
+<code>
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":<strong>id</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/removesurveyresumes
+</code>
+<h5>Contoh</h5>
+<code>
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":4045}' -X POST https://localhost:20215/removesurveyresumes
+</code>
+
 
 <h3>Petugas Survey</h3>
+<h4>List</h4>
+<h5>Syntax</h5>
+<code>
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"survey_request_id":<strong>survey_request_id</strong>}' -X POST https://localhost:20215/listsurveysurveyors
+</code>
+<h4>Contoh</h4>
+<h5>Syntax</h5>
+<code>
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"survey_request_id":2386}' -X POST https://localhost:20215/listsurveysurveyors
+</code>
+
 <h4>Penambahan</h4>
 <h5>Syntax</h5>
 <code>

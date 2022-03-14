@@ -247,7 +247,26 @@ material = {
         }else{
             res.send({result:false,comment:chk.description})
         }
-
+    },
+    list : (req,res) => {
+        let sql = routines.list({
+            columns:i.field.survey.site.site.material.list.allfields,
+            tableName:'survey_materials',
+            identifier:'survey_site_id',
+            identifierValue:req.body.survey_site_id})
+            i.connection.doQuery(sql,result=>{
+                res.send(result)
+            })
+    },
+    remove : (req,res) => {
+        sql = routines.remove({
+            tableName:'survey_materials',
+            identifier:'id',
+            identifierValue:req.body.id
+        })
+        i.connection.doQuery(sql,result => {
+            res.send(result)
+        })
     }
 }
 resume = {
@@ -286,6 +305,26 @@ resume = {
             res.send({result:false,comment:chk.description})
         }
 
+    },
+    list : (req,res) => {
+        sql = routines.list({
+            tableName:'survey_resumes',
+            columns:['name','survey_site_id'],
+            identifier:'survey_site_id',
+            identifierValue:req.body.survey_site_id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    },
+    remove : (req,res) => {
+        sql = routines.remove({
+            tableName:'survey_resumes',
+            identifier:'id',identifierValue:req.body.id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
     }
 }
 site_distance = {
@@ -327,6 +366,17 @@ site_distance = {
     }
 }
 surveyor = {
+    list : (req,res) => {
+        sql = routines.list({
+            tableName:'survey_surveyors',
+            columns:['name','email','phone','survey_request_id'],
+            identifier:'survey_request_id',
+            identifierValue:req.body.survey_request_id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    },
     create :  (req,res) => {
         chk = i.check.transactions.check(
             req.body,i.field.survey.site.site.surveyor.create.mandatories,
@@ -362,6 +412,15 @@ surveyor = {
             res.send({result:false,comment:chk.description})
         }
 
+    },
+    remove : (req,res)=>{
+        sql = routines.remove({
+            tableName:'survey_surveyors',
+            identifier:'id',identifierValue:req.body.id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
     }
 }
 imagesv2 = {
