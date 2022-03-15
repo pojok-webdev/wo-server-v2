@@ -175,6 +175,9 @@ i.app.post('/updatesurveysurveyors',(req,res)=>{
 i.app.post('/removesurveysurveyors',(req,res)=>{
     i.execute.transaction.survey.surveyor.remove(req,res)
 })
+i.app.post('/listsurveyimages',(req,res)=>{
+    i.execute.transaction.survey.imagesv2.list(req,res)
+})
 i.app.post('/createsurveyimages',(req,res)=>{
     i.execute.transaction.survey.imagesv2.create(req,res)
 })
@@ -300,7 +303,7 @@ i.app.post('/surveyimages',(req,res)=>{
         timestamp = Date.now()
         getFileType(files.image,fType=>{
             newpath = i.appSetting.imagePath.surveys+timestamp+'.'+fType
-            fs.rename(oldpath,newpath,err=>{
+            i.fs.rename(oldpath,newpath,err=>{
                 res.send({result:true,id:timestamp})
             })    
         })
@@ -309,7 +312,7 @@ i.app.post('/surveyimages',(req,res)=>{
 i.app.post('/removesurveyimage',(req,res)=>{
     console.log('REQ',req.body)
     newpath = i.appSetting.imagePath.surveys
-    fs.unlink(newpath+req.body.filename,err=>{
+    i.fs.unlink(newpath+req.body.filename,err=>{
         if(err){
             console.log(err)
             res.send(err)
@@ -324,7 +327,7 @@ i.app.post('/installimages',(req,res)=>{
         oldpath = files.image.filepath;
         timestamp = Date.now()
         newpath = i.appSetting.imagePath.installs+timestamp+'.jpg'
-        fs.rename(oldpath,newpath,err=>{
+        i.fs.rename(oldpath,newpath,err=>{
             console.log(oldpath)
             res.send({result:'ok',id:timestamp})
         })
@@ -333,7 +336,7 @@ i.app.post('/installimages',(req,res)=>{
 i.app.post('/removeinstallimage',(req,res)=>{
     console.log('REQ',req.body)
     newpath = i.appSetting.imagePath.installs
-    fs.unlink(newpath+req.body.filename,err=>{
+    i.fs.unlink(newpath+req.body.filename,err=>{
         if(err){
             console.log(err)
             res.send(err)

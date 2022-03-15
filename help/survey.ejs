@@ -82,6 +82,18 @@
             "bas":[{"name":"ba"}]}' -X POST localhost:20215/createsurveyreport
 </code>
 
+
+<h4>List Gambar Survey</h4>
+
+<h5>Syntax</h5>
+<code>
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"survey_site_id":<strong>survey_site_id</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/listsurveyimages
+</code>
+<h5>Contoh</h5>
+<code>
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"survey_site_id":28}' -X POST https://localhost:20215/listsurveyimages
+</code>
+
 <h4 id="insertsurveyimage">Insert Gambar Survey</h4>
 <p>
     <i>Gambar survey</i> dientri terpisah dari <i>data survey</i>, karena karakteristik gambar (data-multipart) berbeda dengan data biasa dalam request POST. Data selain gambar yang dibutuhkan adalah <i>survey_site_id</i>,<i>path</i>,<i>roworder</i>,<i>description</i>
@@ -126,22 +138,22 @@
 <h4>Update</h4>
 <h5>Syntax</h5>
 <code>
-    curl -d 'id=<strong>id_BA</strong>&name=<strong>nama_BA</strong>' -X POST localhost:20215/updatesurveybas
+    curl -d -H 'Content-Type: application/json' -H 'Accept: application/json' '{id:<strong>id_BA</strong>,name:<strong>nama_BA</strong>}' -X POST https://localhost:20215/updatesurveybas
 </code>
 <h5>Contoh</h5>
 <code>
-    curl -d 'id=131&name=BA Surabaya' -X POST localhost:20215/updatesurveybas
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":131,"name":"BA Surabaya"}' -X POST https://localhost:20215/updatesurveybas
 </code>
 
 
 
 <h5>Syntax</h5>
 <code>
-    curl -d 'id=<strong>id_BA</strong></strong>' -X POST localhost:20215/removesurveyba
+    curl -d -H 'Content-Type: application/json' -H 'Accept: application/json' '{"id":<strong>id_BA</strong></strong>}' -X POST https://localhost:20215/removesurveyba
 </code>
 <h5>Contoh</h5>
 <code>
-    curl -d 'id=131&name=BA Surabaya' -X POST localhost:20215/removesurveyba
+    curl -d -H 'Content-Type: application/json' -H 'Accept: application/json'  '{"id":131,"name":"BA Surabaya"}' -X POST https://localhost:20215/removesurveyba
 </code>
 
 
@@ -340,4 +352,20 @@ Nilai kembalian
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
+</code>
+
+
+<h4>Remove</h4>
+<h5>Syntax</h5>
+<code>
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'   -d '{"id":<strong>id</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/removesurveysurveyors
+</code>
+
+<h5>Contoh</h5>
+<code>
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":2285}' -X POST https://localhost:20215/removesurveysurveyors
+</code>
+<p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
+<code>
+    {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
 </code>
