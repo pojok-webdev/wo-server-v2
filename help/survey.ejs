@@ -12,9 +12,38 @@
 <h3>Pengajuan Survey</h3>
 <p>Setiap kali Sales mengajukan Survey, maka sistem menambahkan record ke table <strong>survey_requests</strong> dan juga <strong>survey_sites</strong></p>
 <h5>Syntax</h5>
+
 <code>
-    curl -d "client_id= <strong> client_id </strong> &branch_id= <strong> branch_id </strong> &survey_date= <strong> survey_date </strong> &address= <strong> client_address </strong> &city= <strong> client_city </strong> &pic_name= <strong> client_pic </strong> &pic_phone= <strong> pic_phone </strong> &pic_email= <strong>pic_email</strong> " -X POST localhost:20215/proposesurvey
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{
+        "client_id":<strong>client_id</strong>,
+        "branch_id":<strong>branch_id</strong>,
+        "survey_date":<strong>survey_date</strong>,
+        "address":<strong>address</strong>,
+        "city":<strong>city</strong>,
+        "pic_name":<strong>pic_name</strong>,
+        "pic_phone":<strong>pic_phone</strong>,
+        "pic_email":<strong>pic_email</strong>
+    }' -X POST https://<strong>server</strong>:<strong>port</strong>/proposesurvey
 </code>
+
+<br>
+
+<code>
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{
+        "client_id":<strong>1</strong>,
+        "branch_id":<strong>1</strong>,
+        "survey_date":<strong>"2022-01-01"</strong>,
+        "address":<strong>"Jl Supersemar 66"</strong>,
+        "city":<strong>"Surabaya"</strong>,
+        "pic_name":<strong>"Amir"</strong>,
+        "pic_phone":<strong>"1234567"</strong>,
+        "pic_email":<strong>"amir@123.com"</strong>
+    }' -X POST https://<strong>localhost</strong>:<strong>20215</strong>/proposesurvey
+</code>
+
+
+
+
 <p>Format nilai yang dikembalikan adalah sebagai berikut:</p>
 <code>
     {"result":<strong>boolean</strong>,"client_site_id":<strong>client_site_id</strong>,"survey_request_id":<strong>survey_request_id</strong>,"survey_site_id":<strong>survey_site_id</strong>}
@@ -30,8 +59,18 @@
 
 <h5>Contoh</h5>
 <code>
-        curl -d "client_id=111&branch_id=1&survey_date=2021-11-30&address=Jl Gadjah Mada Sidoarjo&city=Sidoarjo&pic_name=Budi&pic_phone=0888123456&pic_email=budi@company.com" -X POST localhost:20215/proposesurvey
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{
+        "client_id":<strong>1</strong>,
+        "branch_id":<strong>1</strong>,
+        "survey_date":<strong>"2022-01-01"</strong>,
+        "address":<strong>"Jl Supersemar 66"</strong>,
+        "city":<strong>"Surabaya"</strong>,
+        "pic_name":<strong>"Amir"</strong>,
+        "pic_phone":<strong>"1234567"</strong>,
+        "pic_email":<strong>"amir@123.com"</strong>
+    }' -X POST https://<strong>localhost</strong>:<strong>20215</strong>/proposesurvey
 </code>
+
 <p>Nilai yang dikembalikan adalah sebagai berikut:</p>
 <code>
     {"result":true,"client_site_id":3038,"survey_request_id":1910,"survey_site_id":1906}
