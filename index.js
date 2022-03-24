@@ -331,10 +331,12 @@ i.app.post('/installimages',(req,res)=>{
         //oldpath = files.image.filepath;
         oldpath = files.image.path;
         timestamp = Date.now()
-        newpath = i.appSetting.imagePath.installs+timestamp+'.jpg'
-        i.fs.rename(oldpath,newpath,err=>{
-            console.log(oldpath)
-            res.send({result:'ok',id:timestamp})
+        getFileType(files.image,fType=>{
+            newpath = i.appSetting.imagePath.installs+timestamp+'.'+fType
+            i.fs.rename(oldpath,newpath,err=>{
+                console.log(oldpath)
+                res.send({result:'ok',id:timestamp})
+            })    
         })
     })
 })
