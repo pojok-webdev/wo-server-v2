@@ -289,7 +289,8 @@ i.app.post('/uplaa',(req,res)=>{
 })
 getFileType = (fileName,callback)=>{
     console.log("fileName",fileName)
-    tmp = fileName.originalFilename
+    //tmp = fileName.originalFilename
+    tmp.fileName.name
     arr = tmp.split(".")
     callback(arr[1])
 }
