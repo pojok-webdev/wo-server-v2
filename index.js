@@ -302,7 +302,8 @@ i.app.post('/surveyimages',(req,res)=>{
             res.send({result:false})
         }
         console.log('files',files)
-        oldpath = files.image.filepath;
+        //oldpath = files.image.filepath;
+        oldpath = files.image.path;
         timestamp = Date.now()
         getFileType(files.image,fType=>{
             newpath = i.appSetting.imagePath.surveys+timestamp+'.'+fType
