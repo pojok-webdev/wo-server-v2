@@ -288,7 +288,7 @@ i.app.post('/uplaa',(req,res)=>{
     })
 })
 getFileType = (fileName,callback)=>{
-    console.log("fileName",fileName.name)
+    console.log("fileName",fileName)
     //tmp = fileName.originalFilename
     tmp = fileName.name
     arr = tmp.split(".")
@@ -301,6 +301,7 @@ i.app.post('/surveyimages',(req,res)=>{
             console.log("Err",err)
             res.send({result:false})
         }
+        console.log('files',files)
         oldpath = files.image.filepath;
         timestamp = Date.now()
         getFileType(files.image,fType=>{
