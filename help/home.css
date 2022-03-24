@@ -93,7 +93,10 @@ code{
     padding-left: 10px;
     color:darkblue;
     font-size: 9px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: monospace
+}
+.description span{
+    line-height: 200%;
 }
 @media print{
     #idSticky{

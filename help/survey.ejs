@@ -50,11 +50,14 @@
 </code>
 <p class="description">
     <strong>client_site_id</strong>
-    Merupakan id dari site pelanggan. Tiap pelanggan memiliki setidaknya 1 site.<br />
+    <span>Merupakan id dari site pelanggan. Tiap pelanggan memiliki setidaknya 1 site</span>
+    .<br />
     <strong>survey_request_id</strong>
-    Merupakan id dari pengajuan survey<br />
+    <span>Merupakan id dari pengajuan survey</span>
+    <br />
     <strong>survey_site_id</strong>
-    Merupakan id dari site pengajuan survey<br /> 
+    <span>Merupakan id dari site pengajuan survey</span>
+    <br /> 
 </p>
 
 <h5>Contoh</h5>
@@ -79,11 +82,11 @@
 <p>update pengajuan Survey hanya dapat mengupdate field-field tanggal dan alamat dengan menentukan survey yang hendak diupdate (<i>survey_site_id</i>)</p>
 <h5>Syntax</h5>
 <code>
-    curl -d 'id=<strong>survey_id</strong>&city=<strong>city_name</strong>&address=<strong>alamat_survey</strong>' -X POST localhost:20215/surveyupdate
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":<strong>id</strong>,"city":"<strong>city</strong>","address":"<strong>address</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/surveyupdate
 </code>
 <h5>Contoh</h5>
 <code>
-    curl -d 'id=1897&city=Surabaya&address=Jl. Ciliwung No. 74-B' -X POST localhost:20215/surveyupdate
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":28,"city":"Surabaya","address":"Jl Peramata"}' -X POST https://localhost:20215/surveyupdate
 </code>
 <h3>Laporan Survey</h3>
 <p><i>Laporan Survey</i> menambahkan data ke <i>Pengajuan Survey</i> tertentu. Data-data yang ditambahkan antara lain:</p>
