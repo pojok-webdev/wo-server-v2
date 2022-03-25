@@ -1,4 +1,4 @@
-<h2 id="prospect">Quotation</h2>
+<h2 id="quotation">Quotation</h2>
 <p>Quotation adalah penawaran layanan kepada calon Pelanggan <strong>PadiNET</strong></p>
 <h3>Create Quotations</h3>
 <h5>Syntax</h5>
@@ -15,7 +15,7 @@ Kembalian
 <h3>List Quotations</h3>
 <h5>Syntax</h5>
 <code>
-    curl  -X POST https://localhost:20215/listallquotation -k
+    curl -k -X POST https://localhost:20215/listallquotation 
 </code>
 Kembalian
 <code>
@@ -25,7 +25,7 @@ Kembalian
 <h3>Update Quotations</h3>
 <h5>Syntax</h5>
 <code>
-    curl -k -d 'id=1&clientname=Indosat PT&branch=1&kdoffer=hehe&offerdate=2022-02-09&client_id=1&client_site_id=1&address=jl sukomanunggal 123&city=Surabaya&email=abc@yahoo.com&pic=zebob&phone=08888888888&service=Enterprize&price=1000000&uc=1&source=phonecall&description=tes&sale_email=aristiadi.yuwono@padi.net.id' -X POST https://localhost:20215/updatequotation 
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":1,"clientname":"Indosat PT","branch":1,"kdoffer":"hehe","offerdate"":2022-02-09","client_id":1,"client_site_id":1,"address":"jl sukomanunggal 123","city":"Surabaya","email":"abc@yahoo.com","pic":"zebob","phone":"08888888888","service":"Enterprize","price":"1000000","uc":1,"source":"phonecall","description":"tes","sale_email":"aristiadi.yuwono@padi.net.id"}' -X POST https://localhost:20215/updatequotation 
 </code>
 Kembalian
 <code>
@@ -33,26 +33,26 @@ Kembalian
 </code>
 
 <code>
-    curl -k -d 'id=1&clientname=Kapal Apa PT&sale_email=dhita@padi.net.id' -X POST https://localhost:20215/updatequotation
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json'  -k -d '{"id":1,"clientname":"Kapal Apa PT","sale_email":"dhita@padi.net.id"}' -X POST https://localhost:20215/updatequotation
 </code>
 <h3>List Layanan berdasarkan ID Quotation</h3>
 <code>
-    curl -d 'offer_id=13' -X POST https://localhost:20215/listallquotationservices/ -k
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"offer_id":13}' -X POST https://localhost:20215/listallquotationservices/
 </code>
 offer_id adalah ID Quotation
 
 <h3>Update Layanan Quotation</h3>
 <code>
-    curl -d 'id=13&servicename=Ajibon' -X POST https://localhost:20215/updatequotationservice/ -k
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":13,"servicename":"Ajibon"}' -X POST https://localhost:20215/updatequotationservice/ -k
 </code>
 id adalah ID layanan dalam Quotation
 
 <h3>Penambahan Layanan Quotation</h3>
 <code>
-    curl -d 'offer_id=13&servicename=namalayanan&price=1000000&capacity=2 racks' -X POST https://localhost:20215/addquotationservice/ -k
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"offer_id":13,"servicename":"namalayanan","price":"1000000","capacity":"2 racks"}' -X POST https://localhost:20215/addquotationservice/ 
 </code>
 
 <h3>Penghapusan Layanan Quotation</h3>
 <code>
-    curl -d 'id=75' -X POST https://localhost:20215/removequotationservice/ -k
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":75}' -X POST https://localhost:20215/removequotationservice/ 
 </code>
