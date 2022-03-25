@@ -1,8 +1,8 @@
 <h1 id="servicecategory">Kategori Layanan</h1>
 <h5>Syntax</h5>
-<code>curl localhost:20215/getmasterservicecategories</code>
+<code>curl -k https://<strong>server</strong>:<strong>port</strong>/getmasterservicecategories</code>
 <h5>Contoh</h5>
-<code>curl localhost:20215/getmasterservicecategories</code>
+<code>curl -k https://localhost:20215/getmasterservicecategories</code>
 
 <h1 id="service">Layanan / Service</h1>
 <p>Layanan diretrieve dengan 3 cara, yaitu: </p>
@@ -13,34 +13,34 @@
 </ol>
 <h5>Syntax</h5>
 <code>
-    curl localhost:20215/getmasterservice
+    curl -k https://<strong>server</strong>:<strong>port</strong>/getmasterservice
 </code>
 <h5>Contoh</h5>
 <code>
-    curl localhost:20215/getmasterservice
+    curl -k https://localhost:20215/getmasterservice
 </code>
 <h5>Syntax</h5>
 <code>
-    curl localhost:20215/getmasterservicebycategory/<strong>service_category</strong>
+    curl -k https://<strong>server</strong>:<strong>port</strong>/getmasterservicebycategory/<strong>service_category</strong>
 </code>
 <h5>Contoh</h5>
 <code>
-    curl localhost:20215/getmasterservicebycategory/IDW990
+    curl -k https://localhost:20215/getmasterservicebycategory/IDW990
 </code>
 <h5>Syntax</h5>
 <code>
-    curl 192.168.0.117:20215/getmasterservicebyname/<strong>service_name</strong>
+    curl -k https://<strong>server</strong>:<strong>port</strong>/getmasterservicebyname/<strong>service_name</strong>
 </code>
 <h5>Contoh</h5>
 <code>
-    curl 192.168.0.117:20215/getmasterservicebyname/dedicated
+    curl -k https://192.168.0.117:20215/getmasterservicebyname/dedicated
 </code>
 
 <h5>Syntax</h5>
 <code>
-    https://<strong>server</strong>:<strong>port</strong>/getmasterservicebyid/<strong>service_id</strong>
+    curl -k https://<strong>server</strong>:<strong>port</strong>/getmasterservicebyid/<strong>service_id</strong>
 </code>
 <h5>Contoh</h5>
 <code>
-    https://192.168.0.117:20216/getmasterservicebyid/16
+    curl -k https://192.168.0.117:20216/getmasterservicebyid/16
 </code>
