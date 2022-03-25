@@ -4,7 +4,7 @@
 
 <h3>Get List Client By Id</h3>
 <h5>Syntax</h5>
-<code>curl https://localhost:20215/getlistclientsbyid/<strong>client_id</strong></code>
+<code>curl -k https://<strong>server</strong>:<strong>port</strong>/getlistclientsbyid/<strong>client_id</strong></code>
 <p>Syntax di atas digunakan untuk mendapatkan data Pelanggan dengan id <i>client_id</i></p>
 <p>Kolom-kolom yang dikembalikan antara lain adalah:</p>
 <p>id,name,alias,npwp,siup,address,city,billaddress,business_field,phone_area,phone,fax_area,fax,sale_id,user_id,period1,period2</p>
@@ -16,7 +16,7 @@
 
 <h3>Get List Client By Name</h3>
 <h5>Syntax</h5>
-<code>curl https://localhost:20215/getlistclientsbyname/<strong>client_name</strong></code>
+<code>curl -k https://<strong>server</strong>:<strong>port</strong>/getlistclientsbyname/<strong>client_name</strong></code>
 <p>Syntax di atas digunakan untuk mendapatkan data Pelanggan dengan nama <i>client_name</i></p>
 <p>Kolom-kolom yang dikembalikan antara lain adalah:</p>
 <p>id,name,alias,npwp,siup,address,city,billaddress,business_field,phone_area,phone,fax_area,fax,sale_id,user_id,period1,period2</p>
@@ -29,7 +29,7 @@
 <h3>Layanan yang dimiliki Pelanggan</h3>
 <p>Pelanggan dapat memiliki beberapa Layanan sekaligus. Layanan yang dimiliki Pelanggan dapat didapatkan dengan syntax sebagai berikut</p>
 <h5>Syntax</h5>
-<code>curl https://localhost:20215/getclientservicebyclientid/:id</code>
+<code>curl -k https://<strong>server</strong>:<strong>port</strong>/getclientservicebyclientid/:id</code>
 
 <h5>Contoh</h5>
 <code>curl https://localhost:20215/getclientservicebyclientid/1500</code>
@@ -38,13 +38,13 @@
 
 <h3>Update Client</h3>
 <h5>Syntax</h5>
-<code>curl -k -d 'id=<strong> client_id</strong> &useremail=<strong> useremail </strong>  &prospectdate=<strong> YYYY-MM-DD </strong> &status=1' -X POST https://localhost:20215/updateclient</code>
+<code>curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":<strong> client_id</strong>,"useremail":"<strong> useremail </strong>","prospectdate":"<strong> YYYY-MM-DD </strong>","status":"1"}' -X POST https://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":<strong>boolean</strong>,"description":<strong>description</strong>}}
 </code>
 <h5>Contoh</h5>
-<code>curl -k -d 'id=10320&prospectdate=2021-12-31&useremail=jo@padi.net.id&status=1' -X POST https://localhost:20215/updateclient</code>
+<code>curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":10320,"prospectdate":"2021-12-31","useremail":"jo@padi.net.id","status":1}' -X POST https://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0}
@@ -74,35 +74,35 @@
     <li>period2 (tanggal akhir kontrak)</li>
 </ol>
 <h5>Contoh Update nama</h5>
-<code>curl -k -d 'id=10320&useremail=jo@padi.net.id&name=ROY ADIDHARMA BAYUATMODJA' -X POST https://localhost:20215/updateclient</code>
+<code>curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":10320,"useremail":"jo@padi.net.id","name":"ROY ADIDHARMA BAYUATMODJA"}' -X POST https://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
 </code>
 
 <h5>Contoh Update alias</h5>
-<code>curl -k -d 'id=10320&useremail=jo@padi.net.id&alias=Dharma' -X POST https://localhost:20215/updateclient</code>
+<code>curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":10320,"useremail":"jo@padi.net.id","alias":"Dharma"}' -X POST https://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
 </code>
 
 <h5>Contoh Update npwp,siup dan business_field</h5>
-<code>curl -k -d 'id=10320&useremail=jo@padi.net.id&npwp=22.1234.23423.33&siup=888.3434.343242&business_field=internet' -X POST https://localhost:20215/updateclient</code>
+<code>curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":10320,"useremail":"jo@padi.net.id","npwp":"22.1234.23423.33","siup":"888.3434.343242","business_field":"internet"}' -X POST https://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
 </code>
 
 <h5>Contoh Update billaddress,address,phone_area,phone,fax_area,fax dan prospectdate</h5>
-<code>curl -k -d 'id=10320&useremail=jo@padi.net.id&billaddress=Mayjen Suprapto 45&address=Mayjen Sungkon 38&phone_area=031&phone=88882345&fax_area=031&fax=88882345&prospectdate=2021-12-31' -X POST https://localhost:20215/updateclient</code>
+<code>curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":10320,"useremail":"jo@padi.net.id","billaddress":"Mayjen Suprapto 45","address":"Mayjen Sungkon 38","phone_area":031,"phone":88882345,"fax_area":031,"fax":88882345,"prospectdate":"2021-12-31"}' -X POST https://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
 </code>
 
 <h5>Contoh Update user_id (Hunter) dan sale_id (Farmer)</h5>
-<code>curl -k -d 'id=10320&useremail=jo@padi.net.id&user_id=113&sale_id=52' -X POST https://localhost:20215/updateclient</code>
+<code>curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":10320,"useremail":"jo@padi.net.id","user_id"=113,"sale_id":52}' -X POST https://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
@@ -110,7 +110,7 @@
 
 
 <h5>Contoh Update status,active,period1 dan period2 (Farmer)</h5>
-<code>curl -k -d 'id=10320&useremail=jo@padi.net.id&status=1&active=1&period1=2021-12-31&period2=2022-12-30' -X POST https://localhost:20215/updateclient</code>
+<code>curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":10320,"useremail":"jo@padi.net.id","status":"1","active":"1","period1":"2021-12-31","period2":"2022-12-30"}' -X POST https://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}}
@@ -119,7 +119,9 @@
 
 <h2 id="pic">PICs</h2>
 <h5>Syntax</h5>
-<code>curl -k -d 'client_id=1000' -X POST https://localhost:20215/getpics</code>
+<code>curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"client_id":<strong>client_id</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/getpics</code>
+<h5>Contoh</h5>
+<code>curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"client_id":1000}' -X POST https://localhost:20215/getpics</code>
 <p>Kode di atas akan menampilkan semua PIC dari pelanggan dengan id 1000</p>
 <code>
     {"result":true,"description":[{"name":"Yuswin","position":"IT Dept","hp":""}]}
@@ -127,8 +129,9 @@
 
 
 <h5>Syntax</h5>
-<p>Contoh:</p>
-<code>curl -k -d "id=12" -X POST https://192.168.0.117:20216/getpicbyid</code>
+<code>curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":<strong>id</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/getpicbyid</code>
+<h5>Contoh:</h5>
+<code>curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":12}' -X POST https://192.168.0.117:20216/getpicbyid</code>
 <p>Kode di atas akan menampilkan semua PIC dari pelanggan dengan id 12</p>
 <code>
     [{"id":12,"name":"MOCH.FADZARUDDIN","position":"","hp":null}]}
@@ -137,15 +140,16 @@
 
 <h5>Syntax</h5>
 
-<code>curl -k -d 'client_id=1000&name=agus&prole=teknis&phone_area=031&telp_hp=123456&position=staff it&email=agus@company.com&address=jl sukomanunggal 123&ktp=351515220420' -X POST https://localhost:20215/createpic</code>
+<code>curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"client_id":1000,"name":"agus","prole":"teknis","phone_area":"031","telp_hp":"123456","position":"staff it","email":"agus@company.com","address":"jl sukomanunggal 123","ktp":"351515220420"}' -X POST https://localhost:20215/createpic</code>
 <p>Kode di atas akan membuat PIC baru </p>
 Dengan kembalian sebagai berikut
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":7538,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}}
 </code>
 <h5>Syntax</h5>
-
-<code>curl -k -d 'client_id=1000&name=bagus&prole=teknis&phone_area=031&telp_hp=123456&position=staff it&email=bagus@company.com&address=jl sukomanunggal 123&ktp=351515220420' -X POST https://localhost:20215/updatepic</code>
+<code>curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"client_id":<strong>client_id</strong>,"name":"<strong>name</strong>","prole":"<strong>role</strong>","phone_area":"<strong>phone_area</strong>","telp_hp":"<strong>telp_hp</strong>","position":"<strong>position</strong>","email":"<strong>email</strong>","address":"<strong>address</strong>","ktp":"<strong>ktp</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/updatepic</code>
+<h5>Contoh</h5>
+<code>curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"client_id":1000,"name":"bagus","prole":"teknis","phone_area":"031","telp_hp":"123456","position":"staff it","email":"bagus@company.com","address":"jl sukomanunggal 123","ktp":"351515220420"}' -X POST https://localhost:20215/updatepic</code>
 <p>Kode di atas akan mengupdate PIC </p>
 Dengan kembalian sebagai berikut
 <code>
@@ -154,7 +158,7 @@ Dengan kembalian sebagai berikut
 
 <h5>Syntax</h5>
 <p>Contoh:</p>
-<code>curl -k -d "id=12" -X POST https://192.168.0.117:20216/removepic</code>
+<code>curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d "{"id":12}" -X POST https://192.168.0.117:20216/removepic</code>
 <p>Kode di atas akan menghapus PIC dari pelanggan dengan id pic 12</p>
 
 
