@@ -397,7 +397,7 @@ Nilai kembalian
 </code>
 <h5>Contoh</h5>
 <code>
-    curl -d 'id=2284&name=Gilang&createuser=agus&email=gilang@padi.net.id' -X POST localhost:20215/updatesurveysurveyors
+    curl-H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":2284,"name":"Gilang","createuser":"agus","email":"gilang@padi.net.id"}' -X POST https://localhost:20215/updatesurveysurveyors
 </code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
