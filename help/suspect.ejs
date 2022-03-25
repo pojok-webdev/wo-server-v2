@@ -2,12 +2,12 @@
 <p><i> Suspect</i> atau <i> Lead</i> merupakan stage awal Calon Pelanggan</p>
 <h3>Create Suspect</h3>
 <h5>Syntax</h5>
-<code>curl -d 'name=<strong>client_name</strong>&phone_area=<strong>phone_area</strong>&phone=<strong>client_phone</strong> &address=<strong>address</strong>&city=<strong>city</strong>&end_of_contract=<strong>end_of_contract</strong> &business_field=<strong>business_field</strong>' -X POST http://localhost:20215/insertsuspect</code>
+<code>curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '"name":"<strong>client_name</strong>","phone_area":"<strong>phone_area</strong>","phone":"<strong>client_phone</strong>","address":"<strong>address</strong>","city":"<strong>city</strong>","end_of_contract":"<strong>end_of_contract</strong>","business_field":"<strong>business_field</strong>"' -X POST https://<strong>server</strong>:<strong>port</strong>/insertsuspect</code>
 <p>Nilai kembalian</p>
 <code>
     {"result":<strong>boolean</strong>,"insertId":<strong>new_unique_id</strong>}
 </code><h5>Contoh</h5>
-<code>curl -d 'name=first media&phone_area=031&phone=123456&address=jl mayjen sungkana 88&city=soerabaia&end_of_contract=2021-11-30&business_field=internet' -X POST http://localhost:20215/insertsuspect</code>
+<code>curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '"name":"first media","phone_area":"031","phone":"123456","address":"jl mayjen sungkana 88","city":"soerabaia","end_of_contract":"2021-11-30","business_field":"internet"' -X POST https://localhost:20215/insertsuspect</code>
 <p>Kode di atas akan memberikan nilai kembalian</p>
 <code>
     {"result":true,"insertId":10336}
