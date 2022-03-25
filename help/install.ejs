@@ -2,7 +2,7 @@
 <h3>Pengajuan Instalasi</h3>
 <h5>Syntax</h5>
 <code>
-        curl -d "client_id=<strong>client_id</strong>&client_site_id=<strong>client_site_id</strong>&install_date=<strong>install_date</strong>&address=<strong>installation_address</strong>&city=<strong>installation_city</strong>&pic_name=<strong>installation_pic</strong>&pic_phone=<strong>pic_phone</strong>&pic_email=<strong>pic_email</strong>" -X POST localhost:20215/proposeinstall
+        curl-H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"client_id":<strong>client_id</strong>,"client_site_id":<strong>client_site_id</strong>,"install_date":"<strong>install_date</strong>","address":"<strong>installation_address</strong>",city:"<strong>installation_city</strong>","pic_name","<strong>installation_pic</strong>","pic_phone":"<strong>pic_phone</strong>","pic_email":"<strong>pic_email</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/proposeinstall
 </code>
 <p>Nilai kembalian sebagai berikut</p>
 <code>
@@ -10,7 +10,7 @@
 </code>
 <h5>Contoh</h5>
 <code>
-        curl -d "client_id=111&client_site_id=1&install_date=2021-11-30&address=Jl Gadjah Mada Sidoarjo&city=Sidoarjo&pic_name=John&pic_phone=123&pic_email=john@satya.com" -X POST localhost:20215/proposeinstall
+        curl-H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"client_id":111,"client_site_id":1,"install_date":"2021-11-30","address":"Jl Gadjah Mada Sidoarjo","city":"Sidoarjo","pic_name":"John","pic_phone":123,"pic_email":"john@satya.com"}' -X POST localhost:20215/proposeinstall
 </code>
 <p>Kode di atas akan menghasilkan nilai kembalian sebagai berikut</p>
 <code>
@@ -22,19 +22,19 @@
 <p>Untuk menambahkan Site pada Instalasi harus mengetahui ID request Instalasi</p>
 <h5>Syntax</h5>
 <code>
-        curl -d 'install_request_id=<strong>install_request_id</strong>&city=<strong>request_city</strong>&address=<strong>request_address</strong>' -X POST localhost:20215/createinstallsite
+        curl-H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_request_id":<strong>install_request_id</strong>,"city":"<strong>request_city</strong>","address":"<strong>request_address</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/createinstallsite
 </code>
 <h5>Contoh</h5>
 <code>
-        curl -d 'install_request_id=1908&city=Surabayo&address=Jl. Ciliwung No. 74-B' -X POST localhost:20215/createinstallsite
+        curl-H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_request_id":1908,"city":"Surabayo","address":"Jl. Ciliwung No. 74-B"}' -X POST localhost:20215/createinstallsite
 </code>
 <h5>Syntax</h5>
 <code>
-        curl -d 'id=<strong>install_site_id</strong>&city=<strong>request_city</strong>&<strong>request_address</strong>' -X POST localhost:20215/updateinstallsite
+        curl-H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":<strong>install_site_id</strong>,"city":"<strong>request_city</strong>","address":"<strong>request_address</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/updateinstallsite
 </code>
 <h5>Contoh</h5>
 <code>
-        curl -d 'id=193&city=Surabayo&address=Jl. Ciliwung No. 74-Bi' -X POST localhost:20215/updateinstallsite
+        curl-H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":193,"city":"Surabayo","address":"Jl. Ciliwung No. 74-Bi"}' -X POST localhost:20215/updateinstallsite
 </code>
 <h3>Laporan Instalasi</h3>
 <h5>Syntax</h5>
@@ -44,7 +44,7 @@
                 "antennas":<strong>array_antenna</strong>,
                 "ap_wifis":<strong>array_apwifi</strong>,
                 "images":<strong>array_image</strong>,
-                "bas":<strong>array_image</strong>}' -X POST localhost:20215/createinstallreport        
+                "bas":<strong>array_image</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/createinstallreport        
 </code>
 <h5>Contoh</h5>
 <code>
@@ -58,7 +58,7 @@
                     "ip_address":"192.168.1.2","essid":"sni","security_key":"freddy123","user":"root","password":"admin","location":"depan pintu"}
                 ],
                 "images":[{"img":""}],
-                "bas":[{"name":"ba"}]}' -X POST localhost:20215/createinstallreport        
+                "bas":[{"name":"ba"}]}' -X POST https://localhost:20215/createinstallreport        
 </code>
 <p>masing-masing id terbaru dari table terkait akan diberikan dalam nilai kembalian. Pada contoh di atas, nilai kembalian adalah:</p>
 <code>
@@ -67,80 +67,80 @@
 <h4>Antenna</h4>
 <h5>Syntax</h5>
 <code>
-        curl -d 'install_site_id=<strong>install_site_id</strong>&name=<strong>antenna_name</strong>&amount=<strong>amount</strong>' -X POST localhost:20215/createinstallantenna
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_site_id":<strong>install_site_id</strong>,"name":"<strong>antenna_name</strong>","amount":<strong>amount</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/createinstallantenna
 </code>
 <h5>Contoh</h5>
 <code>
-        curl -d 'install_site_id=1908&name=Pigtail&amount=1' -X POST localhost:20215/createinstallantenna
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_site_id":1908,"name":"Pigtail","amount":1}' -X POST https://localhost:20215/createinstallantenna
 </code>
 <h4>AP Wifi</h4>
 <h5>Syntax</h5>
 <code>
-        curl -d 'install_site_id=<strong>install_site_id</strong>&tipe=<strong>apwifi_type</strong>&macboard=<strong>apwifi_macboard</strong>' -X POST localhost:20215/createinstallapwifi
+        curl-H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_site_id":<strong>install_site_id</strong>,"tipe":"<strong>apwifi_type</strong>","macboard":"<strong>apwifi_macboard</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/createinstallapwifi
 </code>
 <h5>Contoh</h5>
 <code>
-        curl -d 'install_site_id=1908&tipe=Surabayo&macboard=beb' -X POST localhost:20215/createinstallapwifi
+        curl-H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_site_id":1908,"tipe":"Surabayo","macboard":"beb"}' -X POST https://localhost:20215/createinstallapwifi
 </code>
 <h4>BA</h4>
 <h5>Syntax</h5>
 <code>
-        curl -d 'install_site_id=<strong>install_site_id</strong>&name=<strong>ba_name</strong>&path=<strong>ba_path</strong>' -X POST localhost:20215/createinstallba
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_site_id":<strong>install_site_id</strong>,"name":"<strong>ba_name</strong>","path":"<strong>ba_path</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/createinstallba
 </code>
 <h5>Contoh</h5>
 <code>
-        curl -d 'install_site_id=1908&name=Surabayo&path=beb' -X POST localhost:20215/createinstallba
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d 'install_site_id=1908&name=Surabayo&path=beb' -X POST https://localhost:20215/createinstallba
 </code>
 <h4>Layanan Pelanggan</h4>
 <h5>Syntax</h5>
 <code>
-        curl -d 'client_id=<strong>client_id</strong>&client_site_id=<strong>client_site_id</strong>&service_type=<strong>service_type</strong>' -X POST localhost:20215/createinstallclientservice
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"client_id":<strong>client_id</strong>:"client_site_id":<strong>client_site_id</strong>,"service_type":"<strong>service_type</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/createinstallclientservice
 </code>
 <h5>Code</h5>
 <code>
-        curl -d 'client_id=1908&client_site_id=2&service_type=2' -X POST localhost:20215/createinstallclientservice
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"client_id":1908,"client_site_id":2,"service_type":2}' -X POST https://localhost:20215/createinstallclientservice
 </code>
 <h5>Syntax</h5>
 <code>
-        curl -d 'client_id=<strong>client_id</strong>&client_site_id=<strong>client_site_id</strong>&service_type=<strong>service_type</strong>' -X POST localhost:20215/updateinstallclientservice
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"client_id":<strong>client_id</strong>,"client_site_id":<strong>client_site_id</strong>,"service_type":"<strong>service_type</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/updateinstallclientservice
 </code>
-<h5>Code</h5>
+<h5>Contoh</h5>
 <code>
-        curl -d 'client_id=1908&client_site_id=2&service_type=2' -X POST localhost:20215/updateinstallclientservice
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"client_id":1908,"client_site_id":2,"service_type":2}' -X POST https://localhost:20215/updateinstallclientservice
 </code>
 <h4>Switch</h4>
 <h5>Syntax</h5>
 <code>
-        curl -d 'install_site_id=<strong>install_site_id</strong>&name=<strong>switch_name</strong>&user=<strong>creator_user</strong>' -X POST localhost:20215/createinstallswitches
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_site_id":<strong>install_site_id</strong>,"name":"<strong>switch_name</strong>","user":"<strong>creator_user</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/createinstallswitches
 </code>
 <h5>Contoh</h5>
 <code>
-        curl -d 'install_site_id=1908&name=DLink8Port&user=Kholis' -X POST localhost:20215/createinstallswitches
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_site_id":1908,"name":"DLink8Port","user":"Kholis"}' -X POST https://localhost:20215/createinstallswitches
 </code>
 <h5>Syntax</h5>
 <code>
-        curl -d 'id=<strong>id</strong>&name=<strong>switch_name</strong>&user=<strong>creator_user</strong>' -X POST localhost:20215/updateinstallswitches
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":<strong>id</strong>,"name":"<strong>switch_name</strong>","user":"<strong>creator_user</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/updateinstallswitches
 </code>
 <h5>Contoh</h5>
 <code>
-        curl -d 'id=1908&name=DLink8Port&user=Kholis' -X POST localhost:20215/updateinstallswitches
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":1908,"name":"DLink8Port","user":"Kholis"}' -X POST https://localhost:20215/updateinstallswitches
 </code>
 <h4>Wireless Radio</h4>
 <h5>Syntax</h5>
 <code>
-        curl -d 'id=<strong>id</strong>&tipe=<strong>wireless_radio_name</strong>&macboard=<strong>macboard</strong>' -X POST localhost:20215/createinstallwirelessradio
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":<strong>id</strong>,"tipe":"<strong>wireless_radio_name</strong>","macboard":"<strong>macboard</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/createinstallwirelessradio
 </code>
 <h5>Contoh</h5>
 <code>
-        curl -d 'install_site_id=1908&tipe=Mikrotik RB 411 L&macboard=D4:CA:6D:84:C1:51' -X POST localhost:20215/createinstallwirelessradio
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_site_id":1908,"tipe":"Mikrotik RB 411 L","macboard":"D4:CA:6D:84:C1:51"}' -X POST https://localhost:20215/createinstallwirelessradio
 </code>
 <h5>Syntax</h5>
 <code>
-        curl -d 'id=<strong>id</strong>&tipe=<strong>wireless_radio_name</strong>&macboard=<strong>macboard</strong>' -X POST localhost:20215/updateinstallwirelessradio
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":<strong>id</strong>,"tipe":"<strong>wireless_radio_name</strong>","macboard":"<strong>macboard</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/updateinstallwirelessradio
 </code>
 <h5>Contoh</h5>
 <code>
-        curl -d 'id=1908&tipe=Mikrotik RB 411 L&macboard=D4:CA:6D:84:C1:51' -X POST localhost:20215/updateinstallwirelessradio
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":1908,"tipe":"Mikrotik RB 411 L","macboard":"D4:CA:6D:84:C1:51"}' -X POST https://localhost:20215/updateinstallwirelessradio
 </code>
 <h4>Gambar Instalasi</h4>
 <p>
@@ -157,7 +157,7 @@ Jadi gambar diupload terlebih dahulu, selanjutnya data pelengkap dipost setelahn
 </p>
 <h5>Syntax</h5>
 <code>
-        curl -k -X POST -F 'image=<strong>image_path</strong>' -v  http://localhost:20215/installimages
+        curl -k -X POST -F 'image=<strong>image_path</strong>' -v  https://<strong>server</strong>:<strong>port</strong>/installimages
 </code>
 <h5>Contoh</h5>
 <code>
@@ -165,7 +165,7 @@ Jadi gambar diupload terlebih dahulu, selanjutnya data pelengkap dipost setelahn
 </code>
 <h5>Syntax</h5>
 <code>
-        curl -d 'filename=<strong>file_name</strong>' -X POST http://localhost:20215/removeinstallimage
+        curl -d 'filename=<strong>file_name</strong>' -X POST https://<strong>server</strong>:<strong>port</strong>/removeinstallimage
 </code>
 <h5>Contoh</h5>
 <code>
