@@ -9,40 +9,40 @@
 <h4>Get Ticket</h4>
 <h5>Snytax</h5>
 <code>
-    curl -d 'name=<strong>client_name</strong>' -X POST localhost:20215/getticketsbyclientname
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"name":"<strong>client_name</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/getticketsbyclientname
 </code>
 <h5>Contoh</h5>
 <code>
-    curl -d 'name=dia cip' -X POST localhost:20215/getticketsbyclientname
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"name":"dia cip"}' -X POST https://localhost:20215/getticketsbyclientname
 </code>
 <p>Pada contoh di atas akan mengambil data ticket berdasarkan <i>nama pelanggan</i></p>
 <h5>Snytax</h5>
 <code>
-    curl localhost:20215/getticketsbyclientid/<strong>client_id</strong>
+    curl -k https://<strong>server</strong>:<strong>port</strong>/getticketsbyclientid/<strong>client_id</strong>
 </code>
 <h5>Contoh</h5>
 <code>
-    curl localhost:20215/getticketsbyclientid/5
+    curl -k https://localhost:20215/getticketsbyclientid/5
 </code>
 <p>Pada contoh di atas akan mengambil data ticket berdasarkan <i>id pelanggan</i></p>
 
 
 <h5>Snytax</h5>
 <code>
-    curl localhost:20215/getticketsbyid/<strong>ticket_id</strong>
+    curl -k <strong>server</strong>:<strong>port</strong>/getticketsbyid/<strong>ticket_id</strong>
 </code>
 <h5>Contoh</h5>
 <code>
-    curl localhost:20215/getticketsbyid/21885
+    curl -k localhost:20215/getticketsbyid/21885
 </code>
 <p>Pada contoh di atas akan mengambil data ticket berdasarkan <i>id ticket</i></p>
 
 <h5>Snytax</h5>
 <code>
-    curl localhost:20215/getticketsbykdticket/<strong>kdticket</strong>
+    curl -k <strong>server</strong>:<strong>port</strong>/getticketsbykdticket/<strong>kdticket</strong>
 </code>
 <h5>Contoh</h5>
 <code>
-    curl localhost:20215/getticketsbykdticket/21885
+    curl -k localhost:20215/getticketsbykdticket/21885
 </code>
 <p>Pada contoh di atas akan mengambil data ticket berdasarkan <i>kode ticket</i></p>
