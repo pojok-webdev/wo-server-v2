@@ -4,7 +4,7 @@
 <h5>Syntax</h5>
 
 <code>
-    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{"clientname":"Indosat PT","branch":1,"kdoffer":"hehe","offerdate":"2022-02-09","client_id":1,"client_site_id":1,"address":"jl sukomanunggal 123","city":"Surabaya","email":"abc@yahoo.com","pic":"zebob","phone":"08888888888","services":[{"servicename":"Enterprize","price":"1000000","capacity":"500 Mbps"},{"servicename":"Pro","price":"1500000","capacity":"128 Mbps"}],"uc":1,"source":"phonecall","description":"tes","sale_email":"aristiadi.yuwono@padi.net.id"}' -X POST https://localhost:20215/createquotation
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{"clientname":"Indosat PT","branch":1,"kdoffer":"hehe","offerdate":"2022-02-09","client_id":1,"client_site_id":1,"address":"jl sukomanunggal 123","city":"Surabaya","email":"abc@yahoo.com","pic":"zebob","phone":"08888888888","services":[{"servicename":"Enterprize","price":"1000000","capacity":"500 Mbps"},{"servicename":"Pro","price":"1500000","capacity":"128 Mbps"}],"uc":1,"source":"phonecall","description":"tes","sale_email":"aristiadi.yuwono@padi.net.id"}' -X POST https://<strong>server</strong>:<strong>port</strong>/createquotation
 </code>
 Kembalian
 <code>
@@ -15,7 +15,7 @@ Kembalian
 <h3>List Quotations</h3>
 <h5>Syntax</h5>
 <code>
-    curl -k -X POST https://localhost:20215/listallquotation 
+    curl -k -X POST https://<strong>server</strong>:<strong>port</strong>/listallquotation 
 </code>
 Kembalian
 <code>
@@ -25,7 +25,7 @@ Kembalian
 <h3>Update Quotations</h3>
 <h5>Syntax</h5>
 <code>
-    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":1,"clientname":"Indosat PT","branch":1,"kdoffer":"hehe","offerdate"":2022-02-09","client_id":1,"client_site_id":1,"address":"jl sukomanunggal 123","city":"Surabaya","email":"abc@yahoo.com","pic":"zebob","phone":"08888888888","service":"Enterprize","price":"1000000","uc":1,"source":"phonecall","description":"tes","sale_email":"aristiadi.yuwono@padi.net.id"}' -X POST https://localhost:20215/updatequotation 
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":1,"clientname":"Indosat PT","branch":1,"kdoffer":"hehe","offerdate"":2022-02-09","client_id":1,"client_site_id":1,"address":"jl sukomanunggal 123","city":"Surabaya","email":"abc@yahoo.com","pic":"zebob","phone":"08888888888","service":"Enterprize","price":"1000000","uc":1,"source":"phonecall","description":"tes","sale_email":"aristiadi.yuwono@padi.net.id"}' -X POST https://<strong>server</strong>:<strong>port</strong>/updatequotation 
 </code>
 Kembalian
 <code>

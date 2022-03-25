@@ -2,19 +2,19 @@
 <p>Prospect adalah calon Pelanggan yang lolos seleksi dan memenuhi kriteria tim marketing. Memiliki peluang yang tinggi untuk menjadi Pelanggan <strong>PadiNET</strong></p>
 <h3>Get Prospects</h3>
 <h5>Syntax</h5>
-<code>curl localhost:20215/getlistprospectsbyname/<strong> client_name</strong> </code>
+<code>curl -k https://<strong>server</strong>:<strong>port</strong>/getlistprospectsbyname/<strong> client_name</strong> </code>
 <h5>Contoh</h5>
-<code>curl localhost:20215/getlistprospectsbyname/hanam</code>
+<code>curl -k https://localhost:20215/getlistprospectsbyname/hanam</code>
 <h3>Create Prospect</h3>
 <p>Prospect dibuat dengan mengubah status Calon pelanggan menjadi <b>1</b>, dan ini dapat dilakukan dengan edit <i>Client</i></p>
 <h5>Syntax</h5>
-<code>curl -d 'id=<strong> client_id</strong> &prospectdate=<strong> YYYY-MM-DD </strong> '&status=1 -X POST http://localhost:20215/updateclient</code>
+<code>curl -k -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{"id":"<strong> client_id</strong>" ,"prospectdate":"<strong>YYYY-MM-DD</strong>","status":1}' -X POST https://<strong>server</strong>:<strong>port</strong>/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":<strong>boolean</strong>,"description":<strong>description</strong>}}
 </code>
 <h5>Contoh</h5>
-<code>curl -d 'id=10320&prospectdate=2021-12-31&status=1' -X POST http://localhost:20215/updateclient</code>
+<code>curl -k -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{"id":10320,"prospectdate":"2021-12-31","status":1}' -X POST http://localhost:20215/updateclient</code>
 <p>Kode di atas akan memberikan nilai kembalian sebagai berikut:</p>
 <code>
     {"result":true,"description":{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0}
