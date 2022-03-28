@@ -265,11 +265,11 @@ Nilai kembalian
 <h4>Update</h4>
 <h5>Syntax</h5>
 <code>
-        curl -d 'id=<strong>id</strong>&distance=<strong>distance</strong>' -X POST localhost:20215/updatesurveyclientdistances
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k  -d '{id:<strong>id</strong>,distance:<strong>distance</strong>}' -X POST localhost:20215/updatesurveyclientdistances
 </code>
 <h5>Contoh</h5>
 <code>
-        curl -d 'id=2385&distance=1' -X POST localhost:20215/updatesurveyclientdistances
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k  -d '{id:2385,distance:1}' -X POST localhost:20215/updatesurveyclientdistances
 </code>
 <h3>Material</h3>
 
