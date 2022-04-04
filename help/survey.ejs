@@ -275,6 +275,20 @@ Nilai kembalian
 </code>
 
 <h3>Jarak dengan Pelanggan Lain</h3>
+
+
+<h4>List</h4>
+<h5>Syntax</h5>
+<code>
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"survey_site_id":<strong>survey_site_id</strong>,"distance":"<strong>distance</strong>"}' -X POST <strong>server</strong>:<strong>port</strong>/listsurveyclientdistances
+</code>
+<h5>Contoh</h5>
+<code>
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"survey_site_id":2386,"distance":1,"client_id":1}' -X POST https://localhost:20215/listsurveyclientdistances
+</code>
+
+
+
 <h4>Penambahan</h4>
 <h5>Syntax</h5>
 <code>
