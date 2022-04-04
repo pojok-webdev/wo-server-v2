@@ -18,7 +18,19 @@
 </code>
 <h3>Update Instalasi</h3>
 <p>Instalasi memiliki banyak data pendukung yang masing-masing dapat diperlakukan sebagai tindakan tersendiri</p>
-<h4>Site</h4>
+<h3>Site</h3>
+
+<h4>List</h4>
+<h5>Syntax</h5>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_request_id":<strong>install_request_id</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/listinstallsites
+</code>
+<h5>Contoh</h5>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_request_id":128}' -X POST https://localhost:20215/listinstallsites
+</code>
+
+<h4>Create</h4>
 <p>Untuk menambahkan Site pada Instalasi harus mengetahui ID request Instalasi</p>
 <h5>Syntax</h5>
 <code>
@@ -64,7 +76,18 @@
 <code>
         {"result":true,"invoked_tables":[{"tableName":"antennas","insertId":523},{"tableName":"ap_wifis","insertId":144},{"tableName":"images","insertId":5195},{"tableName":"bas","insertId":1230}]}
 </code>
-<h4>Antenna</h4>
+<h3>Antenna</h3>
+<h4>List</h4>
+<h5>Syntax</h5>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_site_id":<strong>install_site_id</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/listinstallantenna
+</code>
+<h5>Contoh</h5>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_site_id":1288}' -X POST https://localhost:20215/listinstallantenna
+</code>
+
+<h4>Create</h4>
 <h5>Syntax</h5>
 <code>
         curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_site_id":<strong>install_site_id</strong>,"name":"<strong>antenna_name</strong>","amount":<strong>amount</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/createinstallantenna

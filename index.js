@@ -187,11 +187,17 @@ i.app.post('/createsurveyimages',(req,res)=>{
 i.app.post('/updatesurveyimages',(req,res)=>{
     i.execute.transaction.survey.imagesv2.update(req,res)
 })
+i.app.post('/listinstallsites',(req,res)=>{
+    i.execute.transaction.install.site.list(req,res)
+})
 i.app.post('/createinstallsite',(req,res)=>{
     i.execute.transaction.install.site.create(req,res)
 })
 i.app.post('/updateinstallsite',(req,res)=>{
     i.execute.transaction.install.site.update(req,res)
+})
+i.app.post('/listinstallantenna',(req,res)=>{
+    i.execute.transaction.install.antenna.list(req,res)
 })
 i.app.post('/createinstallantenna',(req,res)=>{
     i.execute.transaction.install.antenna.create(req,res)

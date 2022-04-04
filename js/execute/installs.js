@@ -34,6 +34,17 @@ update = (req,res,field,tableName) => {
     }
 },
 antenna = {
+    list:(req,res)=>{
+        let sql = routines.list({
+            columns:['id','name','amount','location'],
+            tableName:'install_antennas',
+            identifier:'install_site_id',
+            identifierValue:req.body.install_site_id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    },
     create:(req,res)=>{create(req,res,'antenna','install_antennas')},
     update:(req,res)=>{update(req,res,'antenna','install_antennas')}
 },
@@ -42,6 +53,17 @@ ap_wifi = {
     update:(req,res)=>{update(req,res,'ap_wifi','install_ap_wifis')}
 },
 site = {
+    list:(req,res)=>{
+        let sql = routines.list({
+            columns:['id','install_request_id','address','city'],
+            tableName:'install_sites',
+            identifier:'install_request_id',
+            identifierValue:req.body.install_request_id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    },
     create:(req,res)=>{create(req,res,'site','install_sites')},
     update:(req,res)=>{update(req,res,'site','install_sites')}
 },
