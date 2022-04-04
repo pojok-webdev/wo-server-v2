@@ -243,6 +243,18 @@ Nilai kembalian
     curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"survey_site_id":2385,"description":"Dilihat dari bulan"}' -X POST https://localhost:20215/updatesurveybtsdistances
 </code>
 <h3>Perangkat Survey</h3>
+
+<h4>List</h4>
+<h5>Syntax</h5>
+<code>
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"survey_site_id"=<strong>survey_site_id</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/listsurveydevices
+</code>
+<h5>Contoh</h5>
+<code>
+    curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"survey_site_id":2386}' -X POST https://localhost:20215/listsurveydevices
+</code>
+
+
 <h4>Penambahan</h4>
 <h5>Syntax</h5>
 <code>
