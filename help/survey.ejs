@@ -177,6 +177,16 @@
     curl -d 'filename=1640153893998.jpg' -X POST http://localhost:20215/removesurveyimage
 </code>
 <h3>Berita Acara</h3>
+<h4>List</h4>
+<h5>Syntax</h5>
+<code>
+    curl -d -H 'Content-Type: application/json' -H 'Accept: application/json' '{survey_site_id:<strong>survey_site_id</strong>}' -X POST https://localhost:20215/listsurveybas
+</code>
+<h5>Contoh</h5>
+<code>
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"survey_site_id":1288}' -X POST https://localhost:20215/listsurveybas
+</code>
+
 <h4>Update</h4>
 <h5>Syntax</h5>
 <code>

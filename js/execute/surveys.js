@@ -85,7 +85,7 @@ bas =  {
         }
     },
     list: (req,res)=>{
-        let sql = routines.list({columns:['id','name','description'],identifier:'survey_site_id',identifierValue:1,tableName:'survey_bas'})
+        let sql = routines.list({columns:['id','name','description','survey_site_id'],identifier:'survey_site_id',identifierValue:req.body.survey_site_id,tableName:'survey_bas'})
         i.connection.doQuery(sql,result=>{
             res.send(result)
         })
@@ -424,6 +424,15 @@ surveyor = {
     }
 }
 imagesv2 = {
+    list : (req,res) => {
+        routines.list({
+            tableName:'survey_imagesv2',columns:['survey_site_id','path','description'],
+            identifier:'survey_site_id',identifierValue:req.body.survey_site_id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    },
     create :  (req,res) => {
         chk = i.check.transactions.check(
             req.body,i.field.survey.site.site.imagesv2.create.mandatories,
