@@ -127,6 +127,9 @@ i.app.post('/listsurveyclientdistances',(req,res)=>{
 i.app.post('/updatesurveyclientdistances',(req,res)=>{
     i.execute.transaction.survey.client_distance.update(req,res)
 })
+i.app.post('/listsurveydevices',(req,res)=>{
+    i.execute.transaction.survey.device.list(req,res)
+})
 i.app.post('/createsurveydevices',(req,res)=>{
     i.execute.transaction.survey.device.create(req,res)
 })

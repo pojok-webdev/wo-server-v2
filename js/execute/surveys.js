@@ -174,6 +174,17 @@ client_distance = {
     }
 }
 device = {
+    list: (req,res) => {
+        let sql = routines.list({
+            columns:['device_id','name','amount','description'],
+            tableName:'survey_devices',
+            identifier:'survey_site_id',
+            identifierValue:req.body.survey_site_id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    },
     create :  (req,res) => {
         chk = i.check.transactions.check(
             req.body,i.field.survey.site.site.device.create.mandatories,
