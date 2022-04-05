@@ -211,6 +211,9 @@ i.app.post('/createinstallapwifi',(req,res)=>{
 i.app.post('/updateinstallapwifi',(req,res)=>{
     i.execute.transaction.install.ap_wifi.update(req,res)
 })
+i.app.post('/listinstallbas',(req,res)=>{
+    i.execute.transaction.install.ba.list(req,res)
+})
 i.app.post('/createinstallba',(req,res)=>{
     i.execute.transaction.install.ba.create(req,res)
 })

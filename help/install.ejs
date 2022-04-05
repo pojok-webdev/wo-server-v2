@@ -115,7 +115,14 @@
 <code>
         curl-H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_site_id":1908,"tipe":"Surabayo","macboard":"beb"}' -X POST https://localhost:20215/createinstallapwifi
 </code>
-<h4>BA</h4>
+<h4>List BA</h4>
+
+<h5>Syntax</h5>
+<code>curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_site_id":<strong>install_site_id</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/listinstallbas</code>
+<h5>contoh</h5>
+<code>curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_site_id":1288}' -X POST https://localhost:20215/listinstallbas</code>
+
+<h4>Create BA</h4>
 <h5>Syntax</h5>
 <code>
         curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_site_id":<strong>install_site_id</strong>,"name":"<strong>ba_name</strong>","path":"<strong>ba_path</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/createinstallba

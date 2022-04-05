@@ -69,3 +69,8 @@ curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{
 curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"survey_site_id":1288}' -X POST https://localhost:20215/listsurveydevices
 
 curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_site_id":1288}' -X POST https://localhost:20215/listinstallrequest
+
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_site_id":1288}' -X POST https://localhost:20215/listinstallbas
+
+
+

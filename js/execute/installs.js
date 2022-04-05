@@ -68,6 +68,17 @@ site = {
     update:(req,res)=>{update(req,res,'site','install_sites')}
 },
 ba = {
+    list:(req,res)=>{
+        let sql = routines.list({
+            columns:['id','name'],
+            tableName:'install_bas',
+            identifier:'install_site_id',
+            identifierValue:req.body.install_site_id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    },
     create:(req,res)=>{create(req,res,'ba','install_bas')},
     update:(req,res)=>{update(req,res,'ba','install_bas')}
 },
