@@ -88,6 +88,17 @@ image = {
     update:(req,res)=>{update(req,res,'image','install_imagesv2')}
 }
 request = {
+    list:(req,res)=>{
+        let sql = routines.list({
+            columns:['id','client_site_id'],
+            tableName:'install_requests',
+            identifier:'1',
+            identifierValue:'1'
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    },
     create:(req,res)=>{create(req,res,'request','install_requests')},
     update:(req,res)=>{update(req,res,'request','install_requests')}
 }

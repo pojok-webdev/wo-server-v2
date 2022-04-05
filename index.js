@@ -241,6 +241,9 @@ i.app.post('/createinstallimage',(req,res)=>{
 i.app.post('/updateinstallimage',(req,res)=>{
     i.execute.transaction.install.image.update(req,res)
 })
+i.app.post('/listinstallrequest',(req,res)=>{
+    i.execute.transaction.install.request.list(req,res)
+})
 i.app.post('/createinstallrequest',(req,res)=>{
     i.execute.transaction.install.request.create(req,res)
 })

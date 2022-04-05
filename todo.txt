@@ -1,0 +1,71 @@
+melanjutkan melengkapi kekurangan API pengajuan Survey dan Instalasi
+sambil tetap mensupport
+
+Berita Acara, Jarak Antar BTS, Jarak Antar Pelanggan, layanan Pelanggan,
+Tanggal Survey, Perangkat, Data GPS, Gambar, Material, Resume,Jarak antar Site
+ survey_bas                                        |
+| survey_bts_distances                              |
+| survey_client_distances                           |
+| survey_client_services                            |
+| survey_dates                                      |
+| survey_devices                                    |
+| survey_gps_datas                                  |
+| survey_images                                     |
+| survey_imagesv2                                   |
+| survey_materials     list dan hapus 14 mar 2022
+| survey_requests                                   |
+| survey_requests_users                             |
+| survey_resumes                                    |
+| survey_site_distances                             |
+| survey_sites                                      |
+| survey_surveyors                                  |
+| surveypackagedetails                              |
+| surveypackages                                    |
+| surveys       
+
+
+
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{ "survey_site_id":1}' -X POST localhost:20215/listsurveymaterials
+curl -k -d "survey_site_id=1" -X POST https://localhost:20215/listsurveymaterials
+
+curl -k -d "id=5976" -X POST https://localhost:20215/removesurveymaterials
+
+curl -k -d 'survey_site_id=2386&material_type=1&name=semeru&amount=5' -X POST https://localhost:20215/createsurveymaterials
+
+curl -k -d 'survey_site_id=2386&material_type=1&name=semeru&amount=5' -X POST https://localhost:20215/createsurveymaterials
+
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"survey_site_id":2386,"material_type":1,"name":"semeru","amount":5}' -X POST https://localhost:20215/createsurveymaterials
+
+
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{ "survey_site_id":1}' -X POST https://localhost:20215/listsurveyresumes
+
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":4045}' -X POST https://localhost:20215/removesurveyresumes
+
+
+listsurveyimages
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"survey_site_id":28}' -X POST https://localhost:20215/listsurveyimages
+
+curl -v -F filename=image.jpg -F upload=@image.jpg http://localhost:8080/api/upload
+
+
+curl -k -v -F 'image=@/home/webdev/pisau.jpg' -F upload=@/home/webdev/pisau.jpg https://192.168.0.117:20216/surveyimages
+
+curl -k -d 'segment=0&offset=10' -X POST https://192.168.0.117:20216/listsurveyproposal/
+
+
+curl -k -X POST -F 'image=@/home/webdev/pisau.jpg' -v http://localhost:20215/surveyimages/
+
+curl -k -X POST -F 'image=@/home/webdev/Pictures/garuda.png' -v http://localhost:20215/surveyimages/ https://192.168.0.117:20216/surveyimages
+
+curl -k -v -F 'image=@/home/webdev/Pictures/garuda.png' -F upload=@/home/webdev/Pictures/garuda.png https://192.168.0.117:20216/surveyimages
+
+curl -k -X POST -F 'image=@/home/webdev/Pictures/garuda.png' -v https://192.168.0.117:20216/surveyimages/
+
+curl -k -d 'id=1897&city=Surabaya&address=Jl. Ciliwung No. 74-B' -X POST https://localhost:20215/surveyupdate
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":28,"city":"Surabaya","address":"Jl Peramata"}' -X POST https://localhost:20215/surveyupdate
+
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"survey_site_id":1288}' -X POST https://localhost:20215/listsurveybas
+
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"survey_site_id":1288}' -X POST https://localhost:20215/listsurveydevices
+
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_site_id":1288}' -X POST https://localhost:20215/listinstallrequest
