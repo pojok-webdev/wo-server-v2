@@ -183,7 +183,18 @@
 <code>
         curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":1908,"name":"DLink8Port","user":"Kholis"}' -X POST https://localhost:20215/updateinstallswitches
 </code>
-<h4>Wireless Radio</h4>
+
+<h4>List Install Wireless Radio</h4>
+<h5>Syntax</h5>
+<code>
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_site_id":<strong>install_site_</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/listinstallwirelessradios
+</code>
+<h5>Contoh</h5>
+<code>
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_site_id":1908}' -X POST https://localhost:20215/installinstallwirelessradio
+</code>
+
+<h4>Create Wireless Radio</h4>
 <h5>Syntax</h5>
 <code>
         curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":<strong>id</strong>,"tipe":"<strong>wireless_radio_name</strong>","macboard":"<strong>macboard</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/createinstallwirelessradio
@@ -228,4 +239,8 @@ Jadi gambar diupload terlebih dahulu, selanjutnya data pelengkap dipost setelahn
 <h5>Contoh</h5>
 <code>
         curl -d 'filename=1640163675618.jpg' -X POST http://localhost:20215/removeinstallimage
+</code>
+<h4>List</h4>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_site_id":1288}' -X POST https://localhost:20215/listinstallimages
 </code>

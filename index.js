@@ -238,11 +238,17 @@ i.app.post('/createinstallswitches',(req,res)=>{
 i.app.post('/updateinstallswitches',(req,res)=>{
     i.execute.transaction.install.switches.update(req,res)
 })
+i.app.post('/listinstallwirelessradios',(req,res)=>{
+    i.execute.transaction.install.wireless_radio.list(req,res)
+})
 i.app.post('/createinstallwirelessradio',(req,res)=>{
     i.execute.transaction.install.wireless_radio.create(req,res)
 })
 i.app.post('/updateinstallwirelessradio',(req,res)=>{
     i.execute.transaction.install.wireless_radio.update(req,res)
+})
+i.app.post('/listinstallimages',(req,res)=>{
+    i.execute.transaction.install.image.list(req,res)
 })
 i.app.post('/createinstallimage',(req,res)=>{
     i.execute.transaction.install.image.create(req,res)

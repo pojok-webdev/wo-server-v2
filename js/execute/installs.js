@@ -113,10 +113,32 @@ switches = {
     update:(req,res)=>{update(req,res,'switches','install_switches')}
 },
 wireless_radio = {
+    list:(req,res)=>{
+        let sql = routines.list({
+            columns:['tipe','macboard','bts','freqwency','polarization'],
+            tableName:'install_wireless_radios',
+            identifier:'install_site_id',
+            identifierValue:req.body.install_site_id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    },
     create:(req,res)=>{create(req,res,'wireless_radio','install_wireless_radios')},
     update:(req,res)=>{update(req,res,'wireless_radio','install_wireless_radios')}
 },
 image = {
+    list:(req,res)=>{
+        let sql = routines.list({
+            columns:['title','description'],
+            tableName:'install_imagesv2',
+            identifier:'install_site_id',
+            identifierValue:req.body.install_site_id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    },
     create:(req,res)=>{create(req,res,'image','install_imagesv2')},
     update:(req,res)=>{update(req,res,'image','install_imagesv2')}
 }
