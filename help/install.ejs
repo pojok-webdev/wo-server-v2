@@ -157,7 +157,16 @@
 <code>
         curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"client_id":1908,"client_site_id":2,"service_type":2}' -X POST https://localhost:20215/updateinstallclientservice
 </code>
-<h4>Switch</h4>
+<h4>List Switch</h4>
+<h5>Syntax</h5>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_site_id":<strong>install_site_id</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/listinstallswitches
+</code>
+<h5>Contoh</h5>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_site_id":1288}' -X POST https://localhost:20215/listinstallswitches
+</code>
+<h4>Create Switch</h4>
 <h5>Syntax</h5>
 <code>
         curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_site_id":<strong>install_site_id</strong>,"name":"<strong>switch_name</strong>","user":"<strong>creator_user</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/createinstallswitches

@@ -229,6 +229,9 @@ i.app.post('/createinstallclientservice',(req,res)=>{
 i.app.post('/updateinstallclientservice',(req,res)=>{
     i.execute.transaction.install.client_service.update(req,res)
 })
+i.app.post('/listinstallswitches',(req,res)=>{
+    i.execute.transaction.install.switches.list(req,res)
+})
 i.app.post('/createinstallswitches',(req,res)=>{
     i.execute.transaction.install.switches.create(req,res)
 })

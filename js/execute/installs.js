@@ -98,6 +98,17 @@ client_service = {
     update:(req,res)=>{update(req,res,'client_service','install_client_services')}
 },
 switches = {
+    list:(req,res)=>{
+        let sql = routines.list({
+            columns:['name','port'],
+            tableName:'install_switches',
+            identifier:'install_site_id',
+            identifierValue:req.body.install_site_id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    },
     create:(req,res)=>{create(req,res,'switches','install_switches')},
     update:(req,res)=>{update(req,res,'switches','install_switches')}
 },
