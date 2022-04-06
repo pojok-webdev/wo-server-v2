@@ -129,9 +129,18 @@
 </code>
 <h5>Contoh</h5>
 <code>
-        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d 'install_site_id=1908&name=Surabayo&path=beb' -X POST https://localhost:20215/createinstallba
+        curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_site_id":1908,"name":"Surabaya","path":"bla"}' -X POST https://localhost:20215/createinstallba
 </code>
-<h4>Layanan Pelanggan</h4>
+<h4>List Layanan Pelanggan</h4>
+<h5>Syntax</h5>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"client_site_id":1288}' -X POST https://<strong>server</strong>:<strong>port</strong>/listinstallclientservice
+</code>
+<h5>Contoh</h5>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"client_site_id":1288}' -X POST https://localhost:20215/listinstallclientservice
+</code>
+
 <h5>Syntax</h5>
 <code>
         curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"client_id":<strong>client_id</strong>:"client_site_id":<strong>client_site_id</strong>,"service_type":"<strong>service_type</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/createinstallclientservice

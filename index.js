@@ -220,6 +220,9 @@ i.app.post('/createinstallba',(req,res)=>{
 i.app.post('/updateinstallba',(req,res)=>{
     i.execute.transaction.install.ba.update(req,res)
 })
+i.app.post('/listinstallclientservice',(req,res)=>{
+    i.execute.transaction.install.client_service.list(req,res)
+})
 i.app.post('/createinstallclientservice',(req,res)=>{
     i.execute.transaction.install.client_service.create(req,res)
 })

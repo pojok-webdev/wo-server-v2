@@ -83,6 +83,17 @@ ba = {
     update:(req,res)=>{update(req,res,'ba','install_bas')}
 },
 client_service = {
+    list:(req,res)=>{
+        let sql = routines.list({
+            columns:['servicetype','service_id'],
+            tableName:'install_client_services',
+            identifier:'client_site_id',
+            identifierValue:req.body.client_site_id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    },
     create:(req,res)=>{create(req,res,'client_service','install_client_services')},
     update:(req,res)=>{update(req,res,'client_service','install_client_services')}
 },

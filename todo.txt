@@ -73,4 +73,7 @@ curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{
 curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_site_id":1288}' -X POST https://localhost:20215/listinstallbas
 
 
+2022-04-06
+
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"client_site_id":1288}' -X POST https://localhost:20215/listinstallclientservice
 
