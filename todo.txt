@@ -81,6 +81,22 @@ curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{
 
 curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_site_id":1288}' -X POST https://localhost:20215/listinstallwirelessradios
 
-curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_site_id":1288}' -X POST https://localhost:20215/listinstallimages
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_site_id":690}' -X POST https://localhost:20215/listinstallimages
+
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":5140}' -X POST https://localhost:20215/removeinstallimage
+
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":516}' -X POST https://localhost:20215/removeinstallwirelessradio
+
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":5}' -X POST https://localhost:20215/removeinstallswitches
+
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":1231}' -X POST https://localhost:20215/removeinstallba
+
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":938}' -X POST https://localhost:20215/removeinstallsite
+
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":144}' -X POST https://localhost:20215/removeinstallapwifi
+
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":524}' -X POST https://localhost:20215/removeinstallantenna
+
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_site_id":1908}' -X POST https://localhost:20215/listinstallapwifi
 
 

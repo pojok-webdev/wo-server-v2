@@ -46,11 +46,44 @@ antenna = {
         })
     },
     create:(req,res)=>{create(req,res,'antenna','install_antennas')},
-    update:(req,res)=>{update(req,res,'antenna','install_antennas')}
+    update:(req,res)=>{update(req,res,'antenna','install_antennas')},
+    remove:(req,res)=>{
+        let sql = routines.remove({
+            columns:['title','description'],
+            tableName:'install_antennas',
+            identifier:'id',
+            identifierValue:req.body.id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    }
 },
 ap_wifi = {
+    list:(req,res)=>{
+        let sql = routines.list({
+            columns:['id','tipe','macboard'],
+            tableName:'install_ap_wifis',
+            identifier:'install_site_id',
+            identifierValue:req.body.install_site_id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    },
     create:(req,res)=>{create(req,res,'ap_wifi','install_ap_wifis')},
-    update:(req,res)=>{update(req,res,'ap_wifi','install_ap_wifis')}
+    update:(req,res)=>{update(req,res,'ap_wifi','install_ap_wifis')},
+    remove:(req,res)=>{
+        let sql = routines.remove({
+            columns:['title','description'],
+            tableName:'install_ap_wifis',
+            identifier:'id',
+            identifierValue:req.body.id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    }
 },
 site = {
     list:(req,res)=>{
@@ -65,7 +98,18 @@ site = {
         })
     },
     create:(req,res)=>{create(req,res,'site','install_sites')},
-    update:(req,res)=>{update(req,res,'site','install_sites')}
+    update:(req,res)=>{update(req,res,'site','install_sites')},
+    remove:(req,res)=>{
+        let sql = routines.remove({
+            columns:['title','description'],
+            tableName:'install_sites',
+            identifier:'id',
+            identifierValue:req.body.id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    }
 },
 ba = {
     list:(req,res)=>{
@@ -80,7 +124,18 @@ ba = {
         })
     },
     create:(req,res)=>{create(req,res,'ba','install_bas')},
-    update:(req,res)=>{update(req,res,'ba','install_bas')}
+    update:(req,res)=>{update(req,res,'ba','install_bas')},
+    remove:(req,res)=>{
+        let sql = routines.remove({
+            columns:['title','description'],
+            tableName:'install_bas',
+            identifier:'id',
+            identifierValue:req.body.id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    }
 },
 client_service = {
     list:(req,res)=>{
@@ -110,7 +165,18 @@ switches = {
         })
     },
     create:(req,res)=>{create(req,res,'switches','install_switches')},
-    update:(req,res)=>{update(req,res,'switches','install_switches')}
+    update:(req,res)=>{update(req,res,'switches','install_switches')},
+    remove:(req,res)=>{
+        let sql = routines.remove({
+            columns:['title','description'],
+            tableName:'install_switches',
+            identifier:'id',
+            identifierValue:req.body.id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    }
 },
 wireless_radio = {
     list:(req,res)=>{
@@ -125,12 +191,23 @@ wireless_radio = {
         })
     },
     create:(req,res)=>{create(req,res,'wireless_radio','install_wireless_radios')},
-    update:(req,res)=>{update(req,res,'wireless_radio','install_wireless_radios')}
+    update:(req,res)=>{update(req,res,'wireless_radio','install_wireless_radios')},
+    remove:(req,res)=>{
+        let sql = routines.remove({
+            columns:['title','description'],
+            tableName:'install_wireless_radios',
+            identifier:'id',
+            identifierValue:req.body.id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    }
 },
 image = {
     list:(req,res)=>{
         let sql = routines.list({
-            columns:['title','description'],
+            columns:['id','title','description'],
             tableName:'install_imagesv2',
             identifier:'install_site_id',
             identifierValue:req.body.install_site_id
@@ -140,7 +217,18 @@ image = {
         })
     },
     create:(req,res)=>{create(req,res,'image','install_imagesv2')},
-    update:(req,res)=>{update(req,res,'image','install_imagesv2')}
+    update:(req,res)=>{update(req,res,'image','install_imagesv2')},
+    remove:(req,res)=>{
+        let sql = routines.remove({
+            columns:['title','description'],
+            tableName:'install_imagesv2',
+            identifier:'id',
+            identifierValue:req.body.id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    }
 }
 request = {
     list:(req,res)=>{

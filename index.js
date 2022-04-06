@@ -196,6 +196,9 @@ i.app.post('/createinstallsite',(req,res)=>{
 i.app.post('/updateinstallsite',(req,res)=>{
     i.execute.transaction.install.site.update(req,res)
 })
+i.app.post('/removeinstallsite',(req,res)=>{
+    i.execute.transaction.install.site.remove(req,res)
+})
 i.app.post('/listinstallantenna',(req,res)=>{
     i.execute.transaction.install.antenna.list(req,res)
 })
@@ -205,8 +208,17 @@ i.app.post('/createinstallantenna',(req,res)=>{
 i.app.post('/updateinstallantenna',(req,res)=>{
     i.execute.transaction.install.antenna.update(req,res)
 })
+i.app.post('/removeinstallantenna',(req,res)=>{
+    i.execute.transaction.install.antenna.remove(req,res)
+})
 i.app.post('/createinstallapwifi',(req,res)=>{
     i.execute.transaction.install.ap_wifi.create(req,res)
+})
+i.app.post('/listinstallapwifi',(req,res)=>{
+    i.execute.transaction.install.ap_wifi.list(req,res)
+})
+i.app.post('/removeinstallapwifi',(req,res)=>{
+    i.execute.transaction.install.ap_wifi.remove(req,res)
 })
 i.app.post('/updateinstallapwifi',(req,res)=>{
     i.execute.transaction.install.ap_wifi.update(req,res)
@@ -219,6 +231,9 @@ i.app.post('/createinstallba',(req,res)=>{
 })
 i.app.post('/updateinstallba',(req,res)=>{
     i.execute.transaction.install.ba.update(req,res)
+})
+i.app.post('/removeinstallba',(req,res)=>{
+    i.execute.transaction.install.ba.remove(req,res)
 })
 i.app.post('/listinstallclientservice',(req,res)=>{
     i.execute.transaction.install.client_service.list(req,res)
@@ -238,6 +253,9 @@ i.app.post('/createinstallswitches',(req,res)=>{
 i.app.post('/updateinstallswitches',(req,res)=>{
     i.execute.transaction.install.switches.update(req,res)
 })
+i.app.post('/removeinstallswitches',(req,res)=>{
+    i.execute.transaction.install.switches.remove(req,res)
+})
 i.app.post('/listinstallwirelessradios',(req,res)=>{
     i.execute.transaction.install.wireless_radio.list(req,res)
 })
@@ -247,6 +265,9 @@ i.app.post('/createinstallwirelessradio',(req,res)=>{
 i.app.post('/updateinstallwirelessradio',(req,res)=>{
     i.execute.transaction.install.wireless_radio.update(req,res)
 })
+i.app.post('/removeinstallwirelessradio',(req,res)=>{
+    i.execute.transaction.install.wireless_radio.remove(req,res)
+})
 i.app.post('/listinstallimages',(req,res)=>{
     i.execute.transaction.install.image.list(req,res)
 })
@@ -255,6 +276,9 @@ i.app.post('/createinstallimage',(req,res)=>{
 })
 i.app.post('/updateinstallimage',(req,res)=>{
     i.execute.transaction.install.image.update(req,res)
+})
+i.app.post('/removeinstallimage',(req,res)=>{
+    i.execute.transaction.install.image.remove(req,res)
 })
 i.app.post('/listinstallrequest',(req,res)=>{
     i.execute.transaction.install.request.list(req,res)

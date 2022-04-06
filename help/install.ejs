@@ -30,7 +30,7 @@
 <p>Instalasi memiliki banyak data pendukung yang masing-masing dapat diperlakukan sebagai tindakan tersendiri</p>
 <h3>Site</h3>
 
-<h4>List</h4>
+<h4>List Install Site</h4>
 <h5>Syntax</h5>
 <code>
         curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_request_id":<strong>install_request_id</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/listinstallsites
@@ -40,7 +40,7 @@
         curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_request_id":128}' -X POST https://localhost:20215/listinstallsites
 </code>
 
-<h4>Create</h4>
+<h4>Create Install Site</h4>
 <p>Untuk menambahkan Site pada Instalasi harus mengetahui ID request Instalasi</p>
 <h5>Syntax</h5>
 <code>
@@ -57,6 +57,15 @@
 <h5>Contoh</h5>
 <code>
         curl-H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":193,"city":"Surabayo","address":"Jl. Ciliwung No. 74-Bi"}' -X POST localhost:20215/updateinstallsite
+</code>
+<h4>Remove Install Site</h4>
+<h5>Syntax</h5>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":<strong>id</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/removeinstallsite
+</code>
+<h5>Contoh</h5>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":938}' -X POST https://localhost:20215/removeinstallsite
 </code>
 <h3>Laporan Instalasi</h3>
 <h5>Syntax</h5>
@@ -106,7 +115,25 @@
 <code>
         curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_site_id":1908,"name":"Pigtail","amount":1}' -X POST https://localhost:20215/createinstallantenna
 </code>
-<h4>AP Wifi</h4>
+<h4>Remove Install Antenna</h4>
+<h5>Syntax</h5>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":524}' -X POST https://localhost:20215/removeinstallantenna
+</code>
+<h5>Contoh</h5>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":524}' -X POST https://localhost:20215/removeinstallantenna
+</code>
+<h4>List Install AP Wifi</h4>
+<h5>Syntax</h5>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_site_id":<strong>install_site_id</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/listinstallapwifi
+</code>
+<h5>Contoh</h5>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_site_id":1908}' -X POST https://localhost:20215/listinstallapwifi
+</code>
+<h4>Create AP Wifi</h4>
 <h5>Syntax</h5>
 <code>
         curl-H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_site_id":<strong>install_site_id</strong>,"tipe":"<strong>apwifi_type</strong>","macboard":"<strong>apwifi_macboard</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/createinstallapwifi
@@ -114,6 +141,15 @@
 <h5>Contoh</h5>
 <code>
         curl-H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_site_id":1908,"tipe":"Surabayo","macboard":"beb"}' -X POST https://localhost:20215/createinstallapwifi
+</code>
+<h4>Remove Install AP Wifi</h4>
+<h5>Syntax</h5>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":144}' -X POST https://localhost:20215/removeinstallapwifi
+</code>
+<h5>Contoh</h5>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":144}' -X POST https://localhost:20215/removeinstallapwifi
 </code>
 <h4>List BA</h4>
 
@@ -130,6 +166,15 @@
 <h5>Contoh</h5>
 <code>
         curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_site_id":1908,"name":"Surabaya","path":"bla"}' -X POST https://localhost:20215/createinstallba
+</code>
+<h4>Remove Install BA</h4>
+<h5>Syntax</h5>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":<strong>id</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/removeinstallba
+</code>
+<h5>Contoh</h5>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":1231}' -X POST https://localhost:20215/removeinstallba
 </code>
 <h4>List Layanan Pelanggan</h4>
 <h5>Syntax</h5>
@@ -203,6 +248,7 @@
 <code>
         curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"install_site_id":1908,"tipe":"Mikrotik RB 411 L","macboard":"D4:CA:6D:84:C1:51"}' -X POST https://localhost:20215/createinstallwirelessradio
 </code>
+<h3>Update Wireless Radio</h3>
 <h5>Syntax</h5>
 <code>
         curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":<strong>id</strong>,"tipe":"<strong>wireless_radio_name</strong>","macboard":"<strong>macboard</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/updateinstallwirelessradio
@@ -210,6 +256,15 @@
 <h5>Contoh</h5>
 <code>
         curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":1908,"tipe":"Mikrotik RB 411 L","macboard":"D4:CA:6D:84:C1:51"}' -X POST https://localhost:20215/updateinstallwirelessradio
+</code>
+<h3>Remove Wireless Radio</h3>
+<h4>Syntax</h4>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":<strong>id</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/removeinstallwirelessradio
+</code>
+<h4>Contoh</h4>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":516}' -X POST https://localhost:20215/removeinstallwirelessradio
 </code>
 <h4>Gambar Instalasi</h4>
 <p>
@@ -243,4 +298,13 @@ Jadi gambar diupload terlebih dahulu, selanjutnya data pelengkap dipost setelahn
 <h4>List</h4>
 <code>
         curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_site_id":1288}' -X POST https://localhost:20215/listinstallimages
+</code>
+<h4>Remove Images menggunakan id</h4>
+<h5>Syntax</h5>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":<strong>id</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/listinstallimages
+</code>
+<h5>Contoh</h5>
+<code>
+        curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_site_id":690}' -X POST https://localhost:20215/listinstallimages
 </code>
