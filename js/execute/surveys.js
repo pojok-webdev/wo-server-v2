@@ -191,6 +191,16 @@ client_distance = {
         i.connection.doQuery(sql,result=>{
             res.send(result)
         })
+    },
+    remove: (req,res) => {
+        let sql = routines.remove({
+            tableName:'survey_client_distances',
+            identifier:'id',
+            identifierValue:req.body.id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
     }
 }
 device = {

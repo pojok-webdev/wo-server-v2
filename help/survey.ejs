@@ -293,7 +293,7 @@ Nilai kembalian
 <h3>Jarak dengan Pelanggan Lain</h3>
 
 
-<h4>List</h4>
+<h4>List Jarak dengan Pelanggan Lain</h4>
 <h5>Syntax</h5>
 <code>
     curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"survey_site_id":<strong>survey_site_id</strong>,"distance":"<strong>distance</strong>"}' -X POST <strong>server</strong>:<strong>port</strong>/listsurveyclientdistances
@@ -305,7 +305,7 @@ Nilai kembalian
 
 
 
-<h4>Penambahan</h4>
+<h4>Penambahan Jarak dengan Pelanggan lain</h4>
 <h5>Syntax</h5>
 <code>
     curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"survey_site_id":<strong>survey_site_id</strong>,"distance":"<strong>distance</strong>"}' -X POST <strong>server</strong>:<strong>port</strong>/createsurveyclientdistances
@@ -314,7 +314,7 @@ Nilai kembalian
 <code>
     curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"survey_site_id":2386,"distance":1,"client_id":1}' -X POST https://localhost:20215/createsurveyclientdistances
 </code>
-<h4>Update</h4>
+<h4>Update Jarak dengan Pelanggan Lain</h4>
 <h5>Syntax</h5>
 <code>
         curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k  -d '{id:<strong>id</strong>,distance:<strong>distance</strong>}' -X POST localhost:20215/updatesurveyclientdistances
@@ -322,6 +322,15 @@ Nilai kembalian
 <h5>Contoh</h5>
 <code>
         curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k  -d '{id:2385,distance:1}' -X POST localhost:20215/updatesurveyclientdistances
+</code>
+<h4>Hapus Jarak dengan Pelanggan Lain</h4>
+<h5>Syntax</h5>
+<code>
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":<strong>id</strong>}' -X POST https://<strong>server:port</strong>/removesurveyclientdistances
+</code>
+<h5>Contoh</h5>
+<code>
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":2}' -X POST https://localhost:20215/removesurveyclientdistances
 </code>
 <h3>Material</h3>
 

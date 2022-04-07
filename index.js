@@ -133,6 +133,9 @@ i.app.post('/listsurveyclientdistances',(req,res)=>{
 i.app.post('/updatesurveyclientdistances',(req,res)=>{
     i.execute.transaction.survey.client_distance.update(req,res)
 })
+i.app.post('/removesurveyclientdistances',(req,res)=>{
+    i.execute.transaction.survey.client_distance.remove(req,res)
+})
 i.app.post('/listsurveydevices',(req,res)=>{
     i.execute.transaction.survey.device.list(req,res)
 })
