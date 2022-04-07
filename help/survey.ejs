@@ -260,7 +260,7 @@ Nilai kembalian
 </code>
 <h3>Perangkat Survey</h3>
 
-<h4>List</h4>
+<h4>List Perangkat Survey</h4>
 <h5>Syntax</h5>
 <code>
     curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"survey_site_id"=<strong>survey_site_id</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/listsurveydevices
@@ -271,7 +271,7 @@ Nilai kembalian
 </code>
 
 
-<h4>Penambahan</h4>
+<h4>Penambahan Perangkat Survey</h4>
 <h5>Syntax</h5>
 <code>
     curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"survey_site_id"=<strong>survey_site_id</strong>,"device_id":<strong>device_id</strong>,"name":"<strong>device name</strong>","amount":<strong>amount</strong>}' -X POST https://<strong>server</strong>:<strong>port</strong>/createsurveydevices
@@ -280,7 +280,7 @@ Nilai kembalian
 <code>
     curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"survey_site_id":2386,"device_id":1,"name":"mikrotik RB 750","amount":5}' -X POST https://localhost:20215/createsurveydevices
 </code>
-<h4>Update</h4>
+<h4>Update Perangkat Survey</h4>
 <h5>Syntax</h5>
 <code>
     curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"survey_site_id":<strong>survey_site_id</strong>,"device_id"=<strong>device_id</strong>,"name":"<strong>device_name</strong>","amount":<strong>device_amount</strong>}' -X POST localhost:20215/updatesurveydevices
@@ -289,7 +289,15 @@ Nilai kembalian
 <code>
     curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"id":530,"device_id":1,"name":"merapi","amount":5}' -X POST https://localhost:20215/updatesurveydevices
 </code>
-
+<h4>Remove Perangkat Survey</h4>
+<h5>Syntax</h5>
+<code>
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":<strong>id</strong>}' -X POST https://<strong>server:port</strong>/removesurveydevices
+</code>
+<h5>Contoh</h5>
+<code>
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":524}' -X POST https://localhost:20215/removesurveydevices
+</code>
 <h3>Jarak dengan Pelanggan Lain</h3>
 
 

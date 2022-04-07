@@ -106,3 +106,6 @@ curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{
 curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"survey_site_id":1908,"name":"ba 1","description":"bla","img":"x"}' -X POST https://localhost:20215/createsurveybas
 
 curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":2}' -X POST https://localhost:20215/removesurveyclientdistances
+
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":524}' -X POST https://localhost:20215/removesurveydevices
+

@@ -145,6 +145,9 @@ i.app.post('/createsurveydevices',(req,res)=>{
 i.app.post('/updatesurveydevices',(req,res)=>{
     i.execute.transaction.survey.device.update(req,res)
 })
+i.app.post('/removesurveydevices',(req,res)=>{
+    i.execute.transaction.survey.device.remove(req,res)
+})
 i.app.post('/createsurveymaterials',(req,res)=>{
     i.execute.transaction.survey.material.create(req,res)
 })
