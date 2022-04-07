@@ -177,7 +177,7 @@
     curl -d 'filename=1640153893998.jpg' -X POST http://localhost:20215/removesurveyimage
 </code>
 <h3>Berita Acara</h3>
-<h4>List</h4>
+<h4>List BA Survey</h4>
 <h5>Syntax</h5>
 <code>
     curl -d -H 'Content-Type: application/json' -H 'Accept: application/json' '{survey_site_id:<strong>survey_site_id</strong>}' -X POST https://localhost:20215/listsurveybas
@@ -186,8 +186,16 @@
 <code>
     curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"survey_site_id":1288}' -X POST https://localhost:20215/listsurveybas
 </code>
-
-<h4>Update</h4>
+<h4>Create BA Survey</h4>
+<h5>Syntax</h5>
+<code>
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"survey_site_id":<strong>survey_site_id</strong>,"name":"<strong>name</strong>","description":"<strong>description</strong>","img":"<strong>img</strong>"}' -X POST https://<strong>server:port</strong>/createsurveybas
+</code>
+<h5>Code</h5>
+<code>
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"survey_site_id":1908,"name":"ba 1","description":"bla","img":"x"}' -X POST https://localhost:20215/createsurveybas
+</code>
+<h4>Update BA Survey</h4>
 <h5>Syntax</h5>
 <code>
     curl -d -H 'Content-Type: application/json' -H 'Accept: application/json' '{id:<strong>id_BA</strong>,name:<strong>nama_BA</strong>}' -X POST https://localhost:20215/updatesurveybas
@@ -197,7 +205,7 @@
     curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":131,"name":"BA Surabaya"}' -X POST https://localhost:20215/updatesurveybas
 </code>
 
-<h4>Remove</h4>
+<h4>Remove BA Survey</h4>
 
 <h5>Syntax</h5>
 <code>

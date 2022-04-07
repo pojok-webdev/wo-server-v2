@@ -52,12 +52,10 @@ request = {
     }
 }
 bas =  {
-    list:(req,res)=>{
-        let sql = routines.list({
-            columns:['tipe','macboard','bts','freqwency','polarization'],
+    create:(req,res)=>{
+        let sql = routines.create({
+            columns:req.body,
             tableName:'survey_bas',
-            identifier:'survey_site_id',
-            identifierValue:req.body.install_site_id
         })
         i.connection.doQuery(sql,result=>{
             res.send(result)
@@ -96,7 +94,11 @@ bas =  {
         }
     },
     list: (req,res)=>{
-        let sql = routines.list({columns:['id','name','description','survey_site_id'],identifier:'survey_site_id',identifierValue:req.body.survey_site_id,tableName:'survey_bas'})
+        let sql = routines.list({
+            columns:['id','name','description','survey_site_id'],
+            identifier:'survey_site_id',
+            identifierValue:req.body.survey_site_id,
+            tableName:'survey_bas'})
         i.connection.doQuery(sql,result=>{
             res.send(result)
         })

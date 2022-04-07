@@ -100,6 +100,9 @@ i.app.post('/createsurveysite',(req,res)=>{
 i.app.post('/updatesurveysite',(req,res)=>{
     i.execute.transaction.survey.site.update(req,res)
 })
+i.app.post('/createsurveybas',(req,res)=>{
+    i.execute.transaction.survey.bas.create(req,res)
+})
 i.app.post('/updatesurveybas',(req,res)=>{
     i.execute.transaction.survey.bas.update(req,res)
 })
