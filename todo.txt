@@ -100,3 +100,5 @@ curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{
 curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"install_site_id":1908}' -X POST https://localhost:20215/listinstallapwifi
 
 
+2020-04-07
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"survey_site_id":1908,"distance":100,"los":"1","ap":"anc","description":"bla bla"}' -X POST https://localhost:20215/createsurveybtsdistances

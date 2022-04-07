@@ -213,7 +213,8 @@
 
 
 <h3>Jarak Antar BTS</h3>
-<h4>List</h4>
+
+<h4>List BTS Survey</h4>
 <h5>Syntax</h5>
 <code>
     curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d "{"survey_site_id":<strong>survey_site_id</strong>}" -X POST https://<strong>server</strong>:<strong>port</strong>/listsurveybtsdistances
@@ -224,16 +225,23 @@
 </code>
 Nilai kembalian
 <code>{"sql":[{"id":1,"survey_site_id":1,"btstower_id":3,"distance":"13,49 Km","los":"1","ap":"AP Architect Barat Daya (10.100.100.35)","description":"AP AJBS"},{"id":2,"survey_site_id":1,"btstower_id":2,"distance":"13,75 Km","los":"1","ap":"Belum ada AP","description":"AP Ardiles 73"}]}</code>
-
-
-<h4>Remove</h4>
+<h4>Create Jarak BTS Survey</h4>
+<h5>Syntax</h5>
+<code>
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"survey_site_id":<strong>survey_site_id</strong>,"distance":<strong>distance</strong>,"los":"<strong>los</strong>","ap":"<strong>ap</strong>","description":"<strong>description</strong>"}' -X POST https://<strong>server:port</strong>/createsurveybtsdistances
+</code>
+<h5>Code</h5>
+<code>
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"survey_site_id":1908,"distance":100,"los":"1","ap":"anc","description":"bla bla"}' -X POST https://localhost:20215/createsurveybtsdistances
+</code>
+<h4>Remove BTS Survey</h4>
 <code>curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d "{"id":<strong>id</strong>}" -X POST https://<strong>server</strong>:<strong>port</strong>/removesurveybtsdistances</code>
 
 
 <h5>Contoh</h5>
 <code>curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d "{"id":1}" -X POST https://localhost:20215/removesurveybtsdistances</code>
 
-<h4>Update</h4>
+<h4>Update BTS Survey</h4>
 <h5>Syntax</h5>
 <code>
     curl -H 'Content-Type: application/json' -H 'Accept: application/json' -k -d '{"survey_site_id":<strong>survey_site_id</strong>,"description":"<strong>description</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/updatesurveybtsdistances

@@ -52,6 +52,17 @@ request = {
     }
 }
 bas =  {
+    list:(req,res)=>{
+        let sql = routines.list({
+            columns:['tipe','macboard','bts','freqwency','polarization'],
+            tableName:'survey_bas',
+            identifier:'survey_site_id',
+            identifierValue:req.body.install_site_id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send(result)
+        })
+    },
     update:  (req,res) => {
         chk = i.check.transactions.check(
             req.body,i.field.survey.site.site.bas.update.mandatories,
@@ -123,6 +134,13 @@ bts_distance = {
         i.connection.doQuery(sql,result=>{
             res.send({sql:sql})
         })
+    },
+    create : (req,res) => {
+        let sql = routines.create({tableName:'survey_bts_distances',columns:req.body})
+        i.connection.doQuery(sql,result=>{
+            res.send({result:true,description:result})
+        })
+
     }
 }
 client_distance = {
