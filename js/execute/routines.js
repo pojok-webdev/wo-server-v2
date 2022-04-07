@@ -18,6 +18,16 @@ routines = {
         console.log('SQL',sql)
         return sql
     },
+    listlike:obj=>{
+        cols = []
+        obj.columns.forEach(el=>{
+            cols.push(el)
+        })
+        sql = 'select '+cols.join()+' from '+obj.tableName+' '
+        sql+= 'where '+obj.identifier+' like "%' + obj.identifierValue + '%" '
+        console.log('SQL',sql)
+        return sql
+    },
     create: obj => {
         keys = []
         vals = []
@@ -67,7 +77,7 @@ routines = {
 }
 module.exports = {
     listall:routines.listall,
-    list:routines.list,
+    list:routines.list,listlike:routines.listlike,
     create:routines.create,
     update:routines.update,
     remove:routines.remove,

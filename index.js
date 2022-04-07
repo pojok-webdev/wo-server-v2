@@ -76,12 +76,19 @@ i.app.get('/getlistleadsbyname/:name', (req,res)=>{
 i.app.get('/getlistprospectsbyname/:name', (req,res)=>{
     i.execute.list.getProspectsByName(req,res)
 })
-i.app.get('/getlistclientsbyname/:name', (req,res)=>{
-    i.execute.list.getClientsByName(req,res)
+i.app.post('/getlistclientsbyname', (req,res)=>{
+    i.execute.list.getclientsbyname(req,res)
 })
-i.app.get('/getlistclientsbyid/:id',(req,res)=>{
+i.app.get('/getlistclientsbyname_/:name', (req,res)=>{
+    i.execute.list.getClientsByName_(req,res)
+})
+i.app.get('/getlistclientsbyid_/:id',(req,res)=>{
     i.execute.list.getClientsById(req,res)
 })
+i.app.post('/getlistclientsbyid',(req,res)=>{
+    i.execute.list.getClientsById(req,res)
+})
+
 i.app.post('/getticketsbyclientname',(req,res)=>{
     i.execute.list.getTicketsByClientName(req,res)
 })
@@ -172,8 +179,14 @@ i.app.post('/createsurveyresumes',(req,res)=>{
 i.app.post('/updatesurveyresumes',(req,res)=>{
     i.execute.transaction.survey.resume.update(req,res)
 })
+i.app.post('/listsurveysitedistances',(req,res)=>{
+    i.execute.transaction.survey.site_distance.list(req,res)
+})
 i.app.post('/createsurveysitedistances',(req,res)=>{
     i.execute.transaction.survey.site_distance.create(req,res)
+})
+i.app.post('/removesurveysitedistances',(req,res)=>{
+    i.execute.transaction.survey.site_distance.remove(req,res)
 })
 i.app.post('/updatesurveysitedistances',(req,res)=>{
     i.execute.transaction.survey.site_distance.update(req,res)

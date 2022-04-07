@@ -109,3 +109,8 @@ curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{
 
 curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":524}' -X POST https://localhost:20215/removesurveydevices
 
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"survey_site_id":1152}' -X POST https://localhost:20215/listsurveysitedistances
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":92}' -X POST https://localhost:20215/removesurveysitedistances
+
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"name":"jaya indonesia"}' -X POST https://localhost:20215/getlistclientsbyname
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":"200"}' -X POST https://localhost:20215/getlistclientsbyid

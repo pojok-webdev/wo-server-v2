@@ -13,17 +13,42 @@ getprospectsbyname = (req,res) =>{
         }
     )
 }
-getclientsbyname = (req,res) =>{
+getclientsbyname_ = (req,res) =>{
     i.connection.doQuery(
         i.query.list.client.getClientsByName(req.params),result=>{
             res.send({result:true,description:result})
         }
     )
 }
-getclientsbyid = (req,res) =>{
+getclientsbyname = (req,res) =>{
+    i.connection.doQuery(
+        routines.listlike({
+            tableName:'clients',
+            columns:['id','name','npwp','siup','address','city','billaddress','business_field','phone_area','phone','fax_area','fax','sale_id','user_id','period1','period2','createdate'],
+            identifier:'name',
+            identifierValue:req.body.name}),
+        result=>{
+            res.send({"description":result})
+        }
+    )
+}
+getclientsbyid_ = (req,res) =>{
     i.connection.doQuery(
         i.query.list.client.getClientsById(req.params),result=>{
             res.send({result:true,description:result})
+        }
+    )
+}
+getclientsbyid = (req,res) =>{
+    i.connection.doQuery(
+        routines.list({
+            tableName:'clients',
+            columns:['id','name','npwp','siup','address','city','billaddress','business_field','phone_area','phone','fax_area','fax','sale_id','user_id','period1','period2','createdate'],
+            identifier:'id',
+            identifierValue:req.body.id
+        }),
+        result=>{
+            res.send({"description":result})
         }
     )
 }
@@ -79,7 +104,8 @@ getsurveysitesbysurveyproposalid = (req,res) => {
 module.exports = {
     getLeadsByName:getleadsbyname,
     getProspectsByName:getprospectsbyname,
-    getClientsByName:getclientsbyname,
+    getClientsByName_:getclientsbyname_,
+    getclientsbyname:getclientsbyname,
     getClientsById:getclientsbyid,
     getTicketsByClientName:getticketsbyclientname,
     getTicketsByClientId:getticketsbyclientid,

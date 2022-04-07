@@ -396,6 +396,17 @@ site_distance = {
                 res.send({result:false,comment:chk.description})
             }
     },
+    list : (req,res) => {
+        let sql = routines.list({
+            tableName:'survey_site_distances',
+            columns:['address','distance','los','obstacle','description'],
+            identifier:'survey_site_id',
+            identifierValue:req.body.survey_site_id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send({resullt:true,description:result})
+        })
+    },
     update : (req,res)=>{
         chk = i.check.transactions.check(
             req.body,i.field.survey.site.site.site_distance.update.mandatories,
@@ -414,6 +425,15 @@ site_distance = {
             res.send({result:false,comment:chk.description})
         }
 
+    },
+    remove : (req,res) => {
+        let sql = routines.remove({
+            tableName:'survey_site_distances',
+            identifier:'id',identifierValue:req.body.id
+        })
+        i.connection.doQuery(sql,result=>{
+            res.send({result:true,description:result})
+        })
     }
 }
 surveyor = {

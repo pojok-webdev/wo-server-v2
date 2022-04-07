@@ -4,24 +4,33 @@
 
 <h3>Get List Client By Id</h3>
 <h5>Syntax</h5>
-<code>curl -k https://<strong>server</strong>:<strong>port</strong>/getlistclientsbyid/<strong>client_id</strong></code>
+<code><strike>curl -k https://<strong>server</strong>:<strong>port</strong>/getlistclientsbyid/<strong>client_id</strong></strike></code>
+<p>update</p>
+<code>
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":"<strong>client_id</strong>"}' -X POST https://<strong>server:port</strong>/getlistclientsbyid
+</code>
 <p>Syntax di atas digunakan untuk mendapatkan data Pelanggan dengan id <i>client_id</i></p>
 <p>Kolom-kolom yang dikembalikan antara lain adalah:</p>
 <p>id,name,alias,npwp,siup,address,city,billaddress,business_field,phone_area,phone,fax_area,fax,sale_id,user_id,period1,period2</p>
 <h5>Contoh</h5>
-<code>curl https://localhost:20215/getlistclientsbyid/1000</code>
+<code>curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":"200"}' -X POST https://localhost:20215/getlistclientsbyid</code>
 <p>Nilai kembalian adalah:</p>
 <p>{"result":true,"description":[{"id":1000,"name":"MAKSIMEDA","alias":null,"npwp":null,"siup":null,"address":"Graha Sucofindo lantai 11, Jl.Raya Pasar Minggu","city":"Jakarta","billaddress":null,"business_field":"Badan Usaha","phone_area":"021","phone":"79188188","fax_area":"","fax":"","sale_id":100,"user_id":100,"period1":null,"period2":null}]}</p>
 
 
 <h3>Get List Client By Name</h3>
 <h5>Syntax</h5>
-<code>curl -k https://<strong>server</strong>:<strong>port</strong>/getlistclientsbyname/<strong>client_name</strong></code>
+<p>sebelum:</p>
+<code><strike>curl -k https://<strong>server</strong>:<strong>port</strong>/getlistclientsbyname/<strong>client_name</strong></strike></code>
+<p>update:</p>
+<code>
+    curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"name":"<strong>name</strong>"}' -X POST https://<strong>server:port</strong>/getlistclientsbyname
+</code>
 <p>Syntax di atas digunakan untuk mendapatkan data Pelanggan dengan nama <i>client_name</i></p>
 <p>Kolom-kolom yang dikembalikan antara lain adalah:</p>
 <p>id,name,alias,npwp,siup,address,city,billaddress,business_field,phone_area,phone,fax_area,fax,sale_id,user_id,period1,period2</p>
 <h5>Contoh</h5>
-<code>curl https://localhost:20215/getlistclientsbyname/maksimedia</code>
+<code>curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"name":"jaya indonesia"}' -X POST https://localhost:20215/getlistclientsbyname</code>
 <p>Nilai kembalian adalah:</p>
 <p>{"result":true,"description":[{"id":4035,"name":"PT MAKSIMEDIA","alias":null,"npwp":null,"siup":null,"address":"Gd. Sucofindo Lt. 10","city":"Jakarta Selatan","billaddress":null,"business_field":"Badan Usaha","phone_area":" ","phone":"021-79188188 ","fax_area":" ","fax":" ","sale_id":161,"user_id":161,"period1":null,"period2":null}]}</p>
 
