@@ -360,14 +360,14 @@ i.app.post('/uplaa',(req,res)=>{
         })
     })
 })
-getFileType = (fileName,callback)=>{
+getFileType_ = (fileName,callback)=>{
     console.log("fileName",fileName)
     //tmp = fileName.originalFilename
     tmp = fileName.name
     arr = tmp.split(".")
     callback(arr[1])
 }
-i.app.post('/surveyimages',(req,res)=>{
+i.app.post('/surveyimages_',(req,res)=>{
     var form = new formidable.IncomingForm()
     form.parse(req,(err,field,files)=>{
         if(err){
@@ -387,7 +387,7 @@ i.app.post('/surveyimages',(req,res)=>{
     })
 })
 /** start repair*/
-getFileType2 = (fileName,callback)=>{
+getFileType = (fileName,callback)=>{
     //console.log("fileName",fileName)
     tmp = fileName.originalFilename
     console.log("tmp name",tmp)
@@ -395,7 +395,7 @@ getFileType2 = (fileName,callback)=>{
     arr = tmp.split(".")
     callback(arr[1])
 }
-i.app.post('/surveyimages2',(req,res)=>{
+i.app.post('/surveyimages',(req,res)=>{
     var form = new formidable.IncomingForm()
     form.parse(req,(err,field,files)=>{
         if(err){
@@ -414,7 +414,7 @@ i.app.post('/surveyimages2',(req,res)=>{
         })
     })
 })
-i.app.post('/installimages2',(req,res)=>{
+i.app.post('/installimages',(req,res)=>{
     var form = new formidable.IncomingForm()
     form.parse(req,(err,field,files)=>{
         //oldpath = files.image.filepath;
@@ -443,7 +443,7 @@ i.app.post('/removesurveyimage',(req,res)=>{
         }
     })
 })
-i.app.post('/installimages',(req,res)=>{
+i.app.post('/installimages_',(req,res)=>{
     var form = new formidable.IncomingForm()
     form.parse(req,(err,field,files)=>{
         //oldpath = files.image.filepath;
