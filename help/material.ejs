@@ -2,11 +2,11 @@
 <p>Akan menampilkan semua material</p>
 <h5>Syntax</h5>
 <code>
-    curl -k https://<strong>server</strong>:<strong>port</strong>/getmastermaterial
+    curl -k  -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST https://<strong>server</strong>:<strong>port</strong>/getmastermaterial
 </code>
 <h5>Contoh</h5>
 <code>
-    curl -k https://localhost:20215/getmastermaterial
+    curl -k  -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST https://localhost:20215/getmastermaterial
 </code>
 
 <h5>Syntax</h5>
@@ -15,15 +15,15 @@
 </code>
 <h5>Contoh</h5>
 <code>
-    curl -k https://localhost:20215/getmastermaterialbyname/pipa
+    curl -k  -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{"name":"<strong>pipa</strong>"}' -X POST https://localhost:20215/getmastermaterialbyname
 </code>
 
 <h5>Syntax</h5>
 <p>Get Material berdasarkan ID material</p>
 <code>
-    curl -k https://<strong>server</strong>:<strong>port</strong>/getmastermaterialbyid/:<strong>id</strong>
+    curl -k  -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{"id":"<strong>id</strong>"}' -X POST https://<strong>server</strong>:<strong>port</strong>/getmastermaterialbyid
 </code>
 <h5>Contoh</h5>
 <code>
-    curl -k https://192.168.0.117:20216/getmastermaterialbyid/16
+    curl -k  -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{"id":"<strong>16</strong>"}' -X POST https://192.168.0.117:20216/getmastermaterialbyid
 </code>

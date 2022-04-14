@@ -38,8 +38,8 @@ antenna = {
         let sql = routines.list({
             columns:['id','name','amount','location'],
             tableName:'install_antennas',
-            identifier:'install_site_id',
-            identifierValue:req.body.install_site_id
+            conditions:[{identifier:'install_site_id',
+            identifierValue:req.body.install_site_id}]
         })
         i.connection.doQuery(sql,result=>{
             res.send(result)
@@ -64,8 +64,8 @@ ap_wifi = {
         let sql = routines.list({
             columns:['id','tipe','macboard'],
             tableName:'install_ap_wifis',
-            identifier:'install_site_id',
-            identifierValue:req.body.install_site_id
+            conditions:[{identifier:'install_site_id',
+            identifierValue:req.body.install_site_id}]
         })
         i.connection.doQuery(sql,result=>{
             res.send(result)
@@ -90,8 +90,8 @@ site = {
         let sql = routines.list({
             columns:['id','install_request_id','address','city'],
             tableName:'install_sites',
-            identifier:'install_request_id',
-            identifierValue:req.body.install_request_id
+            conditions:[{identifier:'install_request_id',
+            identifierValue:req.body.install_request_id}]
         })
         i.connection.doQuery(sql,result=>{
             res.send(result)
@@ -116,8 +116,8 @@ ba = {
         let sql = routines.list({
             columns:['id','name'],
             tableName:'install_bas',
-            identifier:'install_site_id',
-            identifierValue:req.body.install_site_id
+            conditions:[{identifier:'install_site_id',
+            identifierValue:req.body.install_site_id}]
         })
         i.connection.doQuery(sql,result=>{
             res.send(result)
@@ -142,8 +142,8 @@ client_service = {
         let sql = routines.list({
             columns:['servicetype','service_id'],
             tableName:'install_client_services',
-            identifier:'client_site_id',
-            identifierValue:req.body.client_site_id
+            conditions:[{identifier:'client_site_id',
+            identifierValue:req.body.client_site_id}]
         })
         i.connection.doQuery(sql,result=>{
             res.send(result)
@@ -157,8 +157,8 @@ switches = {
         let sql = routines.list({
             columns:['name','port'],
             tableName:'install_switches',
-            identifier:'install_site_id',
-            identifierValue:req.body.install_site_id
+            conditions:[{identifier:'install_site_id',
+            identifierValue:req.body.install_site_id}]
         })
         i.connection.doQuery(sql,result=>{
             res.send(result)
@@ -183,8 +183,8 @@ wireless_radio = {
         let sql = routines.list({
             columns:['tipe','macboard','bts','freqwency','polarization'],
             tableName:'install_wireless_radios',
-            identifier:'install_site_id',
-            identifierValue:req.body.install_site_id
+            conditions:[{identifier:'install_site_id',
+            identifierValue:req.body.install_site_id}]
         })
         i.connection.doQuery(sql,result=>{
             res.send(result)
@@ -209,8 +209,8 @@ image = {
         let sql = routines.list({
             columns:['id','title','description'],
             tableName:'install_imagesv2',
-            identifier:'install_site_id',
-            identifierValue:req.body.install_site_id
+            conditions:[{identifier:'install_site_id',
+            identifierValue:req.body.install_site_id}]
         })
         i.connection.doQuery(sql,result=>{
             res.send(result)
@@ -235,8 +235,8 @@ request = {
         let sql = routines.list({
             columns:['id','client_site_id'],
             tableName:'install_requests',
-            identifier:'1',
-            identifierValue:'1'
+            conditions:[{identifier:'1',
+            identifierValue:'1'}]
         })
         i.connection.doQuery(sql,result=>{
             res.send(result)

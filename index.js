@@ -3,11 +3,14 @@ i.app.get('/help',(req,res)=>{
     res.render('home',{})
 })
 
-i.app.get('/getclientpicbyclientid/:id',(req,res)=>{
+i.app.post('/getclientpicbyclientid',(req,res)=>{
     i.execute.master.getClientPicByClientId(req,res)
 })
-i.app.get('/getclientservicebyclientid/:id',(req,res)=>{
+i.app.post('/getclientservicebyclientid',(req,res)=>{
     i.execute.list.getClientServiceByClientId(req,res)
+})
+i.app.post('/listsuspects',(req,res)=>{
+    i.execute.transaction.listSuspect(req,res)
 })
 i.app.post('/insertsuspect',(req,res)=>{
     i.execute.transaction.insertSuspect(req,res)
@@ -37,53 +40,47 @@ i.app.post('/createinstallreport',(req,res)=>{
 i.app.post('/createsurveyreport',(req,res)=>{
     i.execute.transaction.survey.createreport(req,res)
 })
-i.app.get('/getmasterservice',(req,res)=>{
+i.app.post('/getmasterservice',(req,res)=>{
     i.execute.master.getMasterService(req,res)
 })
-i.app.get('/getmasterservicebyid/:id',(req,res)=>{
+i.app.post('/getmasterservicebyid',(req,res)=>{
     i.execute.master.getMasterServiceById(req,res)
 })
-i.app.get('/getmasterservicebyname/:name',(req,res)=>{
+i.app.post('/getmasterservicebyname',(req,res)=>{
     i.execute.master.getMasterServiceByName(req,res)
 })
-i.app.get('/getmasterservicecategories',(req,res)=>{
+i.app.post('/getmasterservicecategories',(req,res)=>{
     i.execute.master.getMasterServiceCategories(req,res)
 })
-i.app.get('/getmasterservicebycategory/:category_id',(req,res)=>{
+i.app.post('/getmasterservicebycategory',(req,res)=>{
     i.execute.master.getMasterServiceByCategory(req,res)
 })
-i.app.get('/getmastermaterial', (req,res) => {
+i.app.post('/getmastermaterial', (req,res) => {
     i.execute.master.getMasterMaterial(req,res)
 })
-i.app.get('/getmastermaterialbyname/:name',(req,res)=>{
+i.app.post('/getmastermaterialbyname',(req,res)=>{
     i.execute.master.getMasterMaterialByName(req,res)
 })
-i.app.get('/getmastermaterialbyid/:id',(req,res)=>{
+i.app.post('/getmastermaterialbyid',(req,res)=>{
     i.execute.master.getMasterMaterialById(req,res)
 })
-i.app.get('/getmasterdevice', (req,res) => {
+i.app.post('/getmasterdevice', (req,res) => {
     i.execute.master.getMasterDevice(req,res)
 })
-i.app.get('/getmasterdevicebyname/:name', (req,res) => {
+i.app.post('/getmasterdevicebyname', (req,res) => {
     i.execute.master.getMasterDeviceByName(req,res)
 })
-i.app.get('/getmasterdevicebyid/:id', (req,res) => {
+i.app.post('/getmasterdevicebyid', (req,res) => {
     i.execute.master.getMasterDeviceById(req,res)
 })
-i.app.get('/getlistleadsbyname/:name', (req,res)=>{
+i.app.post('/getlistleadsbyname', (req,res)=>{
     i.execute.list.getLeadsByName(req,res)
 })
-i.app.get('/getlistprospectsbyname/:name', (req,res)=>{
+i.app.post('/getlistprospectsbyname', (req,res)=>{
     i.execute.list.getProspectsByName(req,res)
 })
 i.app.post('/getlistclientsbyname', (req,res)=>{
     i.execute.list.getclientsbyname(req,res)
-})
-i.app.get('/getlistclientsbyname_/:name', (req,res)=>{
-    i.execute.list.getClientsByName_(req,res)
-})
-i.app.get('/getlistclientsbyid_/:id',(req,res)=>{
-    i.execute.list.getClientsById(req,res)
 })
 i.app.post('/getlistclientsbyid',(req,res)=>{
     i.execute.list.getClientsById(req,res)
@@ -92,13 +89,13 @@ i.app.post('/getlistclientsbyid',(req,res)=>{
 i.app.post('/getticketsbyclientname',(req,res)=>{
     i.execute.list.getTicketsByClientName(req,res)
 })
-i.app.get('/getticketsbyclientid/:id',(req,res)=>{
+i.app.post('/getticketsbyclientid',(req,res)=>{
     i.execute.list.getTicketsByClientId(req,res)
 })
-i.app.get('/getticketsbyid/:id',(req,res)=>{
+i.app.post('/getticketsbyid',(req,res)=>{
     i.execute.list.getTicketsById(req,res)
 })
-i.app.get('/getticketsbykdticket/:kdticket',(req,res)=>{
+i.app.post('/getticketsbykdticket',(req,res)=>{
     i.execute.list.getTicketsByKdTicket(req,res)
 })
 i.app.post('/createsurveysite',(req,res)=>{
@@ -389,6 +386,51 @@ i.app.post('/surveyimages',(req,res)=>{
         })
     })
 })
+/** start repair*/
+getFileType2 = (fileName,callback)=>{
+    //console.log("fileName",fileName)
+    tmp = fileName.originalFilename
+    console.log("tmp name",tmp)
+    //tmp = fileName.name
+    arr = tmp.split(".")
+    callback(arr[1])
+}
+i.app.post('/surveyimages2',(req,res)=>{
+    var form = new formidable.IncomingForm()
+    form.parse(req,(err,field,files)=>{
+        if(err){
+            console.log("Err",err)
+            res.send({result:false})
+        }
+        console.log('files',files)
+        //oldpath = files.image.filepath;
+        oldpath = files.image.filepath;
+        timestamp = Date.now()
+        getFileType2(files.image,fType=>{
+            newpath = i.appSetting.imagePath.surveys+timestamp+'.'+fType
+            i.fs.rename(oldpath,newpath,err=>{
+                res.send({result:true,id:timestamp})
+            })    
+        })
+    })
+})
+i.app.post('/installimages2',(req,res)=>{
+    var form = new formidable.IncomingForm()
+    form.parse(req,(err,field,files)=>{
+        //oldpath = files.image.filepath;
+        oldpath = files.image.filepath;
+        timestamp = Date.now()
+        getFileType2(files.image,fType=>{
+            newpath = i.appSetting.imagePath.installs+timestamp+'.'+fType
+            i.fs.rename(oldpath,newpath,err=>{
+                console.log(oldpath)
+                res.send({result:'ok',id:timestamp})
+            })    
+        })
+    })
+})
+
+/** end repair*/
 i.app.post('/removesurveyimage',(req,res)=>{
     console.log('REQ',req.body)
     newpath = i.appSetting.imagePath.surveys

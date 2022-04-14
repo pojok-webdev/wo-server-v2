@@ -88,7 +88,7 @@ list = (req,res,field,tableName) => {
         )
     if(chk.result){
         params = {
-            identifier:'id',identifierValue:req.body.client_id,
+            conditions:[{identifier:'id',identifierValue:req.body.client_id}],
             columns:['kdoffer','clientname','email'],tableName:tableName
         }
         i.connection.doQuery(i.query.quotation.list(params),result=>{

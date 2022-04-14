@@ -6,11 +6,11 @@ var transactionSurvey = {
         sql+= 'order by create_date desc limit '+obj.segment+','+obj.offset+' '
         return sql
     },
-    getByRequestId : obj => {
+    /*getByRequestId : obj => {
         sql = 'select id,address,city,client_site_id from survey_sites '
         sql+= 'where survey_request_id='+obj.survey_request_id+' '
         return sql
-    },
+    },*/
     update : obj => {
         console.log('OBJ',obj)
         arr = []

@@ -1,6 +1,8 @@
 i = require('./../initmodules')
+r = require('./routines')
+inspe = require('./../checks/padicheck')
 getclientpicbyclientid = (req,res) => {
-    i.connectionChained.doQuery(i.master.client.getClientById({id:req.params.id,chain:'pic'}))
+    i.connectionChained.doQuery(i.master.client.getClientById({id:req.body.id,chain:'pic'}))
     .then(x=>{
         new Promise((resolve,reject)=>x.map(row=>{
             i.connectionChained.doQuery(i.master.client.getPicByClientId({id:row.id}))
@@ -25,34 +27,85 @@ getclientpicbyclientid = (req,res) => {
 }
 
 getmasterservice = (req,res) => {
-    i.connection.doQuery(i.master.service.getMasterServices(),result=>{
-        res.send({result:true,description:result})
-    })
-}
-getmasterservicebyname = (req,res) => {
     i.connection.doQuery(
-        i.master.service.getMasterServiceByName(req.params),result=>{
+        r.list({
+            tableName:'pricelists2.products',
+            columns:['id','category_id','product_id','name','price','discount'],
+            conditions:[{identifier:'1',identifierValue:'1'}]
+        }),result=>{
             res.send({result:true,description:result})
         }
     )
 }
+getmasterservicebyname = (req,res) => {
+    inspe.inspect.init()
+    .shouldHave(['name'])
+    .setParam(req.body)
+    .checkComplete()
+    .todo(success=>{
+        i.connection.doQuery(
+            r.listlike({
+                tableName:'pricelists2.products',
+                columns:['id','category_id','product_id','name','price','discount'],
+                identifier:'name',identifierValue:req.body.name
+            }),result=>{
+                res.send({result:true,description:result})
+            }
+        )
+    },err=>{
+        res.send({result:false,description:err})
+    })
+}
 getmasterservicebyid = (req,res) => {
-    i.connection.doQuery(
-        i.master.service.getMasterServiceById(req.params),result=>{
-            res.send({result:true,description:result})
+    inspe.inspect.init()
+    .shouldHave(['id'])
+    .setParam(req.body)
+    .checkComplete()
+    .todo(
+        success=>{
+            i.connection.doQuery(
+                r.list({
+                    tableName:'pricelists2.products',
+                    columns:['id','category_id','product_id','name','price','discount'],
+                    conditions:[{identifier:'id',identifierValue:req.body.id}]
+                }),result=>{
+                    res.send({result:true,description:result})
+                }
+            )        
+        },
+        err=>{
+            res.send({result:false,description:err})
         }
     )
 }
 getmasterservicebycategory = (req,res) => {
-    i.connection.doQuery(
-        i.master.service.getMasterServiceByCategory(req.params),result=>{
-            res.send({result:true,description:result})
+    inspe.inspect.init()
+    .shouldHave(['category_id'])
+    .setParam(req.body)
+    .checkComplete()
+    .todo(
+        success=>{
+            i.connection.doQuery(
+                r.list({
+                    tableName:'pricelists2.products',
+                    columns:['id','category_id','product_id','name','price','discount'],
+                    conditions:[{identifier:'category_id',identifierValue:'"'+req.body.category_id+'"'}]
+                }),result=>{
+                    res.send({result:true,description:result})
+                }
+            )
+        },
+        err=>{
+            res.send({result:false,description:err})
         }
     )
 }
 getmasterservicecategories = (req,res) => {
     i.connection.doQuery(
-        i.master.service.getMasterServiceCategories(req.params),result=>{
+        r.listall({
+            tableName:'pricelists2.products',
+            columns:['id','category_id','product_id','name','price','discount']
+        }),result=>{
             res.send({result:true,description:result})
         }
     )
@@ -66,14 +119,14 @@ getmastermaterial = (req,res) => {
 }
 getmastermaterialbyname = (req,res) => {
     i.connection.doQuery(
-        i.master.material.getMasterMaterialByName(req.params),result=>{
+        i.master.material.getMasterMaterialByName(req.body),result=>{
             res.send({result:true,description:result})
         }
     )
 }
 getmastermaterialbyid = (req,res) => {
     i.connection.doQuery(
-        i.master.material.getMasterMaterialById(req.params),result=>{
+        i.master.material.getMasterMaterialById(req.body),result=>{
             res.send({result:true,description:result})
         }
     )
@@ -87,21 +140,29 @@ getmasterdevice = (req,res) => {
 }
 getMasterDeviceByName = (req,res) => {
     i.connection.doQuery(
-        i.master.device.getMasterDeviceByName(req.params),result=>{
+        i.master.device.getMasterDeviceByName(req.body),result=>{
             res.send({result:true,description:result})
         }
     )
 }
 getMasterDeviceById = (req,res) => {
     i.connection.doQuery(
-        i.master.device.getMasterDeviceById(req.params),result=>{
+        i.master.device.getMasterDeviceById(req.body),result=>{
             res.send({result:true,description:result})
         }
     )
 }
 getlistleadsbyname = (req,res) => {
+    console.log("Whats up ?")
     i.connection.doQuery(
-        i.list.lead.getLeadsByName()
+        //i.list.lead.getLeadsByName()
+        r.listlike({
+            tableName:'clients',
+            columns:['id','name'],
+            conditions:[{identifier:'name',identifierValue:req.body.name}]
+        }),result=>{
+            res.send({result:true,description:result})
+        }
     )
 }
 module.exports = {

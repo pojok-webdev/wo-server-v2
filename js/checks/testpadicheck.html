@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <script src="padicheck.js"></script>
+    </head>
+    <body>
+        <script>
+            if(1==3){
+            chk = inspect
+            chk
+            .shouldHave(['name','address','pic'])
+            .argComplete(['nxame','axddress','pic'])
+            .printValid()
+            .printNotExists()}
+        </script>
+        <script>
+            chk = inspect
+            chk
+            .shouldHave(['name','address','pic','age'])
+            .isNumber(['age'])
+            .setParam({name:'Rajawali, PT',address:'Jember',pic:'Agus',age:'10'})
+            .checkNumber()
+            .checkComplete()
+            .printValid()
+            .printNotExists()
+            .printErr()
+        </script>
+    </body>
+</html>

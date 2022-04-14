@@ -4,7 +4,7 @@ var connection = require('./connection'),
     connectionChained = require('./connectionchained'),
     master = {
         client : require('./queries/masters/clients'),
-        service : require('./queries/masters/services'), 
+        //service : require('./queries/masters/services'), 
         vas : [], 
         device : require('./queries/masters/devices'),
         material : require('./queries/masters/materials')
@@ -21,8 +21,7 @@ var connection = require('./connection'),
             survey : require('./queries/reports/survey'),
         },
         list:{
-            lead: require('./queries/lists/leads'),
-            prospect: require('./queries/lists/prospects'),
+//            prospect: require('./queries/lists/prospects'),
             client: require('./queries/lists/clients'),
         },
         survey:require('./queries/transactions/surveys'),

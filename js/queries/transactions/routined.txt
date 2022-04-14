@@ -1,0 +1,45 @@
+suspect
+quotations
+getsurveysitesbysurveyproposalid
+getmasterservicebyname -> post
+getmasterservicebyid -> post
+getMasterServiceByCategory -> post
+getMasterServiceByCategory -> postcurl -k -d '{"category_id":"IDW990"}' -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST https://localhost:20215/getmasterservicebycategory
+getmasterservicecategories -> post
+
+MATERIALS TIDAK MENGGUNAKAN ROUTINES KARENA JOIN DENGAN TABLE LAIN
+DEVICES TIDAK MENGGUNAKAN ROUTINES KARENA JOIN DENGAN TABLE LAIN
+
+
+getlistleadsbyname
+getlistprospectsbyname
+getticketsbykdticket
+
+validation:
+getmasterservicebyname -> validation
+getmasterservicebycategory
+
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"name":"jaya indonesia"}' -X POST https://localhost:20215/getmasterservicebyname
+
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":1}' -X POST https://localhost:20215/getclientservicebyclientid
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":1}' -X POST https://localhost:20215/getclientpicbyclientid
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -X POST https://localhost:20215/getclientpicbyclientid/1
+
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{"name":"m"}' -X POST https://localhost:20215/getmastermaterialbyname/
+
+
+getclientservicebyclientid -> post
+getclientpicbyclientid -> post
+getMasterService -> post
+getMasterMaterial -> post
+getmastermaterialbyname -> post
+getmasterdevicebyname ->post
+getmasterdevicebyid ->post
+
+
+
+
+
+
+
+

@@ -114,3 +114,15 @@ curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{
 
 curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"name":"jaya indonesia"}' -X POST https://localhost:20215/getlistclientsbyname
 curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"id":"200"}' -X POST https://localhost:20215/getlistclientsbyid
+
+curl -k -H 'Content-Type: application/json' -H 'Accept: application/json'  -d '{"name":"jaya indonesia"}' -X POST https://localhost:20215/getmasterservicebyname
+
+remember : spread operator  array.concat
+
+
+
+
+curl -k -F 'image=@/home/webdev/Pictures/garuda.png' -v -X POST https://192.168.0.117:20216/surveyimages/
+
+
+curl -k -F 'image=@/home/webdev/Pictures/garuda.png' -v -X POST https://192.168.0.117:20215/surveyimages/

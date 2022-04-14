@@ -4,6 +4,15 @@ installs = require('./installs'),
 pics = require('./pics'),
 quotation = require('./quotations'),
 r = require('./../../js/execute/routines')
+listSuspect = (req,res) => {
+    i.connection.doQuery(r.list({
+        "tableName":"suspects",
+        "columns":["id","name"],
+        "conditions":[{"identifier":"status","identifierValue":"0"},{"identifier":"hide","identifierValue":"0"}]
+    }),result=>{
+        res.send({result:result})
+    })
+}
 insertsuspect = (req,res) => {
     chk = i.check.transactions.check(req.body,i.field.suspect.mandatories,i.field.suspect.allfields,i.field.suspect.numberfields)
     if(chk.result){
@@ -156,6 +165,7 @@ quotation = {
 }
 module.exports = {
     insertSuspect:insertsuspect,
+    listSuspect:listSuspect,
     updateClient:updateclient,
     proposeInstall:install.propose,
     createInstallReport:install.createreport,

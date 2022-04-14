@@ -96,8 +96,10 @@ bas =  {
     list: (req,res)=>{
         let sql = routines.list({
             columns:['id','name','description','survey_site_id'],
-            identifier:'survey_site_id',
-            identifierValue:req.body.survey_site_id,
+            conditions:[{
+                identifier:'survey_site_id',
+                identifierValue:req.body.survey_site_id
+            }],
             tableName:'survey_bas'})
         i.connection.doQuery(sql,result=>{
             res.send(result)
@@ -126,7 +128,7 @@ bts_distance = {
     list : (req,res) => {
         let sql = routines.list({
             columns:['id','survey_site_id','btstower_id','distance','los','ap','description'],
-            identifier:'survey_site_id',identifierValue:req.body.survey_site_id, tableName:'survey_bts_distances'})
+            conditions:[{identifier:'survey_site_id',identifierValue:req.body.survey_site_id}], tableName:'survey_bts_distances'})
             i.connection.doQuery(sql,result=>{
                 res.send({sql:result})
             })
@@ -185,8 +187,8 @@ client_distance = {
         let sql = routines.list({
             columns:['client_id','distance'],
             tableName:'survey_client_distances',
-            identifier:'survey_site_id',
-            identifierValue:req.body.survey_site_id
+            conditions:[{identifier:'survey_site_id',
+            identifierValue:req.body.survey_site_id}]
         })
         i.connection.doQuery(sql,result=>{
             res.send(result)
@@ -208,8 +210,8 @@ device = {
         let sql = routines.list({
             columns:['device_id','name','amount','description'],
             tableName:'survey_devices',
-            identifier:'survey_site_id',
-            identifierValue:req.body.survey_site_id
+            conditions:[{identifier:'survey_site_id',
+            identifierValue:req.body.survey_site_id}]
         })
         i.connection.doQuery(sql,result=>{
             res.send(result)
@@ -303,8 +305,8 @@ material = {
         let sql = routines.list({
             columns:i.field.survey.site.site.material.list.allfields,
             tableName:'survey_materials',
-            identifier:'survey_site_id',
-            identifierValue:req.body.survey_site_id})
+            conditions:[{identifier:'survey_site_id',
+            identifierValue:req.body.survey_site_id}]})
             i.connection.doQuery(sql,result=>{
                 res.send(result)
             })
@@ -361,8 +363,8 @@ resume = {
         sql = routines.list({
             tableName:'survey_resumes',
             columns:['name','survey_site_id'],
-            identifier:'survey_site_id',
-            identifierValue:req.body.survey_site_id
+            conditions:[{identifier:'survey_site_id',
+            identifierValue:req.body.survey_site_id}]
         })
         i.connection.doQuery(sql,result=>{
             res.send(result)
@@ -400,8 +402,8 @@ site_distance = {
         let sql = routines.list({
             tableName:'survey_site_distances',
             columns:['address','distance','los','obstacle','description'],
-            identifier:'survey_site_id',
-            identifierValue:req.body.survey_site_id
+            conditions:[{identifier:'survey_site_id',
+            identifierValue:req.body.survey_site_id}]
         })
         i.connection.doQuery(sql,result=>{
             res.send({resullt:true,description:result})
@@ -441,8 +443,8 @@ surveyor = {
         sql = routines.list({
             tableName:'survey_surveyors',
             columns:['name','email','phone','survey_request_id'],
-            identifier:'survey_request_id',
-            identifierValue:req.body.survey_request_id
+            conditions:[{identifier:'survey_request_id',
+            identifierValue:req.body.survey_request_id}]
         })
         i.connection.doQuery(sql,result=>{
             res.send(result)
@@ -498,7 +500,7 @@ imagesv2 = {
     list : (req,res) => {
         routines.list({
             tableName:'survey_imagesv2',columns:['survey_site_id','path','description'],
-            identifier:'survey_site_id',identifierValue:req.body.survey_site_id
+            conditions:[{identifier:'survey_site_id',identifierValue:req.body.survey_site_id}]
         })
         i.connection.doQuery(sql,result=>{
             res.send(result)

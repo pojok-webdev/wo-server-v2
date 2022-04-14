@@ -10,11 +10,16 @@ routines = {
     },
     list:obj=>{
         cols = []
+        identifier = []
         obj.columns.forEach(el=>{
             cols.push(el)
         })
+        obj.conditions.forEach(el=>{
+            identifier.push(el.identifier+'='+el.identifierValue)
+        })
         sql = 'select '+cols.join()+' from '+obj.tableName+' '
-        sql+= 'where '+obj.identifier+' = ' + obj.identifierValue
+//        sql+= 'where '+obj.identifier+' = ' + obj.identifierValue
+        sql+= 'where '+identifier.join(' and ')
         console.log('SQL',sql)
         return sql
     },

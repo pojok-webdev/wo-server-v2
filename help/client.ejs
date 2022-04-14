@@ -38,10 +38,16 @@
 <h3>Layanan yang dimiliki Pelanggan</h3>
 <p>Pelanggan dapat memiliki beberapa Layanan sekaligus. Layanan yang dimiliki Pelanggan dapat didapatkan dengan syntax sebagai berikut</p>
 <h5>Syntax</h5>
-<code>curl -k https://<strong>server</strong>:<strong>port</strong>/getclientservicebyclientid/:id</code>
-
+<strike>
+    <strike><code>curl -k https://<strong>server</strong>:<strong>port</strong>/getclientservicebyclientid/:id</code></strike>
+</strike>
+<br>
+<code>curl -k -d '{"id":<strong>client_id</strong>}' -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST https://<strong>server</strong>:<strong>port</strong>/getclientservicebyclientid</code>
 <h5>Contoh</h5>
-<code>curl https://localhost:20215/getclientservicebyclientid/1500</code>
+<strike><code>curl https://localhost:20215/getclientservicebyclientid/1500</code></strike>
+<br>
+<code>curl -k -d '{"id":1}' -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST https://<strong>192.168.0.117</strong>:<strong>20215</strong>/getclientservicebyclientid</code>
+
 <p>Kode di atas akan memberikan hasil sebagai berikut:</p>
 <p>{"result":true,"description":[{"category":"Symetrical Broadband Internet (SBI)","fb_id":"SBY20190618001500001","name":"Kepatihan","bandwidth":"3 Mbps","upstr":"0","dnstr":"0","space":"0"},{"category":"Local Loop","fb_id":"SBY20190618001500001","name":"Dukuh Kupang - Kepatihan","bandwidth":"0","upstr":"02.","dnstr":"0","space":"0"}]}</p>
 
@@ -172,13 +178,3 @@ Dengan kembalian sebagai berikut
 
 
 
-
-<h2>Layanan yang dimiliki Pelanggan</h2>
-<h5>Syntax</h5>
-<code>curl https://localhost:20215/getclientservicebyclientid/:id</code>
-<p>Kode di atas akan menampilkan semua PIC dari pelanggan dengan id 1000</p>
-<h5>Syntax</h5>
-<code>curl https://localhost:20215/getclientservicebyclientid/1000</code>
-<code>
-    {"result":true,"description":[{"name":"Yuswin","position":"IT Dept","hp":""}]}
-</code>
