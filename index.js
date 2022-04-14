@@ -406,7 +406,7 @@ i.app.post('/surveyimages',(req,res)=>{
         //oldpath = files.image.filepath;
         oldpath = files.image.filepath;
         timestamp = Date.now()
-        getFileType2(files.image,fType=>{
+        getFileType(files.image,fType=>{
             newpath = i.appSetting.imagePath.surveys+timestamp+'.'+fType
             i.fs.rename(oldpath,newpath,err=>{
                 res.send({result:true,id:timestamp})
@@ -420,7 +420,7 @@ i.app.post('/installimages',(req,res)=>{
         //oldpath = files.image.filepath;
         oldpath = files.image.filepath;
         timestamp = Date.now()
-        getFileType2(files.image,fType=>{
+        getFileType(files.image,fType=>{
             newpath = i.appSetting.imagePath.installs+timestamp+'.'+fType
             i.fs.rename(oldpath,newpath,err=>{
                 console.log(oldpath)
